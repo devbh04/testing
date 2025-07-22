@@ -1,80 +1,121 @@
-# Next.js Project
+# CodeVibe Project - A Platform for Opportunities
 
 ## Description
 
-This project is a Next.js application initialized with `create-next-app`. It serves as a foundation for building web applications with Next.js, demonstrating a basic setup, and providing resources for further development, learning, and deployment. It also includes example configurations, API endpoint definitions, and state management implementations to showcase common patterns used in larger Next.js applications.
+CodeVibe is a platform designed to connect users with various opportunities in the tech and related fields. It offers features for discovering and participating in internships, hackathons, mentorship programs, and courses. The platform aims to be a central hub for career development and networking.
 
-## Features
+## Key Features
 
-*   **Next.js Core:**
-    *   Initialized with `create-next-app`.
-    *   Demonstrates fundamental Next.js concepts.
 *   **Development Server:** Starts a local development server at `http://localhost:3000` using `npm run dev`, `yarn dev`, `pnpm dev`, or `bun dev`.
-*   **Live Reloading:**  `app/page.tsx` auto-updates in the browser upon file changes, providing a rapid development experience.
-*   **Font Optimization:**  Utilizes `next/font` to automatically optimize and load the Geist font family, improving website performance and aesthetics.
-*   **API Configuration:** Defines a base URL for API requests, currently configured for the production (Vercel) backend.
-*   **Problem Statements:** Includes a structured object (`CodePS`) containing categorized coding problem statements across various computer science domains.
-*   **Quiz Data:** Provides a `quiz` array, representing a quiz structure with categories, questions, and options, suitable for building interactive quiz applications.
-*   **CSS Class Name Utility:**  A `cn` utility function using `clsx` and `tailwind-merge` to combine and resolve CSS class names, particularly useful with Tailwind CSS.
-*   **User State Management:** Implements a Zustand store (`useUserStore`) for managing user data and authentication state, persisting data to localStorage.
-*   **Internship State Management:**  A Zustand store (`useInternshipStore`) manages internship data and a draft object for creating/editing internships.
+*   **Live Reloading:** Changes to files are automatically reflected in the browser, facilitating rapid development.
+*   **Font Optimization:** Utilizes `next/font` to automatically optimize and load fonts (e.g., Geist, Work Sans).
+*   **Opportunity Discovery:** Provides categorized sections for internships, hackathons, mentorships, and courses.
+*   **Search and Filtering:** Allows users to search and filter opportunities based on various criteria (e.g., title, skills, specialization).
+*   **User Authentication:** Implements user authentication and authorization, including admin roles.
+*   **User Profiles:** Allows users to view and edit their profile information.
+*   **Opportunity Creation:** Enables recruiters and admins to create and manage opportunities (internships, hackathons, mentorships, courses).
+*   **Registration and Enrollment:** Provides functionality for users to register for hackathons and enroll in courses.
+*   **Data Persistence:** Uses localStorage for some client-side data persistence (e.g., user authentication).
+*   **Admin Interface:** Provides an admin interface for managing users and content.
 
 ## Project Structure
 
-.
-├── app/
-│   └── page.tsx           # Example Next.js page
-├── config.js              # API base URL configuration
-├── CodePS.js              # Categorized coding problem statements
-├── quiz.js                # Quiz data structure
-├── lib/
-│   └── utils.ts         # Utility functions (e.g., cn for CSS class names)
-├── store/
-│   ├── userStore.ts       # Zustand store for user data
-│   └── internshipStore.ts # Zustand store for internship data
-├── next.config.js         # Next.js configuration file
-├── package.json           # Project dependencies and scripts
-├── README.md              # This file
-└── ...
+The project is structured as a Next.js application, leveraging server-side rendering, client-side rendering, and API routes. Here's a breakdown of key components:
 
-**Key Files and Directories:**
+*   **`app/` directory:** Contains the application's route handlers, pages, and layouts.
 
-*   `app/`: Contains the Next.js application pages and components.
-*   `config.js`: Defines the `BASE_URL` for API requests.
-*   `CodePS.js`:  Holds the categorized coding problem statements.
-*   `quiz.js`:  Defines the quiz data structure.
-*   `lib/utils.ts`: Contains utility functions like `cn` for handling CSS class names.
-*   `store/`: Contains Zustand stores for state management (user and internship data).
-*   `next.config.js`:  The Next.js configuration file.
-*   `package.json`: Lists project dependencies and defines npm scripts.
+    *   **`app/page.tsx`:** The main landing page of the application.
+    *   **`app/layout.tsx`:** Defines the root layout of the application, including document language, font imports, metadata, and global styles.
+    *   **`app/signin`:** Route for user sign-in.
+    *   **`app/profile`:** Route for user profiles.
+    *   **`app/blog`:** Route for blog posts.
+    *   **`app/courses`:** Route for courses.
+    *   **`app/hackathons`:** Route for hackathons.
+    *   **`app/internships`:** Route for internships.
+    *   **`app/mentorships`:** Route for mentorships.
+    *   **`app/create`:** Route for creating new opportunities.
+    *   **`app/admin`:** Route for admin panel.
+
+*   **`components/` directory:** Contains reusable UI components.
+
+    *   **`components/shared/`:** Contains components shared across the application.
+        *   **`AppBar`:** The application's navigation bar.
+        *   **`Footer`:** The application's footer.
+        *   **`cards/`:** Contains card components for displaying opportunities.
+            *   `CourseCard`
+            *   `InternshipCard`
+            *   `MentorCard`
+            *   `HackathonCard`
+        *   **`CarouselSliderCourse`:** A carousel slider for displaying courses.
+        *   **`CarouselSliderIntern`:** A carousel slider for displaying internships.
+        *   **`CarouselSliderMentor`:** A carousel slider for displaying mentors.
+        *   **`CarouselSliderHackathon`:** A carousel slider for displaying hackathons.
+    *   **`components/ui/`:** Contains UI components from a library like Shadcn UI.
+        *   `Input`, `Button`, `Label`, `Textarea`, `Popover`, `Calendar`, `Select`, `AlertDialog`, etc.
+
+*   **`lib/` directory:** Contains utility functions.
+
+    *   **`lib/utils.ts`:** Contains utility functions, such as `cn` for conditionally joining class names.
+
+*   **`store/` directory:** Contains Zustand stores for managing application state.
+
+    *   **`store/signUpStore.ts`:** A Zustand store for managing user data.
+
+*   **`utils/` directory:** Contains constants and helper functions.
+
+    *   **`utils/constants.ts`:** Defines constant values, such as the base API URL (`BASE_URL`).
+
+*   **`next.config.js`:** Configures the Next.js application.
+*   **`public/` directory:** Contains static assets, such as images and fonts.
 
 ## How to Run
 
-1.  **Install Dependencies:**
+1.  **Clone the repository:**
 
     ```bash
-    npm install  # Or yarn install, pnpm install, bun install
+    git clone <repository_url>
+    cd <project_directory>
     ```
 
-2.  **Run the Development Server:**
+2.  **Install dependencies:**
+
+    Choose your preferred package manager:
 
     ```bash
-    npm run dev  # Or yarn dev, pnpm dev, bun dev
+    npm install        # Using npm
+    yarn install       # Using yarn
+    pnpm install       # Using pnpm
+    bun install        # Using bun
     ```
 
-    This will start the development server at `http://localhost:3000`.
+3.  **Configure Environment Variables:**
 
-3.  **Explore the Application:**
+    Create a `.env.local` file in the root directory of the project.  Add any required environment variables, especially the `BASE_URL` pointing to your backend API.  Example:
 
-    Open your browser and navigate to `http://localhost:3000` to view the application.  Changes made to the code will automatically reload in the browser.
+    ```
+    NEXT_PUBLIC_BASE_URL=http://localhost:8000  # Example - Replace with your actual backend URL
+    ```
+
+    *Note:  The examples provided in some of the component descriptions use `BASE_URL` directly.  In Next.js, to access environment variables in the browser, they should be prefixed with `NEXT_PUBLIC_`.  Adjust your code accordingly if necessary.*
+
+4.  **Start the development server:**
+
+    Choose your preferred package manager:
+
+    ```bash
+    npm run dev        # Using npm
+    yarn dev       # Using yarn
+    pnpm dev       # Using pnpm
+    bun dev        # Using bun
+    ```
+
+5.  **Access the application:**
+
+    Open your web browser and navigate to `http://localhost:3000`.
 
 ## Resources
 
-*   [Next.js Documentation](https://nextjs.org/docs)
-*   [Learn Next.js Tutorial](https://nextjs.org/learn)
-*   [Next.js GitHub Repository](https://github.com/vercel/next.js)
-
-## Deployment
-
-*   Recommended deployment platform: [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-*   [Next.js Deployment Documentation](https://nextjs.org/docs/app/building-your-application/deploying)
+*   **Next.js Documentation:** [https://nextjs.org/docs](https://nextjs.org/docs)
+*   **Learn Next.js Tutorial:** [https://nextjs.org/learn](https://nextjs.org/learn)
+*   **Next.js GitHub Repository:** [https://github.com/vercel/next.js](https://github.com/vercel/next.js)
+*   **Vercel Deployment:** The recommended deployment platform is Vercel. See [https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) and the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
