@@ -1,1 +1,83 @@
-# Coding Practice Platform\n\nThis project is a comprehensive coding practice platform built with Next.js, Express.js, and MongoDB.  It provides a user interface for practicing coding problems, taking quizzes, and engaging in discussions.  The backend handles user authentication, data persistence, and interaction with a generative AI (Google Gemini).\n\n## Description\n\nThis platform offers a wide range of coding challenges categorized by subject, including algorithms, machine learning, databases, and system design. Users can track their progress, submit solutions, and receive feedback.  A robust discussion forum allows users to collaborate and learn from each other.  Integration with Google Gemini allows for code evaluation and personalized learning recommendations.\n\n## Features\n\n* **Interactive Coding Challenges:**  A diverse library of coding problems categorized by subject area (AI, Web Development, Algorithms, etc.).\n* **Multiple-Choice Quizzes:**  Assess your knowledge with quizzes covering various programming topics.\n* **User Authentication and Profiles:** Secure user accounts with login, registration, and profile management.\n* **Discussion Forum:**  Engage in discussions with other users, ask questions, and share knowledge.\n* **Contest Participation:** Participate in coding contests with clear problem statements, test cases, and submission tracking.\n* **Google Gemini Integration:**  Utilize Google Gemini's generative AI capabilities for code evaluation, debugging assistance, and personalized learning recommendations.\n* **Persistent User Data:** User progress, submissions, and activity are persistently stored and managed.\n* **Admin Panel (Future Development):**  (Planned) Functionality to manage contests, quizzes, and user accounts.\n\n## Project Structure\n\nThe project is structured into a frontend (Next.js) and a backend (Express.js) component.\n\n**Frontend (Next.js):**\n\n* `app/`: Next.js app directory containing pages and components.\n* `app/page.tsx`: Main application page.\n* `styles/`: CSS and styling files.\n* `components/`: Reusable UI components.\n* `utils/`: Utility functions (e.g., `cn` for class name combination).\n* `store/`: Zustand stores for application state management (`useUserStore`, `useInternshipStore`, `useStore`).\n\n**Backend (Express.js):**\n\n* `server.js`: Main Express.js server file.\n* `config/`: Configuration files (e.g., `.env`).\n* `models/`: Mongoose models (`User`, `Contest`, `DiscussionPost`, `Comment`).\n* `routes/`: Express.js routers (`v1Router`, `authRouter`, `contestRouter`, `discussionRouter`, `geminiRouter`).\n* `middleware/`: Custom middleware functions.\n\n\n## How to Run\n\n**1. Backend:**\n\n* Clone the repository.\n* Navigate to the backend directory.\n* Create a `.env` file and configure environment variables (MongoDB URI, API keys, etc.).\n* Install dependencies: `npm install`\n* Start the server: `npm start`\n\n**2. Frontend:**\n\n* Navigate to the frontend directory.\n* Install dependencies: `npm install`\n* Start the development server: `npm run dev`\n\n\n## Technologies Used\n\n* **Frontend:** Next.js, React, Zustand, Tailwind CSS, clsx, tailwind-merge, next/font\n* **Backend:** Express.js, Mongoose, MongoDB, bcrypt, jsonwebtoken, dotenv, @google/generative-ai, cors\n* **AI:** Google Gemini\n\n\n## API Documentation\n\n### `/api/v1`:\n\nThis route acts as a base for all API endpoints.  Sub-routers manage different sections of the API.\n\n* **`/auth`:**  Handles user authentication (login, registration).\n* **`/contests`:** Manages programming contests (creation, retrieval, submission).\n* **`/discussions`:**  Handles discussion posts and comments.\n* **`/gemini`:**  Provides interfaces to Google Gemini's AI capabilities (code evaluation, chat, recommendations).\n* **`/users`:**  Retrieves user data and activity.\n\n\nDetailed documentation for each router is provided below:\n\n**`authRouter`:**\n\n* `/login`: Authenticates users and returns JWT.\n* `/register`: Registers new users.\n* `/contests`: Retrieves a user's submitted contests (requires authentication).\n* `/discussions`: Retrieves a user's discussions and comments (requires authentication).\n\n**`contestRouter`:**\n\n* `POST /`: Creates a new contest.\n* `GET /`: Retrieves all contests.\n* `GET /:id`: Retrieves a single contest by ID.\n* `POST /submit`: Submits a contest solution.\n\n**`discussionRouter`:**\n\n* `GET /`: Retrieves all discussion posts.\n* `POST /`: Creates a new discussion post.\n* `GET /:postId/comments`: Retrieves comments for a post.\n* `POST /:postId/comments`: Adds a new comment to a post.\n* `DELETE /:postId`: Deletes a discussion post.\n* `DELETE /comments/:commentId`: Deletes a comment.\n\n**`geminiRouter`:**\n\n* `POST /evaluate`: Evaluates user code using Gemini.\n* `POST /chat`: Interacts with Gemini through a chat interface.\n* `POST /recommend`: Gets YouTube video recommendations from Gemini.\n\nFurther details on each API endpoint are available in the respective router files.\n\n\n## Contributing\n\nContributions are welcome! Please open an issue or submit a pull request.\n\n\n## License\n\n[Specify your license here]
+# Next.js Application README
+
+This project is a Next.js application built using `create-next-app`.  It includes several modules for managing configuration, data, and user interaction.
+
+## Description
+
+This application provides a foundation for building a web application using Next.js.  It features optimized font loading with `next/font` (Geist font), and utilizes several custom modules for managing configuration, data (including a multiple-choice quiz), user authentication, and internship data.
+
+## Features
+
+* **Next.js App:** Built using the latest Next.js framework.
+* **Optimized Font Loading:** Uses `next/font` for efficient Geist font loading.
+* **Custom Configuration:**  Includes a custom Next.js configuration (`next.config.js`).
+* **API Integration (Implied):**  Uses a backend URL (`https://ind1-backend-vercel.vercel.app`), suggesting API integration.
+* **Multiple-Choice Quiz Data:**  Provides a structured JSON data set for a multiple-choice quiz covering various programming topics.
+* **User Management:**  Includes a Zustand store (`useUserStore`) for managing user data, including authentication and persistence via `localStorage`.
+* **Internship Management:**  Includes a Zustand store (`useInternshipStore`) for managing internship data, allowing for creating and editing drafts.
+* **Custom Class Name Utility (`cn` function):**  Simplifies class name management in React components using `clsx` and `tailwind-merge`.
+
+
+## Project Structure
+
+The project structure follows the Next.js App Router convention.  Key modules include:
+
+* **`next.config.js`:** Custom Next.js configuration.
+* **`data/quizData.js`:** Contains the multiple-choice quiz data.
+* **`stores/useUserStore.js`:** Zustand store for user management.
+* **`stores/useInternshipStore.js`:** Zustand store for internship management.
+* **`utils/cn.js`:** Utility function for combining class names.
+* **`app/page.tsx`:** Main application page.
+
+
+## How to Run
+
+1. **Clone the repository:** `git clone <repository_url>`
+2. **Navigate to the project directory:** `cd <project_directory>`
+3. **Install dependencies:** `npm install` or `yarn install` or `pnpm install` or `bun install`
+4. **Start the development server:** `npm run dev` or `yarn dev` or `pnpm dev` or `bun dev`
+5. **Access the application:** `http://localhost:3000`
+
+
+## Deployment
+
+Deploy your application easily using Vercel:
+
+[Vercel Deployment](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
+
+See Next.js deployment documentation for more details:
+
+[Next.js Deployment Documentation](https://nextjs.org/docs/app/building-your-application/deploying)
+
+
+## Learning Resources
+
+* **Next.js Documentation:** [https://nextjs.org/docs](https://nextjs.org/docs)
+* **Next.js Learn:** [https://nextjs.org/learn](https://nextjs.org/learn)
+* **Next.js GitHub:** [https://github.com/vercel/next.js](https://github.com/vercel/next.js)
+
+
+## Module Details
+
+### `next.config.js`
+
+This module exports a Next.js configuration object (`nextConfig`) with details omitted for brevity.  It provides custom configuration for the application.
+
+### `data/quizData.js`
+
+This module exports a constant `CodePS`, a JavaScript object containing coding practice problems categorized by subject area.  Each subject (e.g., "AI", "Web Development") maps to an array of strings describing coding problems.  Topics include file handling, data structures, algorithms, machine learning, database operations, and system design.  Additionally, it contains a nested JSON array (`quiz`) representing a multiple-choice quiz with categories, questions, options, and correctness indicators.
+
+### `stores/useUserStore.js`
+
+A Zustand store managing user data, persisted using `zustand/middleware`.  It provides actions to add, update, and remove users, and manages the currently logged-in user.  Data is persisted in `localStorage`.
+
+### `stores/useInternshipStore.js`
+
+A Zustand store for managing internships.  It allows adding internships, managing a current draft, and updating the draft.
+
+### `utils/cn.js`
+
+This module exports the `cn` function, which combines class names using `clsx` and `tailwind-merge`.  It accepts a variable number of class names or class name generating functions.
+
+
+This README provides a comprehensive overview of the Next.js application and its constituent modules.  Further details can be found within the individual module files.
