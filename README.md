@@ -1,4 +1,3 @@
-```markdown
 # Next.js Project
 
 ## Description
@@ -22,7 +21,6 @@ This project is a Next.js application initialized with `create-next-app`. It ser
 
 ## Project Structure
 
-```
 .
 ├── app/
 │   └── page.tsx           # Example Next.js page
@@ -38,7 +36,6 @@ This project is a Next.js application initialized with `create-next-app`. It ser
 ├── package.json           # Project dependencies and scripts
 ├── README.md              # This file
 └── ...
-```
 
 **Key Files and Directories:**
 
@@ -81,4 +78,3 @@ This project is a Next.js application initialized with `create-next-app`. It ser
 
 *   Recommended deployment platform: [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
 *   [Next.js Deployment Documentation](https://nextjs.org/docs/app/building-your-application/deploying)
-```
