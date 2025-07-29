@@ -6,31 +6,33 @@
 # 🚀 Welcome to Your Comprehensive Codebase Tutorial!
 
 ## What You'll Achieve
-By the end of this 11-chapter journey, you'll have **deep, practical understanding** of this codebase and be ready to contribute effectively from day one. This isn't just documentation - it's your complete onboarding experience.
+By the end of this 14-chapter journey, you'll have **deep, practical understanding** of this codebase and be ready to contribute effectively from day one. This isn't just documentation - it's your complete onboarding experience.
 
 ## ⏱️ Time Investment
-**Total Time:** 410-415 minutes (approximately 6.0-6.0 hours)
+**Total Time:** 525-530 minutes (approximately 8.0-8.0 hours)
 **Recommended Pace:** 1-2 chapters per study session for optimal learning
 
 ## 🎯 Learning Path Overview
 We've carefully designed this tutorial using proven instructional design principles:
 
 **🏗️ Foundation (3 chapters):** Essential concepts and mental models
-**⚙️ Core Functionality (4 chapters):** Primary features and patterns  
-**🔬 Advanced Topics (1 chapters):** Complex integrations and optimizations
+**⚙️ Core Functionality (5 chapters):** Primary features and patterns  
+**🔬 Advanced Topics (0 chapters):** Complex integrations and optimizations
 
 ## 📚 What Makes This Tutorial Special
 - **Hands-on Learning:** Every chapter includes practical exercises you can try immediately
+- **Visual Learning:** Interactive Mermaid diagrams illustrate concepts, architecture, and workflows
 - **Real-world Focus:** Learn patterns and practices actually used in this codebase
 - **Progressive Building:** Each chapter builds naturally on previous knowledge
 - **Immediate Value:** Gain practical skills you can apply right away
 
 ## 🗺️ Your Learning Journey
-We'll start with **"Project Overview"** to build your foundation, then progressively advance through the architecture until we reach **"Admin Dashboard with Protected Routes: Controlling Access"** where you'll see how everything integrates.
+We'll start with **"Project Overview"** to build your foundation, then progressively advance through the architecture until we reach **"Discussion Card: Displaying Discussions"** where you'll see how everything integrates.
 
 Each chapter follows a proven structure:
 - 🎯 **Clear Learning Objectives** - Know exactly what you'll accomplish
 - 🔍 **Real-world Context** - Understand why this matters for your work
+- 🎨 **Visual Overview** - Mermaid diagrams showing concepts and relationships
 - 💻 **Code Walkthroughs** - Deep dives into actual implementation
 - 🚀 **Hands-on Practice** - Immediate application of concepts
 - ✅ **Success Validation** - Confirm your understanding before moving on
@@ -56,16 +58,19 @@ After completing this tutorial, you'll be able to:
 
 # Table of Contents
 - [Chapter 1: Project Overview](#chapter-1-project-overview)
-- [Chapter 2: Mastering Next.js Routing: Building a Solid Foundation for Navigation](#chapter-2-mastering-next.js-routing:-building-a-solid-foundation-for-navigation)
-- [Chapter 3: Crafting Reusable UI Components: Radix UI and Tailwind CSS](#chapter-3-crafting-reusable-ui-components:-radix-ui-and-tailwind-css)
-- [Chapter 4: Building Utility Functions: Streamlining Your Code](#chapter-4-building-utility-functions:-streamlining-your-code)
-- [Chapter 5: Managing Application State with Zustand: A Simplified Approach](#chapter-5-managing-application-state-with-zustand:-a-simplified-approach)
-- [Chapter 6: Dynamic Routes in Next.js: Accessing Specific Resources](#chapter-6-dynamic-routes-in-next.js:-accessing-specific-resources)
-- [Chapter 7: Displaying Data with Reusable Cards: Creating Engaging User Interfaces](#chapter-7-displaying-data-with-reusable-cards:-creating-engaging-user-interfaces)
-- [Chapter 8: Form Handling with React Hook Form and Zod: Validating User Input](#chapter-8-form-handling-with-react-hook-form-and-zod:-validating-user-input)
-- [Chapter 9: Authentication Flows: Securing Your Application](#chapter-9-authentication-flows:-securing-your-application)
-- [Chapter 10: Creating Dynamic Carousels: Showcasing Your Content](#chapter-10-creating-dynamic-carousels:-showcasing-your-content)
-- [Chapter 11: Admin Dashboard with Protected Routes: Controlling Access](#chapter-11-admin-dashboard-with-protected-routes:-controlling-access)
+- [Chapter 2: JavaScript Fundamentals: Mastering the Language Core](#chapter-2-javascript-fundamentals:-mastering-the-language-core)
+- [Chapter 3: React Fundamentals: Building Interactive UIs](#chapter-3-react-fundamentals:-building-interactive-uis)
+- [Chapter 4: HTML & CSS Basics: Structuring and Styling Web Pages](#chapter-4-html-&-css-basics:-structuring-and-styling-web-pages)
+- [Chapter 5: Next.js Page Routing: Navigating Your Application](#chapter-5-next.js-page-routing:-navigating-your-application)
+- [Chapter 6: Shared Layout Components: Structuring Your Pages](#chapter-6-shared-layout-components:-structuring-your-pages)
+- [Chapter 7: React Server Components (RSC) Layout Structure: Optimizing Initial Load](#chapter-7-react-server-components-(rsc)-layout-structure:-optimizing-initial-load)
+- [Chapter 8: UI Component Abstraction with Radix UI and Tailwind CSS: Building Reusable Components](#chapter-8-ui-component-abstraction-with-radix-ui-and-tailwind-css:-building-reusable-components)
+- [Chapter 9: Centralized State Management with Zustand: Sharing Data Between Components](#chapter-9-centralized-state-management-with-zustand:-sharing-data-between-components)
+- [Chapter 10: Code Editor Component with Dynamic ID Routing: Creating Dynamic Pages](#chapter-10-code-editor-component-with-dynamic-id-routing:-creating-dynamic-pages)
+- [Chapter 11: Environment Variable Configuration with `next.config.ts`: Managing Application Settings](#chapter-11-environment-variable-configuration-with-`next.config.ts`:-managing-application-settings)
+- [Chapter 12: URL Manipulation: Working with URLs](#chapter-12-url-manipulation:-working-with-urls)
+- [Chapter 13: Utility Functions: Creating Reusable Code](#chapter-13-utility-functions:-creating-reusable-code)
+- [Chapter 14: Discussion Card: Displaying Discussions](#chapter-14-discussion-card:-displaying-discussions)
 
 ---
 
@@ -88,174 +93,21 @@ Understanding the big picture is crucial before diving into specifics. Here's ho
 
 ```mermaid
 flowchart LR
-  %% Top‑level structure
-  subgraph App_Directory["App Directory (Next.js)"]
-    direction TB
-
-    subgraph Auth_Routes["(auth)"]
-      signin["signin/page.tsx"]
-      signup["signup/page.tsx"]
-      forgot_password["forgot‑password/page.tsx"]
-      reset_password["[id]/page.tsx"]
+    subgraph Frontend
+        Pages[""Next.js Pages""]
+    end
+    subgraph Backend
+        State_Management["""State Management Zustand"""]
     end
 
-    subgraph Root_Routes["(root)"]
-      direction LR
+    Pages --> UI_Components
+    UI_Components --> State_Management
 
-      subgraph Admin_Routes["admin"]
-        admin_courses["admin‑courses/page.tsx"]
-        admin_courses_id["[id]/page.tsx"]
-        course_upload["course‑upload/page.tsx"]
-        admin_layout["layout.tsx"]
-      end
+    classDef frontend fill:#e1f5fe,stroke:#333,stroke-width:2px;
+    classDef backend fill:#f3e5f5,stroke:#333,stroke-width:2px;
 
-      backup_hackathonopp["backup‑hackathonopp/page.tsx"]
-      blog["blog/page.tsx"]
-
-      subgraph Courses_Routes["courses"]
-        courses_id["[id]/page.tsx"]
-        find_courses["find‑courses/page.tsx"]
-        courses_page["page.tsx"]
-      end
-
-      domain["domain/page.tsx"]
-      editor["editor/page.tsx"]
-
-      subgraph Hackathon_Routes["hackathon"]
-        hackathon_id["[id]/page.tsx"]
-        hackathon_reg["[id]/page.tsx"]
-        hackathon_page["page.tsx"]
-      end
-
-      host_opportunity["host‑opportunity/page.tsx"]
-
-      subgraph Internship_Routes["internship"]
-        internship_id["[id]/page.tsx"]
-        internship_applying_page["[id]/applying‑page/page.tsx"]
-        find_internship["find‑internship/page.tsx"]
-        internship_publishing["internship‑publishing/page.tsx"]
-        internship_page["page.tsx"]
-      end
-
-      subgraph Mentorship_Routes["mentorship"]
-        mentorship_id["[id]/page.tsx"]
-        mentor_registeration["mentor‑registeration/page.tsx"]
-        mentorship_page["page.tsx"]
-      end
-
-      root_layout["layout.tsx"]
-      root_page["page.tsx"]
-
-      subgraph Profile_Routes["profile"]
-        profile_page["page.tsx"]
-
-        subgraph Profile_Hackathons["profile‑hackathons"]
-          profile_hackathons_id["[id]/page.tsx"]
-          profile_hackathons_page["page.tsx"]
-        end
-
-        subgraph Profile_Internships["profile‑internships"]
-          profile_internships_id["[id]/page.tsx"]
-          profile_internships_page["page.tsx"]
-        end
-
-        subgraph Profile_Mentorships["profile‑mentorships"]
-          profile_mentorships_id["[id]/page.tsx"]
-          profile_mentorships_page["page.tsx"]
-        end
-      end
-
-      quiz["quiz/page.tsx"]
-    end
-
-    app_layout["layout.tsx"]
-  end
-
-  subgraph Components_Directory["Components"]
-    direction TB
-    subgraph Shared_Components["shared"]
-      appbar["appbar.tsx"]
-      subgraph Cards["cards"]
-        competitioncard["competitioncard.tsx"]
-        coursecard["coursecard.tsx"]
-        coursecategorycard["coursecategorycard.tsx"]
-        hackathoncard["hackathoncard.tsx"]
-        interncategorycard["interncategorycard.tsx"]
-        internshipcard["internshipcard.tsx"]
-        mentorcard["mentorcard.tsx"]
-        numberscard["numberscard.tsx"]
-        optioncard["optioncard.tsx"]
-        profilecategorycard["profilecategorycard.tsx"]
-        subgraph Sliders["sliders"]
-          carouselslider_course["carouselslider‑course.tsx"]
-          carouselslider_hackathon["carouselslider‑hackathon.tsx"]
-          carouselslider_intern["carouselslider‑intern.tsx"]
-          carouselslider_mentor["carouselslider‑mentor.tsx"]
-        end
-      end
-      footer["footer.tsx"]
-      resetPassword["resetPassword.tsx"]
-    end
-
-    subgraph UI_Components["ui"]
-      alert_dialog["alert-dialog.tsx"]
-      badge["badge.tsx"]
-      button["button.tsx"]
-      calendar["calendar.tsx"]
-      card["card.tsx"]
-      carousel["carousel.tsx"]
-      checkbox["checkbox.tsx"]
-      dialog["dialog.tsx"]
-      dropdown_menu["dropdown-menu.tsx"]
-      form["form.tsx"]
-      input["input.tsx"]
-      label["label.tsx"]
-      popover["popover.tsx"]
-      select["select.tsx"]
-      separator["separator.tsx"]
-      sheet["sheet.tsx"]
-      sonner["sonner.tsx"]
-      table["table.tsx"]
-      textarea["textarea.tsx"]
-    end
-  end
-
-  subgraph Lib_Directory["Lib"]
-    utils["utils.ts"]
-  end
-
-  subgraph Store_Directory["Store"]
-    internshipStore["internshipStore.js"]
-    signUpStore["signUpStore.js"]
-  end
-
-  %% Connections
-  appbar --> UI_Components
-  admin_courses --> UI_Components
-  admin_courses_id --> UI_Components
-  course_upload --> UI_Components
-  signin --> UI_Components
-  signup --> UI_Components
-  forgot_password --> UI_Components
-  reset_password --> UI_Components
-  courses_id --> UI_Components
-  find_courses --> UI_Components
-  hackathon_id --> UI_Components
-  hackathon_reg --> UI_Components
-  internship_id --> UI_Components
-  internship_applying_page --> UI_Components
-  find_internship --> UI_Components
-  internship_publishing --> UI_Components
-  mentorship_id --> UI_Components
-  mentor_registeration --> UI_Components
-  profile_hackathons_id --> UI_Components
-  profile_internships_id --> UI_Components
-  profile_mentorships_id --> UI_Components
-  quiz --> UI_Components
-  Components_Directory --> Lib_Directory
-  mentor_registeration --> form
-  internshipStore --> Lib_Directory
-  signUpStore --> Lib_Directory
+    class Pages,UI_Components frontend;
+    class State_Management backend;
 ```
 
 ## 📊 System Overview
@@ -325,213 +177,1372 @@ In the next chapter, we'll dive into the foundational components that everything
 
 ---
 
-<a name="chapter-2-mastering-next.js-routing:-building-a-solid-foundation-for-navigation"></a>
+<a name="chapter-2-javascript-fundamentals:-mastering-the-language-core"></a>
 
 ---
 
-# Mastering Next.js Routing: Building a Solid Foundation for Navigation
+# JavaScript Fundamentals: Mastering the Language Core
 
 ## 🎯 Chapter Objective
-After this chapter, you will be able to define routes using the Next.js `app` directory structure and navigate between pages using the `<Link>` component.
+After this chapter, you will be able to write basic JavaScript programs, understand variables, data types, and control flow.
 
 **Time to Complete:** 30 minutes
 
 ## 💡 Why This Matters
 
-Routing is the backbone of any web application. It allows users to navigate between different sections and access specific content. In Next.js, a robust and intuitive routing system is crucial for creating a seamless user experience. Understanding how to define routes using the `app` directory and navigate between them using the `<Link>` component is fundamental for building complex and dynamic web applications.  Without a solid grasp of routing, you'll struggle to create multi-page applications, implement dynamic content loading, and provide a user-friendly navigation experience. Mastering Next.js routing empowers you to structure your application effectively, improve SEO, and ultimately deliver a better user experience.
+Understanding JavaScript fundamentals is crucial because it forms the bedrock of web development. You'll use variables, data types, and control flow in every JavaScript program you write, from simple interactive elements on a webpage to complex web applications. Mastering these concepts allows you to build dynamic and engaging user experiences, manipulate data effectively, and create logical program structures. Without a solid grasp of these basics, you'll struggle to build anything beyond the most rudimentary web pages. These concepts are not only applicable to front-end development, but also to back-end with Node.js.
 
 ## 🎨 Visual Overview
-
-Imagine your website as a city, and each page is a building. Routing is the street network that allows people to travel between those buildings.
-
-*   **`app` directory:** This is the city planning department where you define the structure of your streets (routes).
-*   **Folders:** Each folder inside the `app` directory represents a route segment.
-*   **`page.tsx`:**  The `page.tsx` file inside a folder is like the entrance to a building, defining the content displayed at that route.
-*   **`<Link>` component:**  This is like a signpost or a bus stop, allowing users to navigate from one building (page) to another.
+```mermaid
+flowchart TD
+    A["JavaScript Fundamentals"] --> B["Variables & Data Types"]
+    A --> C["Operators"]
+    A --> D["Control Flow (if/else, loops)"]
+    A --> E["Functions"]
+```
 
 ## 🧠 Core Concepts
 
-Let's break down the key concepts involved in Next.js routing:
+*   **Variables:** Think of variables as containers that hold data. In JavaScript, you declare variables using `let`, `const`, or `var` (though `var` is older and less recommended).
 
-1.  **`app` Directory:**  Next.js 13 introduced the `app` directory as the primary way to define routes.  It's a file-system-based router, meaning the structure of your folders and files directly translates into your application's routes.
+    *   `let`:  Allows you to reassign the value of the variable.
+        ```javascript
+        let age = 30;
+        age = 31; // Valid, age is now 31
+        ```
+    *   `const`: Creates a constant variable, meaning its value cannot be reassigned after initialization.
+        ```javascript
+        const pi = 3.14159;
+        // pi = 3.14; // This will cause an error
+        ```
+    *   `var`: Older way to declare variables. It has function scope, which can lead to unexpected behavior. Use `let` or `const` instead.
 
-2.  **Route Segments:** Each folder within the `app` directory represents a route segment. For example, `app/blog/posts/` would correspond to the route `/blog/posts`.
+*   **Data Types:** JavaScript has several built-in data types:
 
-3.  **`page.tsx` (or `page.js`):**  A file named `page.tsx` (or `page.js` for JavaScript) inside a route segment folder defines the UI for that route.  This file *must* exist for a route to be accessible.
+    *   **String:** Represents textual data.
+        ```javascript
+        let name = "John Doe";
+        ```
+    *   **Number:** Represents numeric values (integers and floating-point numbers).
+        ```javascript
+        let age = 30;
+        let price = 99.99;
+        ```
+    *   **Boolean:** Represents a logical value (true or false).
+        ```javascript
+        let isAdult = true;
+        ```
+    *   **Null:** Represents the intentional absence of a value.
+        ```javascript
+        let user = null;
+        ```
+    *   **Undefined:** Represents a variable that has been declared but has not been assigned a value.
+        ```javascript
+        let city; // city is undefined
+        ```
+    *   **Object:** Represents a collection of key-value pairs.
+        ```javascript
+        let person = {
+          name: "Jane Doe",
+          age: 25
+        };
+        ```
+    *   **Array:** Represents an ordered list of values.
+        ```javascript
+        let colors = ["red", "green", "blue"];
+        ```
 
-4.  **`Link` Component:** The `<Link>` component from `next/link` is the preferred way to navigate between pages in a Next.js application.  It provides client-side navigation, making transitions faster and smoother because it avoids full page reloads.
+*   **Operators:** Symbols that perform operations on values (operands).
 
-5.  **Dynamic Routes:**  Next.js allows you to create dynamic routes using square brackets `[]` in folder names. For example, `app/blog/[slug]/page.tsx` would create a route where `slug` is a dynamic parameter, accessible within the `page.tsx` file.  The provided example uses `app/(root)/courses/[id]/page.tsx` which is a dynamic route.
+    *   **Arithmetic Operators:** `+` (addition), `-` (subtraction), `*` (multiplication), `/` (division), `%` (modulus).
+    *   **Assignment Operators:** `=` (assignment), `+=` (addition assignment), `-=` (subtraction assignment), etc.
+    *   **Comparison Operators:** `==` (equal to), `!=` (not equal to), `>` (greater than), `<` (less than), `>=` (greater than or equal to), `<=` (less than or equal to), `===` (strict equality), `!==` (strict inequality). The strict equality operators (=== and !==) compare both the value and the type, whereas the non-strict operators (== and !=) perform type coercion if the types are different.
+    *   **Logical Operators:** `&&` (logical AND), `||` (logical OR), `!` (logical NOT).
+
+*   **Control Flow:** Statements that control the order in which code is executed.
+
+    *   **`if/else` Statements:** Execute different blocks of code based on a condition.
+        ```javascript
+        let age = 18;
+        if (age >= 18) {
+          console.log("You are an adult.");
+        } else {
+          console.log("You are a minor.");
+        }
+        ```
+    *   **`for` Loops:** Execute a block of code repeatedly for a specific number of times.
+        ```javascript
+        for (let i = 0; i < 5; i++) {
+          console.log(i); // Output: 0, 1, 2, 3, 4
+        }
+        ```
+    *   **`while` Loops:** Execute a block of code repeatedly as long as a condition is true.
+        ```javascript
+        let i = 0;
+        while (i < 5) {
+          console.log(i); // Output: 0, 1, 2, 3, 4
+          i++;
+        }
+        ```
+
+*   **Functions:** Reusable blocks of code that perform a specific task.
+
+    ```javascript
+    function greet(name) {
+      console.log("Hello, " + name + "!");
+    }
+
+    greet("Alice"); // Output: Hello, Alice!
+    ```
 
 ## 💻 Code Deep Dive
 
-Let's analyze the provided code snippets to understand how these concepts are applied in practice.
+Let's look at a slightly more complex example combining these concepts:
 
-**1. `app/(root)/courses/[id]/page.tsx` (Dynamic Route)**
+```javascript
+function checkAgeAndGreet(name, age) {
+  if (typeof age !== 'number') {
+    console.log("Age must be a number.");
+    return; // Exit the function if age is not a number
+  }
 
-```typescript
-"use client";
-
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
-// ... other imports
-
-export default function CourseDetails() {
-  const { id } = useParams();
-  const [course, setCourse] = useState(null);
-
-  useEffect(() => {
-    // ... Fetch course data based on the 'id'
-  }, [id]);
-
-  // ... Component logic
+  if (age >= 18) {
+    console.log("Welcome, " + name + ". You are an adult.");
+  } else {
+    console.log("Hello, " + name + ". You are a minor.");
+  }
 }
+
+checkAgeAndGreet("Bob", 17); // Output: Hello, Bob. You are a minor.
+checkAgeAndGreet("Charlie", 25); // Output: Welcome, Charlie. You are an adult.
+checkAgeAndGreet("David", "thirty"); // Output: Age must be a number.
 ```
 
-*   **`"use client";`**: This directive tells Next.js that this component is a client-side component, meaning it will be rendered in the browser.  This is necessary because it uses hooks like `useState` and `useEffect`.
-*   **`useParams()`**:  This hook from `next/navigation` is crucial for accessing dynamic route parameters. In this case, it retrieves the `id` from the URL.  For example, if the URL is `/courses/123`, `id` will be `"123"`.
-*   **`useEffect()`**: This hook is used to fetch the course data based on the `id` parameter.  The dependency array `[id]` ensures that the effect runs only when the `id` changes, preventing unnecessary re-fetches.
-*   **Fetching Data:** The code then uses `fetch` to retrieve course details from an API endpoint based on the `id`.
-*   **Dynamic Content:**  The fetched course data is used to dynamically render the course details on the page.
+**Explanation:**
 
-**2. `app/(root)/page.tsx` (Home Page) - Using `<Link>`**
-
-```typescript
-import Link from "next/link";
-// ... other imports
-
-const Home = () => {
-  // ... Component logic
-
-  return (
-    // ... JSX Structure
-    <Link
-      href={"/courses"}
-      className="flex gap-2 underline text-slate-400 hover:text-slate-700 transition-all duration-100 sm:ml-auto items-center"
-    >
-      {/* ... SVG Icon and Text */}
-      View All
-    </Link>
-    // ... other JSX Structure
-  );
-};
-
-export default Home;
-```
-
-*   **`import Link from "next/link";`**:  This line imports the `<Link>` component, which is essential for client-side navigation.
-*   **`<Link href="/courses">`**:  This creates a link to the `/courses` route. When the user clicks this link, Next.js will perform a client-side navigation to that page, without a full page reload.
-*   **`className` prop:** The `className` prop is used to apply CSS styles to the link.
-
-**3. `app/layout.tsx` (Layout File)**
-
-This file defines the layout that wraps all pages in your application.  It's not directly related to routing but is important for setting up the overall structure.  It includes global styles and components like the `Toaster`.
-
-**Key Takeaways from the Code:**
-
-*   The `app` directory structure defines the routes.
-*   `page.tsx` files render the content for each route.
-*   `useParams()` allows you to access dynamic route parameters.
-*   The `<Link>` component provides efficient client-side navigation.
+1.  **Function Definition:** We define a function called `checkAgeAndGreet` that takes two parameters: `name` (a string) and `age` (a number).
+2.  **Data Type Check:** Inside the function, we first check if `age` is a number using `typeof age !== 'number'`. This is important for preventing errors if the function receives invalid input.
+3.  **`if/else` Statement:** We use an `if/else` statement to check if the `age` is greater than or equal to 18.
+4.  **Console Output:** Based on the age, we print a different message to the console using `console.log()`.
+5.  **Function Calls:** We call the function three times with different arguments to demonstrate its behavior. The third function call demonstrates the data type check.
 
 ## 🧑‍💻 Hands-On Practice
 
-**Exercise: Create three new pages in your Next.js application and link them together using the `<Link>` component. Verify navigation between the pages.**
+**Exercise: Write a JavaScript function to manipulate a string and display it in the console.**
 
 **Steps:**
 
-1.  **Create the Pages:** Inside your `app` directory, create three new folders: `about`, `contact`, and `services`.
-2.  **Add `page.tsx` to each folder:**  In each folder, create a `page.tsx` file. Add some basic content to each file, like a heading:
+1.  **Define a function:** Create a function named `stringManipulator` that takes a string as input.
+2.  **Convert to uppercase:** Inside the function, convert the input string to uppercase using the `.toUpperCase()` method.
+3.  **Reverse the string:** Reverse the uppercase string. You can do this by splitting the string into an array of characters using `.split('')`, reversing the array using `.reverse()`, and then joining the array back into a string using `.join('')`.
+4.  **Display in the console:** Use `console.log()` to display the manipulated string in the console.
+5.  **Call the function:** Call the `stringManipulator` function with a sample string as an argument.
 
-    ```typescript
-    // app/about/page.tsx
-    export default function AboutPage() {
-      return <h1>About Us</h1>;
-    }
+**Clear, actionable tasks:**
 
-    // app/contact/page.tsx
-    export default function ContactPage() {
-      return <h1>Contact Us</h1>;
-    }
+1.  Write the function definition: `function stringManipulator(str) { ... }`
+2.  Convert the string to uppercase: `str.toUpperCase()`
+3.  Reverse the string: `str.split('').reverse().join('')`
+4.  Combine these operations, store the result in a variable, and log it to the console.
+5.  Call the function with a test string like `"hello"`
 
-    // app/services/page.tsx
-    export default function ServicesPage() {
-      return <h1>Our Services</h1>;
+```javascript
+function stringManipulator(str) {
+  const upperCaseString = str.toUpperCase();
+  const reversedString = upperCaseString.split('').reverse().join('');
+  console.log(reversedString);
+}
+
+stringManipulator("hello"); // Output: OLLEH
+stringManipulator("JavaScript"); // Output: TPIRCSAVAJ
+```
+
+**Success Check:** Successfully write and execute a basic JavaScript function that takes a string, converts it to uppercase, reverses it, and displays it in the console.
+
+## ✅ Chapter Summary
+
+In this chapter, you've learned the fundamental building blocks of JavaScript: variables, data types, operators, control flow, and functions. You can now declare variables to store data, understand the different types of data JavaScript can handle, use operators to perform calculations and comparisons, control the flow of your code using `if/else` statements and loops, and create reusable blocks of code with functions. You can now write simple JavaScript programs to perform basic tasks.
+
+## 👉 Up Next
+
+Next, we'll explore the Document Object Model (DOM) and how to manipulate HTML elements with JavaScript, allowing you to create interactive web pages.
+
+---
+
+<a name="chapter-3-react-fundamentals:-building-interactive-uis"></a>
+
+---
+
+# React Fundamentals: Building Interactive UIs
+
+## 🎯 Chapter Objective
+After this chapter, you will be able to create basic React components, manage state, and render dynamic content.
+
+**Time to Complete:** 45 minutes
+
+## 💡 Why This Matters
+
+Understanding React fundamentals is crucial for building modern, interactive web applications. React's component-based architecture allows you to break down complex UIs into smaller, manageable pieces, making your code more organized and maintainable. Mastering state management enables you to create dynamic and responsive applications that react to user interactions. This is essential for creating features like forms, shopping carts, and real-time updates. Without these fundamentals, building scalable and efficient React applications becomes significantly more difficult.
+
+## 🎨 Visual Overview
+```mermaid
+flowchart TD
+    A["Create React Component"] --> B["Define JSX Structure"]
+    B --> C["Manage Component State"]
+    C --> D["Render Dynamic Content"]
+    D --> E["Interactive User Interface"]
+```
+
+## 🧠 Core Concepts
+
+*   **Components:** Reusable, independent pieces of UI. Think of them as building blocks for your application.  A component can be a function or a class. Function components are simpler and often preferred for presentational purposes.
+
+    ```javascript
+    // Functional Component Example
+    function Welcome(props) {
+      return <h1>Hello, {props.name}</h1>;
     }
     ```
 
-3.  **Link the Pages:**  In your `app/(root)/page.tsx` (home page), add `<Link>` components to navigate to these new pages:
+*   **JSX (JavaScript XML):**  A syntax extension to JavaScript that lets you write HTML-like structures within your JavaScript code. It gets transformed into regular JavaScript function calls.
 
-    ```typescript
-    // app/(root)/page.tsx
-    import Link from "next/link";
+    ```javascript
+    // JSX Example
+    const element = <h1>Hello, world!</h1>;
+    ```
 
-    const Home = () => {
+*   **State:** A JavaScript object that holds data specific to a component. When the state changes, React re-renders the component to reflect the updated data. Use the `useState` hook to manage state in functional components.
+
+    ```javascript
+    // State Example using useState hook
+    import React, { useState } from 'react';
+
+    function Counter() {
+      const [count, setCount] = useState(0);
+
       return (
         <div>
-          <h1>Welcome to our Website!</h1>
-          <Link href="/about">About Us</Link>
-          <Link href="/contact">Contact Us</Link>
-          <Link href="/services">Our Services</Link>
+          <p>You clicked {count} times</p>
+          <button onClick={() => setCount(count + 1)}>
+            Click me
+          </button>
+        </div>
+      );
+    }
+    ```
+
+*   **Rendering Logic:**  The process of taking your components and their data and displaying them on the screen. React efficiently updates the DOM (Document Object Model) when the data changes.
+
+*   **Props:** Short for "properties," props are used to pass data from a parent component to a child component. They are read-only from the child component's perspective.
+
+    ```javascript
+    // Passing Props Example
+    function App() {
+      return <Welcome name="Sara" />;
+    }
+    ```
+
+## 💻 Code Deep Dive
+
+Let's break down a simple React component that displays a greeting:
+
+```javascript
+import React from 'react';
+
+function Greeting(props) {
+  return (
+    <div>
+      <h1>Hello, {props.name}!</h1>
+      <p>Welcome to React.</p>
+    </div>
+  );
+}
+
+export default Greeting;
+```
+
+**Explanation:**
+
+1.  `import React from 'react';`: Imports the React library, which is essential for creating React components.
+2.  `function Greeting(props) { ... }`: Defines a functional component named `Greeting`. It accepts `props` (properties) as an argument.
+3.  `return ( ... )`:  Returns the JSX that defines the structure of the component.
+4.  `<div> ... </div>`:  A container element (like a `div`) is used to wrap the JSX.
+5.  `<h1>Hello, {props.name}!</h1>`:  Displays a heading with a dynamic name passed as a prop.
+6.  `<p>Welcome to React.</p>`:  Displays a paragraph with a static message.
+7.  `export default Greeting;`: Makes the component available for use in other parts of the application.
+
+Now, let's examine a component that uses state:
+
+```javascript
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+**Explanation:**
+
+1.  `import React, { useState } from 'react';`: Imports the `useState` hook from React.
+2.  `const [count, setCount] = useState(0);`:  Declares a state variable `count` and a function `setCount` to update it.  `useState(0)` initializes the state to 0.
+3.  `<p>Count: {count}</p>`:  Displays the current value of the `count` state variable.
+4.  `<button onClick={() => setCount(count + 1)}>Increment</button>`:  A button that, when clicked, calls `setCount` to increment the `count` state.  This triggers a re-render of the component, updating the displayed count.
+
+## 🧑‍💻 Hands-On Practice
+
+**Exercise: Create a React component that displays a counter and updates it when a button is clicked.**
+
+**Steps:**
+
+1.  **Create a new React component file:** Create a file named `Counter.js` in your `src` directory (or any directory where you keep your components).
+
+2.  **Import React and the useState hook:** Add the following import statement to the top of your `Counter.js` file:
+
+    ```javascript
+    import React, { useState } from 'react';
+    ```
+
+3.  **Define the Counter component:** Create a functional component named `Counter`.
+
+    ```javascript
+    function Counter() {
+      // Component logic will go here
+      return (
+        <div>
+          {/* JSX structure will go here */}
+        </div>
+      );
+    }
+
+    export default Counter;
+    ```
+
+4.  **Initialize the state:** Inside the `Counter` component, use the `useState` hook to initialize a state variable named `count` to 0.
+
+    ```javascript
+    const [count, setCount] = useState(0);
+    ```
+
+5.  **Create the JSX structure:** Add the following JSX inside the `return` statement of the `Counter` component:
+
+    ```javascript
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+    ```
+
+6.  **Import and use the Counter component in your App.js (or main component):**
+
+    ```javascript
+    import React from 'react';
+    import Counter from './Counter'; // Adjust the path if needed
+
+    function App() {
+      return (
+        <div className="App">
+          <Counter />
+        </div>
+      );
+    }
+
+    export default App;
+    ```
+
+**Success Check:** Successfully create a React component with state and event handling. You should see a counter displayed on the screen and be able to increment it by clicking the button.
+
+## ✅ Chapter Summary
+
+In this chapter, you've learned the fundamentals of React components, JSX syntax, and state management. You can now:
+
+*   Create basic React components using functional components.
+*   Use JSX to define the structure and content of your components.
+*   Manage component state using the `useState` hook.
+*   Render dynamic content based on state changes.
+*   Handle user interactions using event handlers.
+
+## 👉 Up Next
+
+Next, we'll explore React props in more detail and see how to pass data between components to build more complex UIs.
+
+---
+
+<a name="chapter-4-html-&-css-basics:-structuring-and-styling-web-pages"></a>
+
+---
+
+# HTML & CSS Basics: Structuring and Styling Web Pages
+
+## 🎯 Chapter Objective
+After this chapter, you will be able to structure a web page using HTML and style it using CSS.
+
+**Time to Complete:** 30 minutes
+
+## 💡 Why This Matters
+
+Understanding HTML and CSS is fundamental to web development. HTML provides the structure and content of a webpage, while CSS controls its visual presentation. Without these technologies, web pages would be plain text documents. Mastering these skills allows you to create visually appealing and user-friendly websites, enhancing user experience and conveying information effectively. This is crucial for front-end development and impacts how users interact with your applications. In real-world scenarios, companies rely on well-structured and styled websites to attract customers, provide information, and facilitate online transactions.
+
+## 🎨 Visual Overview
+```mermaid
+flowchart TD
+    A[HTML: Semantic Structure (Content)] --> B[CSS: Visual Presentation (Styling)]
+    B --> C[Web Page: User Experience]
+    A --> C
+```
+
+## 🧠 Core Concepts
+
+*   **HTML (HyperText Markup Language):** The standard markup language for creating web pages. It uses elements, represented by tags, to define the structure and content of a webpage.
+
+    *   **Example:** `<p>This is a paragraph of text.</p>`
+
+*   **CSS (Cascading Style Sheets):** A style sheet language used for describing the presentation of a document written in HTML. It controls aspects such as layout, colors, fonts, and responsiveness.
+
+    *   **Example:** `p { color: blue; font-size: 16px; }`
+
+*   **Elements and Tags:** HTML elements are the building blocks of a webpage. They are defined by start and end tags.
+
+    *   **Example:** `<h1>This is a heading</h1>`
+
+*   **Attributes:** Provide additional information about HTML elements.
+
+    *   **Example:** `<a href="https://www.example.com">Visit Example</a>`
+
+*   **Selectors:** CSS selectors target specific HTML elements to apply styles.
+
+    *   **Example:** `h1 { color: red; }` (Targets all `<h1>` elements)
+
+*   **Properties and Values:** CSS properties define the style characteristics, and values specify the settings for those properties.
+
+    *   **Example:** `color: red;` (`color` is the property, `red` is the value)
+
+*   **Box Model:** Every HTML element can be thought of as a box with content, padding, border, and margin. Understanding the box model is key to controlling the layout and spacing of elements.
+
+## 💻 Code Deep Dive
+
+Let's create a basic HTML structure and then style it with CSS.
+
+**HTML (index.html):**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Web Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>About Me</h2>
+            <p>This is a brief introduction about myself.</p>
+        </section>
+        <section>
+            <h2>My Projects</h2>
+            <p>Here are some of my projects.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Website</p>
+    </footer>
+</body>
+</html>
+```
+
+**Explanation:**
+
+1.  `<!DOCTYPE html>`: Declares the document type as HTML5.
+2.  `<html lang="en">`: The root element of the HTML page, specifying the language as English.
+3.  `<head>`: Contains meta-information about the HTML document, such as character set, viewport settings, title, and linked stylesheets.
+4.  `<link rel="stylesheet" href="style.css">`: Links the HTML document to an external CSS file named "style.css."
+5.  `<body>`: Contains the visible page content.
+6.  `<header>`: Represents the introductory content, including the main heading and navigation.
+7.  `<h1>`: Defines the main heading of the page.
+8.  `<nav>`: Defines a set of navigation links.
+9.  `<ul>` and `<li>`: Create an unordered list for the navigation links.
+10. `<main>`: Specifies the main content of the document.
+11. `<section>`: Defines a thematic grouping of content.
+12. `<h2>`: Defines a heading for each section.
+13. `<p>`: Represents a paragraph of text.
+14. `<footer>`: Contains the footer content, such as copyright information.
+
+**CSS (style.css):**
+
+```css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline;
+    margin: 0 1em;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: #fff;
+}
+```
+
+**Explanation:**
+
+1.  `body`: Sets the font family, removes default margins and padding, and sets the background and text colors for the entire page.
+2.  `header`: Styles the header with a dark background, white text, padding, and centered text.
+3.  `nav ul`: Removes default padding and list styles from the navigation list.
+4.  `nav li`: Displays list items inline and adds horizontal margin.
+5.  `nav a`: Styles the navigation links with white color and removes underlines.
+6.  `main`: Adds padding to the main content area.
+7.  `section`: Styles each section with a white background, padding, a bottom margin and a border.
+8.  `footer`: Styles the footer with centered text, padding, a dark background, and white text.
+
+## 🧑‍💻 Hands-On Practice
+
+**Exercise: Create a simple web page with headings, paragraphs, and styled with CSS.**
+
+**Steps:**
+
+1.  **Create two files:** `index.html` and `style.css` in the same directory.
+2.  **Populate `index.html`:** Copy and paste the HTML code provided in the "Code Deep Dive" section into your `index.html` file.
+3.  **Populate `style.css`:** Copy and paste the CSS code provided in the "Code Deep Dive" section into your `style.css` file.
+4.  **Open `index.html` in your browser:**  Double-click the `index.html` file to open it in your web browser.  You should see a basic webpage with a header, navigation, content sections, and a footer.
+5.  **Experiment with CSS:** Modify the `style.css` file to change colors, fonts, and layout.  Refresh the browser to see your changes.  Try changing the background color of the header, the font size of the headings, or the padding around the sections.
+
+**Success Check:** Successfully create and style a basic HTML page. You should be able to modify the CSS and see the changes reflected in your browser.
+
+## ✅ Chapter Summary
+
+You now understand the basic structure of an HTML document and how to apply styles using CSS. You can create headings, paragraphs, navigation menus, and other basic elements. You can also use CSS to control the appearance of these elements, including colors, fonts, and layout. You have learned about HTML elements, tags, attributes, CSS selectors, properties, and values. You can now build simple web pages and customize their appearance using CSS.
+
+## 👉 Up Next
+
+In the next chapter, we will explore more advanced CSS techniques, including selectors, the box model, and responsive design principles.
+
+---
+
+<a name="chapter-5-next.js-page-routing:-navigating-your-application"></a>
+
+---
+
+# Next.js Page Routing: Navigating Your Application
+
+## 🎯 Chapter Objective
+After this chapter, you will be able to create new pages in your Next.js application and link them together using the built-in routing system.
+
+**Time to Complete:** 45 minutes
+
+## 💡 Why This Matters
+Page routing is the backbone of any web application. Without it, users would be stuck on a single page! In Next.js, the file system is your router. This means creating new pages and linking them together is incredibly intuitive. Understanding this core concept allows you to build multi-page applications with ease, enabling features like user profiles, blog posts, e-commerce product pages, and complex dashboards. Mastering Next.js routing translates directly to creating richer, more engaging user experiences.
+
+## 🎨 Visual Overview
+```mermaid
+flowchart LR
+    A[app Directory] --> B[page.js/page.tsx]
+    B --> C[Automatic Routing]
+    C --> D[Link Component]
+    style A fill:#ccf,stroke:#333,stroke-width:2px
+    style B fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#f9f,stroke:#333,stroke-width:2px
+    style D fill:#f9f,stroke:#333,stroke-width:2px
+```
+
+## 🧠 Core Concepts
+
+*   **File-Based Routing:** Next.js uses a file-based routing system. Each file in the `app` directory becomes a route based on its file name. For example, `app/about/page.js` creates a route at `/about`.
+
+*   **`app` Directory:** The `app` directory is where you define your application's routes, layouts, and components. It replaces the older `pages` directory for new Next.js projects.
+
+*   **`page.js` or `page.tsx`:** This file is essential. It defines the UI for a specific route. If you have `app/about/page.js`, the component exported from this file will be rendered when a user navigates to `/about`.
+
+*   **The `<Link>` Component:** The `<Link>` component from `next/link` is used for client-side navigation between routes in your Next.js application. It provides performance optimizations like prefetching.
+
+*   **Dynamic Routes:** Next.js supports dynamic routes using square brackets in the file name. For example, `app/blog/[id]/page.js` creates a route that can handle URLs like `/blog/1`, `/blog/2`, etc. The `id` value can be accessed in your component using `useParams`.
+
+## 💻 Code Deep Dive
+
+Let's say you want to create an "About" page for your application.
+
+1.  **Create the `app/about` directory:**
+
+    ```bash
+    mkdir app/about
+    ```
+
+2.  **Create `app/about/page.js` (or `page.tsx`):**
+
+    ```javascript
+    // app/about/page.js
+    export default function AboutPage() {
+      return (
+        <div>
+          <h1>About Us</h1>
+          <p>This is the about page of our Next.js application.</p>
+        </div>
+      );
+    }
+    ```
+
+3.  **Link to the About page from your home page (`app/page.js` or `app/page.tsx`):**
+
+    ```javascript
+    // app/page.js
+    import Link from 'next/link';
+
+    export default function HomePage() {
+      return (
+        <div>
+          <h1>Welcome to My Next.js App</h1>
+          <p>This is the home page.</p>
+          <Link href="/about">
+            <a>Go to About Page</a>
+          </Link>
+        </div>
+      );
+    }
+    ```
+
+**Explanation:**
+
+*   The `AboutPage` component in `app/about/page.js` will be rendered when you navigate to `/about`.
+*   The `<Link>` component in `app/page.js` creates a link to the `/about` route.  The `href` prop specifies the destination route. The `<a>` tag is a child of the `<Link>` component, and it's what the user actually sees and clicks.
+
+## 🧑‍💻 Hands-On Practice
+**Exercise: Create a new "Contact" page in the `app` directory and link it to the main navigation.**
+
+**Steps:**
+
+1.  **Create a `contact` directory inside the `app` directory.**  This will be the route path: `/contact`.
+
+    ```bash
+    mkdir app/contact
+    ```
+
+2.  **Inside the `app/contact` directory, create a `page.js` (or `page.tsx`) file.** This file will contain the React component for the Contact page.
+
+    ```javascript
+    // app/contact/page.js
+    export default function ContactPage() {
+      return (
+        <div>
+          <h1>Contact Us</h1>
+          <p>Feel free to reach out to us!</p>
+        </div>
+      );
+    }
+    ```
+
+3.  **Import the `Link` component from `next/link` in your `app/page.js` (or `app/page.tsx`) file.** This allows you to create links to other pages within your application.
+
+    ```javascript
+    import Link from 'next/link';
+    ```
+
+4.  **Add a `<Link>` component to `app/page.js` (or `app/page.tsx`) to link to the new Contact page.**  Use the `href` prop to specify the `/contact` route.
+
+    ```javascript
+    // app/page.js
+    import Link from 'next/link';
+
+    export default function HomePage() {
+      return (
+        <div>
+          <h1>Welcome to My Next.js App</h1>
+          <p>This is the home page.</p>
+          <Link href="/about">
+            <a>Go to About Page</a>
+          </Link>
+          <br /> {/* Add a line break for spacing */}
+          <Link href="/contact">
+            <a>Go to Contact Page</a>
+          </Link>
+        </div>
+      );
+    }
+    ```
+
+**Success Check:** Successfully create and navigate to a new page in your Next.js application.  After completing these steps, your application should have a "Contact Us" page accessible from the home page via a link. When you click the link, you should be navigated to the `/contact` route and see the content you defined in `app/contact/page.js`.
+
+## ✅ Chapter Summary
+In this chapter, you learned how to create and link pages in a Next.js application using the file-based routing system. You now understand the role of the `app` directory, the `page.js` (or `page.tsx`) file, and the `<Link>` component. You can create new routes simply by adding files to the `app` directory and link between them using the `<Link>` component.
+
+## 👉 Up Next
+In the next chapter, we will explore dynamic routing and how to create pages that handle different parameters in the URL.
+
+---
+
+<a name="chapter-6-shared-layout-components:-structuring-your-pages"></a>
+
+---
+
+# Shared Layout Components: Structuring Your Pages
+
+## 🎯 Chapter Objective
+After this chapter, you will be able to divide the page into sections and place elements within those sections using shared layout components.
+
+**Time to Complete:** 30 minutes
+
+## 💡 Why This Matters
+
+Shared layout components are crucial for building consistent and maintainable user interfaces. Imagine building a website with a header and sidebar that appear on every page. Without shared layouts, you'd have to duplicate the header and sidebar code across all your pages. This leads to code bloat, increased maintenance effort, and inconsistencies in design.
+
+By using shared layout components, you define these common UI elements once and reuse them across your application. This simplifies development, ensures consistency, and makes it easier to update the overall look and feel of your website. For example, if you need to update the company logo in the header, you only need to change it in one place – the shared layout component – and the change will automatically propagate to all pages using that layout. This approach is fundamental for creating scalable and professional web applications.
+
+## 🎨 Visual Overview
+```mermaid
+flowchart LR
+    subgraph Shared_Layout
+        Header["Header"]
+        Sidebar["Sidebar"]
+        Footer["Footer"]
+    end
+    PageContent["Page Specific Content"]
+    Shared_Layout --> PageContent
+    style Header fill:#ccf,stroke:#333,stroke-width:2px
+    style Sidebar fill:#ccf,stroke:#333,stroke-width:2px
+    style Footer fill:#ccf,stroke:#333,stroke-width:2px
+    style PageContent fill:#ccf,stroke:#333,stroke-width:2px
+```
+
+## 🧠 Core Concepts
+
+*   **Component Composition:** React applications are built using component composition. This means combining smaller, reusable components to create larger, more complex UI elements. Shared layout components are a prime example of this, where you compose a layout from components like headers, sidebars, and footers.
+    *   **Example:** The `LeftDiv` component imports and uses the `LeftBelowDiv` component:
+
+        ```javascript
+        import LeftBelowDiv from './LeftBelowDiv'
+
+        const LeftDiv = ({ title, company, reward, description, difficulty, examples, testCases, shortdescription}) => {
+          return (
+            <div className='flex w-2/5 flex-col h-full'>
+              {/* ... other content ... */}
+              <LeftBelowDiv/>
+            </div>
+          )
+        }
+
+        export default LeftDiv
+        ```
+
+*   **Props:** Props (properties) are used to pass data from a parent component to a child component. Shared layout components often accept props to customize their appearance or behavior based on the specific page they're being used on.
+    *   **Example:** The `LeftDiv` component accepts several props such as `title`, `company`, `reward`, etc. These props are used to populate the content within the left division of the page.
+
+        ```javascript
+        const LeftDiv = ({ title, company, reward, description, difficulty, examples, testCases, shortdescription}) => {
+          return (
+            <div className='flex w-2/5 flex-col h-full'>
+              {/* ... Uses title, company, reward, etc. */}
+            </div>
+          )
+        }
+        ```
+
+*   **Children Prop:** The `children` prop is a special prop that allows you to pass JSX elements (HTML-like code) directly into a component. This is particularly useful for shared layouts, as it allows you to inject page-specific content into the layout.  While not explicitly used in the provided components, it's a common pattern for layout components. For example:
+
+    ```javascript
+    const Layout = ({ children }) => {
+      return (
+        <div>
+          <Header />
+          <main>{children}</main>
+          <Footer />
         </div>
       );
     };
 
-    export default Home;
+    // Usage:
+    <Layout>
+      <p>This is the page-specific content.</p>
+    </Layout>
     ```
 
-4.  **Verify Navigation:** Run your Next.js application (`npm run dev` or `yarn dev`) and navigate to the home page. Click on the links you created. You should be able to navigate seamlessly between the "About Us", "Contact Us", and "Our Services" pages.
+*   **CSS Styling:** CSS is used to style the layout components and control their appearance. This can be done using inline styles, CSS classes, or CSS-in-JS libraries like styled-components. Tailwind CSS is used in the example components.
+    *   **Example:** The `LeftDiv` component uses Tailwind CSS classes for styling:
 
-**Success Check:** Successfully create and link multiple pages, demonstrating an understanding of Next.js routing.
+        ```javascript
+        <div className='flex w-2/5 flex-col h-full'>
+        ```
 
-## ✅ Chapter Summary
-
-In this chapter, you've learned the fundamentals of Next.js routing using the `app` directory.  You've seen how the file system structure defines routes, how to create dynamic routes, and how to use the `<Link>` component for client-side navigation.  You've also gained hands-on experience creating and linking pages in a Next.js application.  This knowledge forms a crucial foundation for building more complex and interactive web applications.
-
-## 👉 Up Next
-
-In the next chapter, we will dive deeper into advanced routing techniques, including route groups, layouts, and handling more complex navigation scenarios.
-
----
-
-<a name="chapter-3-crafting-reusable-ui-components:-radix-ui-and-tailwind-css"></a>
-
----
-
-# Crafting Reusable UI Components: Radix UI and Tailwind CSS
-
-## 🎯 Chapter Objective
-After this chapter, you will be able to create and customize reusable UI components using Radix UI primitives and Tailwind CSS for styling.
-
-**Time to Complete:** 30 minutes
-
-## 🤔 Why This Matters
-
-In modern web development, reusability is key. Writing the same UI elements repeatedly is inefficient and makes maintaining your codebase a nightmare. Reusable components promote consistency, reduce redundancy, and make your application easier to update and scale. Radix UI provides unstyled, accessible UI primitives, and Tailwind CSS offers a utility-first approach to styling, making them a powerful combination for building robust and maintainable UI libraries. This approach ensures your components are both functional and visually appealing, while also being accessible to users with disabilities.
-
-## 🎨 Visual Overview
-
-Imagine a library of building blocks for your website. These blocks (components) can be used and reused across your site. For example, a button component can be used in the header, the body, and the footer, all with a consistent look and feel. Radix UI provides the basic structure and functionality of these blocks, while Tailwind CSS lets you paint and decorate them with beautiful and consistent styles.
-
-## 🧠 Core Concepts
-
-Let's break down the core concepts:
-
-*   **UI Primitives:** These are basic, unstyled UI elements that provide the fundamental functionality of a component. Radix UI focuses on providing these primitives, ensuring accessibility and behavior without dictating the visual appearance. Examples include buttons, dropdowns, checkboxes, and modals.
-
-*   **Utility-First CSS:** Tailwind CSS is a utility-first CSS framework. Instead of writing custom CSS rules, you compose styles by applying pre-defined utility classes directly in your HTML. This promotes consistency and speeds up development.  For example, `bg-blue-500` sets the background color to blue, and `text-white` sets the text color to white.
-
-*   **Component Composition:** This involves combining smaller, reusable components to build more complex UI elements.  By composing Radix UI primitives and styling them with Tailwind CSS, you can create highly customizable and reusable components.
-
-*   **`class-variance-authority` (cva):** This library is used to manage component variants. It allows you to define different styles for a component based on its props (e.g., different button sizes or colors).  It simplifies the process of creating components with multiple variations.
-
-*   **`@radix-ui/react-slot`:** This library provides the `<Slot>` component which allows you to render different elements based on a prop. It is commonly used to create polymorphic components.
+        Here, `flex`, `w-2/5`, `flex-col`, and `h-full` are Tailwind CSS classes that define the layout and appearance of the component.
 
 ## 💻 Code Deep Dive
 
-Let's analyze the provided code, focusing on the `Button` component:
+Let's analyze the provided code to understand how shared layout components are implemented. We'll focus on the `LeftDiv`, `MiddleTopDiv`, and `RightDiv` components as examples.
 
-```tsx
+1.  **`LeftDiv.tsx`:**
+
+    *   This component represents the left division of the page.
+    *   It receives props for the problem title, company, reward, description, difficulty, examples, test cases, and a short description.
+    *   It renders these props within a `div` with specific Tailwind CSS classes for styling (e.g., `flex`, `w-2/5`, `flex-col`, `h-full`, `p-4`, `bg-slate-900`, `overflow-auto`, `text-white`).
+    *   Crucially, it includes the `LeftBelowDiv` component, demonstrating component composition.
+
+    ```javascript
+    const LeftDiv = ({ title, company, reward, description, difficulty, examples, testCases, shortdescription}) => {
+      return (
+        <div className='flex w-2/5 flex-col h-full'>
+          {/* Content using props */}
+          <LeftBelowDiv/>
+        </div>
+      )
+    }
+    ```
+
+2.  **`MiddleTopDiv.tsx`:**
+
+    *   This component contains the code editor.
+    *   It uses the `@monaco-editor/react` library to embed a Monaco Editor instance.
+    *   It manages state for the editor's font size, value, and language.
+    *   It includes logic for submitting the code and handling the key.
+
+    ```javascript
+    import { Editor } from '@monaco-editor/react';
+    // ... other imports
+
+    const MiddleTopDiv = () => {
+      const [fontSize, setFontSize] = useState(16);
+      const [editorValue, setEditorValue] = useState('// Initial code');
+      // ... other state
+
+      return (
+        <div className="w-full h-5/6 flex flex-col">
+          {/* ... other elements */}
+          <Editor
+            height="100%"
+            defaultLanguage="javascript"
+            language={useLanguage}
+            defaultValue={editorValue}
+            theme="vs-dark"
+            onChange={(value) => {setEditorValue(value); setUserCode(value); console.log(userCode)}}
+            options={{
+              automaticLayout: true,
+              fontSize: fontSize,
+            }}
+          />
+          {/* ... other elements */}
+        </div>
+      );
+    };
+    ```
+
+3.  **`RightDiv.tsx`:**
+
+    *   This component displays the AI chatbot.
+    *   It uses the `Textarea` component from the `ui` library for user input.
+    *   It manages the chat history using the `chatArray` state variable.
+    *   It fetches responses from the Gemini API and displays them in the chat interface.
+
+    ```javascript
+    import React, { useEffect, useState } from 'react'
+    import { Textarea } from '../ui/textarea'
+    // ... other imports
+
+    const RightDiv = () => {
+        const [userText, setUserText] = useState('')
+        // ... other state
+
+        return (
+            <div className='w-2/5 bg-slate-900 flex flex-col h-full'>
+                {/* ... chat display */}
+                <div>
+                    <Textarea 
+                        placeholder='Type your question here...'
+                        value={userText}
+                        onChange={(e) => setUserText(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        disabled={loading}
+                        className='resize-none'
+                    />
+                </div>
+            </div>
+        )
+    }
+    ```
+
+These components demonstrate how to structure a page using shared layout components. Each component is responsible for a specific section of the page, and they can be combined to create a complete user interface.  The use of Tailwind CSS provides a consistent styling approach across all components.
+
+## 🧑‍💻 Hands-On Practice
+
+**Exercise: Modify the size of a div within a shared layout component to observe the layout change.**
+
+**Steps:**
+
+1.  **Locate the `LeftDiv.tsx` file.** This file contains the code for the left division of the page.
+2.  **Find the main `div` element in the `LeftDiv` component.** This is the outermost `div` that wraps all the content of the component:
+
+    ```javascript
+    <div className='flex w-2/5 flex-col h-full'>
+      {/* ... content ... */}
+    </div>
+    ```
+
+3.  **Modify the `w-2/5` class to `w-1/5` or `w-3/5`.** This class controls the width of the `div` using Tailwind CSS's width utilities.
+
+    ```javascript
+    <div className='flex w-1/5 flex-col h-full'> {/* Modified width */}
+      {/* ... content ... */}
+    </div>
+    ```
+    OR
+     ```javascript
+    <div className='flex w-3/5 flex-col h-full'> {/* Modified width */}
+      {/* ... content ... */}
+    </div>
+    ```
+
+4.  **Save the changes and observe the change in the application's layout.** You should see the left division of the page become narrower (`w-1/5`) or wider (`w-3/5`).
+
+**Success Check:** Successfully modify a shared layout component and observe the change in the application's layout.
+
+## ✅ Chapter Summary
+
+In this chapter, you learned about shared layout components and their importance in structuring React applications. You now understand:
+
+*   The benefits of using shared layouts for consistency and maintainability.
+*   How component composition is used to build layouts from smaller components.
+*   How props are used to customize layout components.
+*   How CSS is used to style layout components.
+*   How to modify existing shared layout components to change the look and feel of the application.
+
+## 👉 Up Next
+
+In the next chapter, we'll explore state management in React, focusing on how to use tools like Zustand to manage application state efficiently.
+
+---
+
+<a name="chapter-7-react-server-components-(rsc)-layout-structure:-optimizing-initial-load"></a>
+
+---
+
+# React Server Components (RSC) Layout Structure: Optimizing Initial Load
+
+## 🎯 Chapter Objective
+After this chapter, you will be able to utilize React Server Components to define the overall layout and shared elements across different pages.
+
+**Time to Complete:** 45 minutes
+
+## 💡 Why This Matters
+
+React Server Components (RSCs) allow you to render components on the server, significantly improving the initial load time and SEO of your application. By defining your layout (e.g., headers, footers, sidebars) using RSCs, you can avoid sending unnecessary JavaScript to the client, resulting in a faster and more efficient user experience. This approach is especially crucial for content-heavy applications or those targeting users with slower network connections. For example, consider a complex e-commerce site: using RSCs for the header, footer, and product listing structure means only the dynamic parts (like the shopping cart) need client-side JavaScript, drastically speeding up the initial page render.
+
+## 🎨 Visual Overview
+
+```mermaid
+flowchart LR
+    subgraph Browser
+        Client_Component["Client Component (Interactive)"]
+    end
+    subgraph Server
+        RSC_Layout["RootLayout (RSC)"]
+        Shared_Components["AppBar, Footer (RSC)"]
+        Page_Content["Page Content (RSC or RCC)"]
+    end
+
+    Browser --> Client_Component
+    RSC_Layout --> Shared_Components
+    RSC_Layout --> Page_Content
+    Shared_Components --> Client_Component
+
+    classDef rsc fill:#9f9,stroke:#333,stroke-width:2px;
+    classDef rcc fill:#ccf,stroke:#333,stroke-width:2px;
+    class Client_Component rcc;
+    class RSC_Layout,Shared_Components,Page_Content rsc;
+
+    style Client_Component fill:#ccf,stroke:#333,stroke-width:2px
+    style RSC_Layout fill:#9f9,stroke:#333,stroke-width:2px
+    style Shared_Components fill:#9f9,stroke:#333,stroke-width:2px
+    style Page_Content fill:#9f9,stroke:#333,stroke-width:2px
+```
+
+## 🧠 Core Concepts
+
+*   **React Server Components (RSCs):** Components that render on the server during the build process or on-demand. They can fetch data directly from databases or APIs without the need for client-side fetching. RSCs send only the rendered HTML to the client, reducing the JavaScript bundle size.
+
+*   **Root Layout (app/layout.tsx):**  In Next.js, the `app/layout.tsx` file defines the root layout for your application. This layout is a React Server Component, making it ideal for defining shared elements like headers, footers, and overall page structure.
+
+*   **Client Components:** Components that require client-side interactivity or browser APIs (e.g., event handlers, state management). These components are "hydrated" on the client-side, meaning they are transformed from static HTML into interactive components. You must use `'use client'` directive at the top of such components to mark them as client components.
+
+*   **Shared Components:** Reusable components like `AppBar` and `Footer` that are used across multiple pages. These components can be either RSCs or Client Components depending on their functionality. Using RSCs for shared components that primarily display static content optimizes initial load.
+
+**Example:**
+
+In the given code, `app/layout.tsx` is an RSC that defines the basic HTML structure, font, and global styles. `AppBar.tsx` is marked as a client component (`'use client'`) because it uses state management (`useUserStore`) and event handlers (`onClick`). `Footer.tsx` could be an RSC if it only displays static content.
+
+## 💻 Code Deep Dive
+
+Let's analyze the provided code to understand how RSCs are used to structure the layout:
+
+**1. `app/layout.tsx` (Root Layout - RSC):**
+
+```typescript
+import type { Metadata } from "next";
+import { Work_Sans } from "next/font/google";
+import "./globals.css";
+
+const geistSans = Work_Sans({
+  weight: '400',
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "CodeVibe",
+  description: "CodeVibe- Leetcode Killer",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.className} h-screen text-white bg-black max-w-full`}
+      >
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+*   This file defines the root layout of the application.
+*   It's an RSC by default (no `'use client'` directive).
+*   It sets the `metadata` (title, description) for SEO.
+*   It loads the `Work_Sans` font.
+*   It renders the `children`, which represents the content of individual pages. This is where your pages will be injected into the layout.
+*   The `className` prop is used to apply global styles, setting the background color, text color, and font.
+
+**2. `components/shared/appbar.tsx` (Client Component):**
+
+```typescript
+// AppBar.js
+'use client'
+import useUserStore from '@/store/userStore';
+import Link from 'next/link'
+import React, { useEffect } from 'react'
+
+
+const AppBAr = () => {
+  const { user, logout, initialize } = useUserStore();
+  
+  useEffect(() => {
+    initialize();
+  }, [initialize]);
+  
+  return (
+    <div className='p-4 px-10 bg-slate-900 flex justify-between items-center'>
+      <div className='flex items-center space-x-6'>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-8 w-8 text-purple-500">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+        </svg>
+        <Link href={'/'} className='text-2xl font-extrabold'>CodeVibe</Link>
+        <Link href={'/contest'} className='text-white'>Contest</Link>
+        <Link href={'/discussion'} className='text-white'>Discussion</Link>
+        <Link href={'/progress'} className='text-white'>Progress</Link>
+      </div>
+
+      {user ?
+            <div className='flex items-center space-x-6'>
+              <button onClick={logout} className='text-white bg-purple-500 p-2 rounded-lg'>Logout</button>
+              <Link href={"/profile"} className='text-white p-2 rounded-full'>Hello!! {user.name}</Link>
+            </div>
+            :
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-10 w-10">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+        }
+    </div>
+  )
+}
+
+export default AppBAr
+```
+
+*   The `'use client'` directive indicates that this is a Client Component.
+*   It uses `useUserStore` to manage user authentication state.
+*   It uses `useEffect` to initialize the user state on the client-side.
+*   It includes interactive elements like the logout button (`onClick`).
+*   It conditionally renders content based on the user's authentication status.
+
+**3. `components/shared/footer.tsx` (Potentially RSC):**
+
+```typescript
+import React from 'react';
+
+const Footer: React.FC = () => {
+  return (
+    <footer className="bg-black text-white py-12 border-t border-slate-600">
+      <div className="container mx-auto px-6 flex flex-col lg:flex-row justify-between items-start">
+        
+        <div className="flex flex-col items-center lg:pl-36 w-full lg:w-auto"> 
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-20 w-20 text-purple-500">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+          </svg>
+          <p className="mt-4 text-lg text-gray-400 text-center">&copy; 2025 CodeVibe. All rights reserved.</p>
+        </div>
+
+        <div className='flex flex-col items-center justify-center flex-1 pt-6 mx-0 lg:mx-12 mt-16 lg:mt-0 w-full lg:w-auto'>
+          <div className='flex gap-2 justify-center text-xl'>
+            <p className='text-2xl'>Made with</p> 
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 text-red-500">
+              <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+            </svg>
+            <p className='text-2xl'>by</p>
+          </div>
+          <div className='flex gap-2 justify-center mt-2'>
+            <p className='text'>Ganne ka Juice Paglus</p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap justify-center lg:justify-start space-x-0 lg:space-x-12 mt-8 lg:mt-0 w-full lg:w-auto lg:pr-52">
+          <div className="text-center p-4 lg:text-left mb-8 lg:mb-0">
+            <h3 className="text-xl font-semibold mb-3 flex justify-center">Socials</h3>
+            <div className='flex gap-4'>
+              <ul className="space-y-2 text-gray-400 text-lg">
+                <li><a className="hover:text-red-200">Twitter</a></li>
+                <li><a className="hover:text-red-200">Discord</a></li>
+              </ul>
+              <ul className="space-y-2 text-gray-400 text-lg">
+                <li><a className="hover:text-red-200">Instagram</a></li>
+                <li><a className="hover:text-red-200">LinkedIn</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+```
+
+*   This component displays footer content.
+*   It currently doesn't have the `'use client'` directive. This means it's treated as an RSC.
+*   If you need to add any client-side interactivity to the footer (e.g., a form submission), you would need to add the `'use client'` directive.
+
+## 🧑‍💻 Hands-On Practice
+
+**Exercise: Modify the app bar or footer to include new elements using React Server Components.**
+
+**Steps:**
+
+1.  **Choose a component:** Decide whether to modify the `AppBar` or `Footer`. If you choose the `AppBar`, remember it's already a Client Component, so you'll be adding static content to it. If you choose the `Footer`, ensure you don't need client-side interactivity for the changes you're making, so it can remain an RSC.
+
+2.  **Modify the `Footer` (RSC Example):** Let's add a "Contact Us" link to the footer's social links.
+
+    *   Open `components/shared/footer.tsx`.
+    *   Locate the "Socials" section.
+
+    ```html
+    <div className="flex flex-wrap justify-center lg:justify-start space-x-0 lg:space-x-12 mt-8 lg:mt-0 w-full lg:w-auto lg:pr-52">
+        <div className="text-center p-4 lg:text-left mb-8 lg:mb-0">
+            <h3 className="text-xl font-semibold mb-3 flex justify-center">Socials</h3>
+            <div className='flex gap-4'>
+              <ul className="space-y-2 text-gray-400 text-lg">
+                <li><a className="hover:text-red-200">Twitter</a></li>
+                <li><a className="hover:text-red-200">Discord</a></li>
+              </ul>
+              <ul className="space-y-2 text-gray-400 text-lg">
+                <li><a className="hover:text-red-200">Instagram</a></li>
+                <li><a className="hover:text-red-200">LinkedIn</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+    ```
+
+    *   Add a new list item with a "Contact Us" link:
+
+    ```html
+    <div className="flex flex-wrap justify-center lg:justify-start space-x-0 lg:space-x-12 mt-8 lg:mt-0 w-full lg:w-auto lg:pr-52">
+        <div className="text-center p-4 lg:text-left mb-8 lg:mb-0">
+            <h3 className="text-xl font-semibold mb-3 flex justify-center">Socials</h3>
+            <div className='flex gap-4'>
+              <ul className="space-y-2 text-gray-400 text-lg">
+                <li><a className="hover:text-red-200">Twitter</a></li>
+                <li><a className="hover:text-red-200">Discord</a></li>
+                <li><a className="hover:text-red-200">Contact Us</a></li>
+              </ul>
+              <ul className="space-y-2 text-gray-400 text-lg">
+                <li><a className="hover:text-red-200">Instagram</a></li>
+                <li><a className="hover:text-red-200">LinkedIn</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+    ```
+
+3.  **Modify the `AppBar` (Client Component Example):** Let's add a "Support" link to the app bar.
+
+    * Open `components/shared/appbar.tsx`.
+    * Locate the navigation links section.
+
+    ```html
+    <div className='flex items-center space-x-6'>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-8 w-8 text-purple-500">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+        </svg>
+        <Link href={'/'} className='text-2xl font-extrabold'>CodeVibe</Link>
+        <Link href={'/contest'} className='text-white'>Contest</Link>
+        <Link href={'/discussion'} className='text-white'>Discussion</Link>
+        <Link href={'/progress'} className='text-white'>Progress</Link>
+      </div>
+    ```
+
+    * Add a new `Link` component for "Support".
+
+    ```html
+    <div className='flex items-center space-x-6'>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-8 w-8 text-purple-500">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+        </svg>
+        <Link href={'/'} className='text-2xl font-extrabold'>CodeVibe</Link>
+        <Link href={'/contest'} className='text-white'>Contest</Link>
+        <Link href={'/discussion'} className='text-white'>Discussion</Link>
+        <Link href={'/progress'} className='text-white'>Progress</Link>
+        <Link href={'/support'} className='text-white'>Support</Link>
+      </div>
+    ```
+
+**Success Check:** Successfully modify the application's layout using React Server Components. Verify that the new element is displayed correctly in the app bar or footer.  If you made changes to the Footer, verify that the component is still functioning as an RSC (no client-side errors).
+
+## ✅ Chapter Summary
+
+In this chapter, you learned how to leverage React Server Components to define the layout structure of your application. You explored the role of `app/layout.tsx` as the root layout, and how to create shared components like `AppBar` and `Footer`. You also practiced modifying these components, understanding the difference between RSCs and Client Components, and how to choose the right type for optimal performance. You now understand the key concepts for optimizing initial load times and improving the overall user experience.
+
+## 👉 Up Next
+
+Next, we'll delve into data fetching with React Server Components, exploring how to efficiently retrieve and display data directly on the server.
+
+---
+
+<a name="chapter-8-ui-component-abstraction-with-radix-ui-and-tailwind-css:-building-reusable-components"></a>
+
+---
+
+# UI Component Abstraction with Radix UI and Tailwind CSS: Building Reusable Components
+
+## 🎯 Chapter Objective
+After this chapter, you will be able to create reusable and styled UI components using Radix UI primitives and Tailwind CSS.
+
+**Time to Complete:** 60 minutes
+
+## 💡 Why This Matters
+
+As developers, we strive for efficient and maintainable code. Directly using raw HTML elements and writing custom CSS for every button, input, or dialog box leads to code duplication, inconsistency, and increased maintenance overhead.
+
+Component abstraction using tools like Radix UI and Tailwind CSS solves these problems. Radix UI provides accessible, unstyled UI primitives, and Tailwind CSS offers a utility-first CSS framework. By combining them, we can create reusable, styled components that are consistent across our applications. This results in:
+
+*   **Reduced Code Duplication:** Define a component once and reuse it throughout your project.
+*   **Improved Consistency:** Ensure a uniform look and feel across your application.
+*   **Easier Maintenance:** Changes to a component's style or behavior are reflected everywhere it's used.
+*   **Faster Development:** Leverage pre-built primitives and utility classes to build UIs quickly.
+*   **Enhanced Accessibility:** Radix UI primitives are built with accessibility in mind.
+
+This chapter will guide you through creating these reusable components, improving your workflow and the quality of your code.
+
+## 🎨 Visual Overview
+```mermaid
+flowchart LR
+    subgraph Radix_UI
+        Radix["Radix UI\n(Unstyled Primitives)"]
+    end
+    subgraph Tailwind_CSS
+        Tailwind["Tailwind CSS\n(Utility Classes)"]
+    end
+    subgraph React_Component
+        Abstracted["Abstracted\nReact Component"]
+    end
+    Radix --> Abstracted
+    Tailwind --> Abstracted
+    style Radix fill:#f9f,stroke:#333,stroke-width:2px
+    style Tailwind fill:#ccf,stroke:#333,stroke-width:2px
+    style Abstracted fill:#cfc,stroke:#333,stroke-width:2px
+```
+
+## 🧠 Core Concepts
+
+Let's break down the core concepts involved in UI component abstraction:
+
+*   **UI Primitives:** These are basic, unstyled UI elements that provide the fundamental functionality of a component (e.g., a button, a checkbox, a dialog). Radix UI provides a library of accessible UI primitives.
+
+    *   **Example:** The `DialogPrimitive.Root` and `DialogPrimitive.Trigger` components from `@radix-ui/react-dialog` in the `components/ui/dialog.tsx` file. They provide the basic structure and behavior of a dialog without any styling.
+
+*   **Utility-First CSS:** A CSS approach where styles are applied using small, single-purpose utility classes (e.g., `bg-red-500`, `text-lg`, `font-bold`). Tailwind CSS is a popular utility-first CSS framework.
+
+    *   **Example:** In `components/ui/button.tsx`, Tailwind CSS classes like `bg-primary`, `text-primary-foreground`, and `rounded-md` are used to style the button.
+
+*   **Component Composition:** Combining UI primitives and utility classes to create a higher-level, reusable component.
+
+    *   **Example:** The `Button` component in `components/ui/button.tsx` combines the `Slot` primitive from `@radix-ui/react-slot` (or a standard `<button>` element) with Tailwind CSS classes to create a styled button.
+
+*   **Variants:** Defining different styles or behaviors for a component based on props.
+
+    *   **Example:** The `buttonVariants` function in `components/ui/button.tsx` uses the `class-variance-authority` library to define different variants for the button's `variant` (e.g., "default", "destructive", "outline") and `size` (e.g., "default", "sm", "lg").
+
+*   **`cn` Utility:**  A utility function (often named `cn` or `cx`) that simplifies the process of conditionally applying CSS classes.  It's especially useful when dealing with component variants and dynamic styling. The provided code uses `cn` from `@/lib/utils`.
+
+    *   **Example:** In `components/ui/button.tsx`, `cn(buttonVariants({ variant, size, className }))` combines the base button styles with the styles for the specified variant and size, and any additional classes passed through the `className` prop.
+
+## 💻 Code Deep Dive
+
+Let's analyze the code for the `Button` component in `components/ui/button.tsx` to understand how these concepts are applied:
+
+```typescript
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -539,20 +1550,19 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
         default:
           "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
         destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-background dark:border-input dark:hover:bg-input/50",
+          "border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
         secondary:
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-        ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
@@ -593,1731 +1603,1355 @@ function Button({
 export { Button, buttonVariants }
 ```
 
-*   **Imports:**  The code imports necessary modules from React, `@radix-ui/react-slot`, `class-variance-authority`, and a utility function `cn` (likely for conditional class names).
-
-*   **`buttonVariants` (cva):** This is where the magic happens. `cva` defines the different visual styles for the `Button` component.
-
-    *   The first argument is a string of base CSS classes that apply to all button variants.
-    *   The second argument is an object defining the variants.  In this case, there are `variant` and `size` variants.
-    *   `variant` defines different button styles (default, destructive, outline, secondary, ghost, link). Each style is associated with a set of Tailwind CSS classes.
-    *   `size` defines different button sizes (default, sm, lg, icon).
-    *   `defaultVariants` sets the default values for the `variant` and `size` props.
-
-*   **`Button` Component:** This is the React component that renders the button.
-
-    *   It accepts props like `className`, `variant`, `size`, and `asChild`.
-    *   `asChild` uses the `<Slot>` component to conditionally render the button as a different element, allowing you to pass in a custom element like a `Link` from `next/link`.
-    *   The `cn` function combines the base CSS classes, the variant-specific CSS classes (determined by the `variant` and `size` props), and any additional `className` passed to the component. This allows for flexible customization.
-    *   The component returns either a standard `<button>` element or the element passed in using the `<Slot>` component, with the appropriate CSS classes applied.
-
-## 🧑‍💻 Hands-On Practice
-
-**Exercise: Create a custom button component using Radix UI's `<Button>` primitive and style it using Tailwind CSS classes. Modify the button's appearance and behavior.**
-
-**Instructions:**
-
-1.  **Review the existing `Button` component:** Understand how the `cva` function is used to define variants and how the `Button` component renders the button with the appropriate classes.
-2.  **Modify the `buttonVariants`:**
-    *   **Add a new `variant` called "primary-alt"**:  Give it a different background color and text color. For example: `primary-alt: "bg-green-500 text-white hover:bg-green-700"`.
-    *   **Add a new `size` called "xl"**:  Make it larger than the `lg` size. For example: `xl: "h-12 rounded-md px-8 text-lg"`.
-3.  **Use the new variants in your application:**  Import the `Button` component and use it with the `variant="primary-alt"` and `size="xl"` props.  For example:
-
-    ```tsx
-    import { Button } from "@/components/ui/button";
-
-    function MyComponent() {
-      return (
-        <Button variant="primary-alt" size="xl">
-          Click Me!
-        </Button>
-      );
-    }
-    ```
-
-4.  **Experiment with other Tailwind CSS classes:**  Modify the existing variants or add new ones to further customize the button's appearance. Try changing the font, padding, margin, or border radius.
-
-**Success Check:** Successfully create and style a custom UI component using Radix UI and Tailwind CSS, and successfully render it in your application. The button should visually reflect the changes you made to the `buttonVariants`.
-
-## ✅ Chapter Summary
-
-In this chapter, you learned how to create reusable UI components using Radix UI primitives and Tailwind CSS. Key takeaways include:
-
-*   Radix UI provides unstyled, accessible UI primitives.
-*   Tailwind CSS offers a utility-first approach to styling.
-*   `class-variance-authority` (cva) simplifies managing component variants.
-*   Combining these technologies allows you to build robust, maintainable, and visually appealing UI libraries.
-*   Reusability is crucial for efficient web development.
-
-## 👉 Up Next
-
-In the next chapter, we'll dive deeper into state management using Zustand, allowing you to create more interactive and dynamic UI components.
-
----
-
-<a name="chapter-4-building-utility-functions:-streamlining-your-code"></a>
-
----
-
-# Building Utility Functions: Streamlining Your Code
-
-## 🎯 Chapter Objective
-After this chapter, you will be able to create and use utility functions for common tasks like date formatting and string manipulation.
-
-**Time to Complete:** 20 minutes
-
-## 🤔 Why This Matters
-
-As your projects grow in complexity, you'll often find yourself repeating the same code snippets across different components and modules. This not only makes your codebase larger and harder to maintain but also increases the risk of introducing bugs when you need to make changes. Utility functions are reusable, independent modules that encapsulate common tasks, promoting code reusability, maintainability, and readability. They help you adhere to the DRY (Don't Repeat Yourself) principle, leading to cleaner, more efficient code. Think of them as small, specialized tools in your developer toolkit.
-
-## 🎨 Visual Overview
-
-Imagine a toolbox filled with specialized tools. Each tool (utility function) performs a specific task, such as formatting a date, manipulating a string, or validating input. Instead of building these tools from scratch every time you need them, you simply reach into your toolbox and grab the appropriate one. This saves you time and ensures consistency across your project.
-
-[Insert Visual: A picture of a toolbox with labeled tools like "DateFormat", "StringTrim", "EmailValidator", etc.]
-
-## 🧠 Core Concepts
-
-*   **Utility Function:** A reusable, self-contained function that performs a specific task. It should ideally be independent of any particular component or module, making it easy to use in different parts of your application.
-*   **DRY (Don't Repeat Yourself):** A principle of software development aimed at reducing repetition of code. Utility functions are a key tool for achieving DRY.
-*   **Modularity:** Breaking down your code into smaller, independent modules (like utility functions) makes it easier to understand, test, and maintain.
-*   **Reusability:** Utility functions can be used in multiple components or modules, saving you time and effort.
-*   **Consistency:** Using utility functions ensures that common tasks are performed consistently throughout your application. For example, all dates will be formatted in the same way.
-
-## 💻 Code Deep Dive
-
-Let's examine the provided `lib/utils.ts` file. It already contains a utility function:
-
-```typescript
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-```
-
 **Explanation:**
 
-*   **`import { clsx, type ClassValue } from "clsx"`:** This line imports the `clsx` function and `ClassValue` type from the `clsx` library. `clsx` is a utility for conditionally joining class names together, which is very useful when working with CSS.
-*   **`import { twMerge } from "tailwind-merge"`:** This line imports the `twMerge` function from the `tailwind-merge` library. `tailwind-merge` is specifically designed to resolve Tailwind CSS class conflicts, ensuring that the correct styles are applied.
-*   **`export function cn(...inputs: ClassValue[]) { ... }`:** This defines a function named `cn` (short for "class names") that accepts a variable number of arguments (`...inputs`). The `ClassValue[]` type indicates that these arguments should be values that can be used as CSS class names (e.g., strings, objects, arrays).
-*   **`return twMerge(clsx(inputs))`:** This is the core of the function. It first uses `clsx(inputs)` to combine all the input arguments into a single string of class names, handling any conditional logic. Then, it passes this string to `twMerge`, which resolves any Tailwind CSS class conflicts. The final result is a string containing the merged and conflict-resolved class names, ready to be applied to an HTML element.
+1.  **Imports:**
+    *   `React`:  Imports the React library.
+    *   `Slot`:  From `@radix-ui/react-slot`. Allows the `Button` to be rendered as a different element (e.g., `<a>` tag for links) while maintaining the same styling.
+    *   `cva`: From `class-variance-authority`. Used to define component variants (different styles based on props).
+    *   `cn`:  From `@/lib/utils`. Used to conditionally apply CSS classes.
 
-**How it works:**
+2.  **`buttonVariants`:**
+    *   Uses `cva` to define the base styles and variants for the button.
+    *   The first argument to `cva` is the base class names that are always applied.
+    *   The `variants` object defines the different styles based on the `variant` and `size` props.
+    *   The `defaultVariants` object specifies the default values for the `variant` and `size` props.
 
-Imagine you have a button component and you want to conditionally apply different styles based on its state. You could use the `cn` function like this:
+3.  **`Button` Component:**
+    *   Takes `className`, `variant`, `size`, and `asChild` props.
+    *   `asChild`:  If `true`, the `Button` renders as a `Slot`, allowing you to pass in a different element as a child.
+    *   `Comp`: Determines whether to render a `Slot` or a standard `<button>` element.
+    *   The `className` prop is combined with the base styles and variant styles using the `cn` utility.
 
-```typescript
-import { cn } from "@/lib/utils"
-
-function Button({ primary, children }: { primary?: boolean; children: React.ReactNode }) {
-  return (
-    <button className={cn("px-4 py-2 rounded", primary ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700")}>
-      {children}
-    </button>
-  )
-}
-```
-
-In this example, the `cn` function combines the base class names (`px-4 py-2 rounded`) with the conditional class names based on the `primary` prop. `twMerge` ensures that if there are any conflicting Tailwind classes (e.g., different padding values), the correct ones are applied.  This makes managing CSS classes much cleaner and easier.
+4.  **Return Value:**
+    *   Renders a `<Comp>` element (either a `Slot` or a `<button>`) with the combined CSS classes and any other props passed to the component.
 
 ## 🧑‍💻 Hands-On Practice
 
-**Exercise: Create a utility function to format dates into a user-friendly format. Use this function to display dates in a component.**
+**Exercise: Customize the style of a button using Tailwind CSS classes.**
 
 **Steps:**
 
-1.  **Create a `formatDate` function in `lib/utils.ts`:**
+1.  **Locate the `Button` component:** Open the `components/ui/button.tsx` file in your project.
+2.  **Add a new variant:** Inside the `buttonVariants` function, add a new variant to the `variant` object. Let's call it "special". This variant should have a purple background and white text.
 
 ```typescript
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-
-export function formatDate(date: Date | string | number): string {
-  const d = new Date(date);
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-}
+variant: {
+  default:
+    "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+  destructive:
+    "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
+  outline:
+    "border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
+  secondary:
+    "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+  ghost: "hover:bg-accent hover:text-accent-foreground",
+  link: "text-primary underline-offset-4 hover:underline",
+  special: "bg-purple-500 text-white hover:bg-purple-700" // Add this line
+},
 ```
 
-2.  **Import and use the `formatDate` function in a component:**  Let's assume you have a component called `MyComponent`.
+3.  **Use the new variant:** In your application, import the `Button` component and use the new "special" variant.  For example, in a page component:
 
 ```typescript
-// components/MyComponent.tsx
-import { formatDate } from "@/lib/utils";
-
-interface MyComponentProps {
-    date: Date | string | number;
-}
-
-const MyComponent: React.FC<MyComponentProps> = ({ date }) => {
-  const formattedDate = formatDate(date);
-
-  return (
-    <div>
-      <p>Formatted Date: {formattedDate}</p>
-    </div>
-  );
-};
-
-export default MyComponent;
-```
-
-3.  **Pass a date to the component:**
-
-```typescript
-// Example usage in a page or another component:
-import MyComponent from "@/components/MyComponent";
+import { Button } from "@/components/ui/button"
 
 export default function Page() {
-  const myDate = new Date(); // Current date
   return (
-    <div>
-      <MyComponent date={myDate} />
-    </div>
-  );
+    <Button variant="special">Special Button</Button>
+  )
 }
 ```
 
-**Explanation:**
+4. **Test the styling:** Run your application and view the page where you've added the button. You should see a button with a purple background and white text. Experiment with different Tailwind CSS classes to customize the button further.
 
-*   The `formatDate` function takes a `Date` object, a date string, or a timestamp as input.
-*   It creates a new `Date` object from the input.
-*   It extracts the year, month, and day from the `Date` object.
-*   It formats the date as `YYYY-MM-DD`.
-*   The component imports the `formatDate` function and uses it to format the date before displaying it.
-
-**Success Check:** Successfully create and use a utility function to format data. Your component should display the formatted date in the `YYYY-MM-DD` format.  Try changing the format inside the `formatDate` function to see how it affects the output.
+**Success Check:** Successfully customize the style of a button using Radix UI, `class-variance-authority`, and Tailwind CSS. You should have a new button variant with custom styling.
 
 ## ✅ Chapter Summary
 
-In this chapter, you learned about the importance of utility functions in streamlining your code. You explored the concepts of reusability, modularity, and the DRY principle. You also practiced creating and using a utility function to format dates, demonstrating how these functions can improve code maintainability and readability.
+In this chapter, you learned how to abstract UI components using Radix UI primitives and Tailwind CSS. You can now:
+
+*   Explain the benefits of component abstraction.
+*   Identify and utilize Radix UI primitives.
+*   Apply Tailwind CSS utility classes to style components.
+*   Create component variants using `class-variance-authority`.
+*   Use the `cn` utility to conditionally apply CSS classes.
+*   Build reusable UI components that are consistent and maintainable.
 
 ## 👉 Up Next
 
-In the next chapter, we'll delve into **Handling API Requests: Fetching and Displaying Data**, where you will learn how to make API requests to fetch data and display it in your components. This will build upon your understanding of utility functions by showing how they can be used to process API responses.
+Next, we'll explore advanced component patterns, including compound components and render props, to create even more flexible and reusable UI elements.
 
 ---
 
-<a name="chapter-5-managing-application-state-with-zustand:-a-simplified-approach"></a>
+<a name="chapter-9-centralized-state-management-with-zustand:-sharing-data-between-components"></a>
 
 ---
 
-# Managing Application State with Zustand: A Simplified Approach
+# Centralized State Management with Zustand: Sharing Data Between Components
 
 ## 🎯 Chapter Objective
-After this chapter, you will be able to manage application state using Zustand, including creating stores, defining state variables, and updating state from components.
+After this chapter, you will be able to manage application state using Zustand, providing a simple solution for sharing data between components.
 
-**Time to Complete:** 30 minutes
+**Time to Complete:** 45 minutes
 
 ## 💡 Why This Matters
 
-Managing application state effectively is crucial for building robust and maintainable web applications. Traditional state management solutions like Redux can be complex and require significant boilerplate code. Zustand offers a simpler, more streamlined approach, reducing the learning curve and development time. By understanding Zustand, you can efficiently handle application state in React components with minimal code, leading to cleaner, more readable, and easier-to-maintain applications.  It's particularly beneficial for smaller to medium-sized projects, or even within specific modules of larger projects, where the complexity of Redux might be overkill.
+Centralized state management is crucial for building maintainable and scalable applications. Without it, passing data between components becomes cumbersome, leading to "prop drilling" and tightly coupled components. Zustand simplifies this process by providing a lightweight and easy-to-use solution for managing application state in a single, accessible location. This makes your code more organized, easier to debug, and allows components to react to state changes without complex prop passing. Imagine building a large e-commerce application; using Zustand can help manage user authentication, shopping cart data, and product details across various components seamlessly.
 
 ## 🎨 Visual Overview
-
-Imagine a central "store" that holds all the important data for your application. Components can "subscribe" to this store to get updates whenever the data changes.  When a component needs to change the data, it can "dispatch" an action to the store, which updates the data and notifies all the subscribed components. Zustand simplifies this process by providing a hook-based API for creating and interacting with the store.
-
-[Visualize a diagram showing a central Zustand store with components subscribing to it and dispatching updates. Show arrows indicating data flow.]
+```mermaid
+flowchart LR
+    A["Component A (e.g., User Profile)"] -- Uses User Data --> B["useUserStore (Zustand)"]
+    B -- Updates User Data --> C["Component B (e.g., Dashboard)"]
+    style B fill:#ccf,stroke:#333,stroke-width:2px
+```
 
 ## 🧠 Core Concepts
 
-Zustand revolves around a few core concepts:
+*   **State Management:** Managing the data that drives your application's UI and behavior.
+*   **Centralized Store:** A single source of truth for your application's state, making it accessible to any component.
+*   **Zustand:** A small, fast, and unopinionated state management library for React. It uses simplified flux principles.
+*   **Store Creation:** Zustand uses the `create` function to define a store. This function accepts a function that returns an object representing the store's state and actions.
+*   **Selectors:** Functions that allow components to subscribe to specific parts of the store's state, preventing unnecessary re-renders.
+*   **Mutations:** Functions that update the store's state.  In Zustand, these are typically defined directly within the store creation function using the `set` function provided by Zustand.
 
-*   **Store:** The central container for your application's state. It holds the data and the functions (actions) that modify the data.
-
-*   **State:** The actual data that your application uses. This can be anything from user information to UI settings.
-
-*   **Actions:** Functions that update the state. These are typically triggered by user interactions or asynchronous operations.
-
-*   **`create` function:** Zustand's main function for creating a store. It takes a function that defines the store's initial state and actions.
-
-*   **Hooks:** Zustand uses React hooks to allow components to easily access and update the state in the store.  You create a custom hook using the `create` function.
-
-*   **Selectors:** Optional functions that allow you to select specific parts of the state from the store. This can improve performance by preventing components from re-rendering when only a small part of the state changes.
-
-*   **`set` function:** Provided within the `create` function's callback, `set` is used to update the state.  It can accept a new state object or a function that receives the current state and returns the new state.  The latter approach is crucial for dealing with asynchronous updates and avoiding race conditions.
-
-*   **`get` function:** (Less commonly used but still important) Provided within the `create` function's callback, `get` allows you to access the current state within your actions. This can be useful for complex state updates that depend on the current state.
-
-*   **Middleware:** Zustand supports middleware, which are functions that wrap around the `set` function, allowing you to add functionality like logging, persistence, or undo/redo functionality.  The `persist` middleware shown in the provided code is a prime example.
-
-## 💻 Code Deep Dive
-
-Let's examine the provided code snippets to understand how Zustand works in practice.
-
-**File: `store/internshipStore.js`**
-
-```javascript
-// store/internshipStore.ts
-import { create } from 'zustand';
-
-export const useInternshipStore = create((set) => ({
-  internships: [],
-  currentDraft: {},
-  addInternship: (internship) =>
-    set((state) => ({
-      internships: [...state.internships, internship],
-      currentDraft: {},
-    })),
-  updateDraft: (data) =>
-    set((state) => ({
-      currentDraft: { ...state.currentDraft, ...data },
-    })),
-  clearDraft: () => set({ currentDraft: {} }),
-}));
-```
-
-*   **`import { create } from 'zustand';`**: This line imports the `create` function from the Zustand library.
-
-*   **`export const useInternshipStore = create((set) => ({ ... }));`**: This is where the store is created.  `create` takes a function as an argument. This function receives the `set` function, which is used to update the state. The return value of this function is an object that defines the initial state and actions of the store.  The store is exported as a custom hook `useInternshipStore`.
-
-*   **`internships: [], currentDraft: {}`**: This defines the initial state of the store.  `internships` is an array that will hold internship objects, and `currentDraft` is an object used to store data while creating a new internship.
-
-*   **`addInternship: (internship) => set((state) => ({ internships: [...state.internships, internship], currentDraft: {}, }))`**: This defines the `addInternship` action. It takes an `internship` object as an argument and uses the `set` function to update the `internships` array by adding the new internship to it.  Crucially, it uses the functional form of `set` `set((state) => ...)` which receives the current state as an argument. This is the recommended approach for updating state based on previous state, as it avoids potential race conditions. It also clears the `currentDraft` after adding the internship.
-
-*   **`updateDraft: (data) => set((state) => ({ currentDraft: { ...state.currentDraft, ...data } }))`**: This defines the `updateDraft` action. It takes a `data` object as an argument and uses the `set` function to update the `currentDraft` object by merging the new data with the existing data.  Again, it uses the functional form of `set` for safe state updates.
-
-*   **`clearDraft: () => set({ currentDraft: {} })`**: This defines the `clearDraft` action. It uses the `set` function to reset the `currentDraft` object to an empty object.  This version of `set` uses the direct object replacement which is fine since it doesn't rely on the previous state.
-
-**File: `store/signUpStore.js`**
-
-```javascript
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-
-export const useUserStore = create(
-  persist(
-    (set, get) => ({
-      users: [],
-      currentUser: null,
-
-      addUser: (userData) => set((state) => ({ 
-        users: [...state.users, userData] 
-      })),
-
-      setCurrentUser: (user) => set({ currentUser: user }),
-
-      updateUser: (updatedUser) =>
-        set((state) => ({
-          currentUser: updatedUser,
-          users: state.users.map((user) =>
-            user._id === updatedUser._id ? updatedUser : user
-          ),
-        })),
-
-      logout: () => {
-        set({ currentUser: null });
-        localStorage.removeItem('user-storage');
-        localStorage.removeItem('authToken');
-        localStorage.removeItem('userId');
-      },
-    }),
-    {
-      name: 'user-storage',
-      storage: {
-        getItem: (name) => {
-          const str = localStorage.getItem(name);
-          if (!str) return null;
-          const { state } = JSON.parse(str);
-          return {
-            state: {
-              ...state,
-              currentUser: state.currentUser ? JSON.parse(state.currentUser) : null,
-            },
-          };
-        },
-        setItem: (name, value) => {
-          localStorage.setItem(
-            name,
-            JSON.stringify({
-              ...value,
-              state: {
-                ...value.state,
-                currentUser: JSON.stringify(value.state.currentUser),
-              },
-            })
-          );
-        },
-        removeItem: (name) => localStorage.removeItem(name),
-      },
-    }
-  )
-);
-```
-
-*   **`import { persist } from 'zustand/middleware';`**: This imports the `persist` middleware from Zustand. Middleware allows you to extend the functionality of your store.
-
-*   **`persist(...)`**: This wraps the store creation function with the `persist` middleware. This middleware automatically saves the store's state to local storage and rehydrates it when the application reloads. This allows the user's data to persist across sessions.
-
-*   **`name: 'user-storage'`**: This specifies the key used to store the state in local storage.
-
-*   **`storage: { ... }`**: This configures how the state is stored and retrieved from local storage.  The custom `getItem` and `setItem` functions handle serializing and deserializing the `currentUser` to ensure correct data type handling. This is a critical detail when dealing with complex objects in local storage.
-
-*   **`users: [], currentUser: null`**: This defines the initial state. `users` is an array of user objects, and `currentUser` represents the currently logged-in user.
-
-*   **`addUser: (userData) => set((state) => ({ users: [...state.users, userData] }))`**: Adds a new user to the `users` array.
-
-*   **`setCurrentUser: (user) => set({ currentUser: user })`**: Sets the `currentUser` state. This uses the direct object replacement.
-
-*   **`updateUser: (updatedUser) => set((state) => ({ currentUser: updatedUser, users: state.users.map((user) => user._id === updatedUser._id ? updatedUser : user), }))`**: Updates an existing user in the `users` array and updates the `currentUser` if it's the same user. It uses `.map` to find and replace the user based on their `_id`.
-
-*   **`logout: () => { ... }`**: Logs the user out by setting `currentUser` to `null` and removing the user-related data from local storage.  It's important to clear all relevant local storage keys to ensure a clean logout.
-
-**Using the stores in a component (example):**
-
-```javascript
-import { useInternshipStore } from './store/internshipStore';
-import { useUserStore } from './store/signUpStore';
-
-function MyComponent() {
-  const internships = useInternshipStore((state) => state.internships);
-  const addInternship = useInternshipStore((state) => state.addInternship);
-  const currentUser = useUserStore((state) => state.currentUser);
-  const logout = useUserStore((state) => state.logout);
-
-  const handleAddInternship = () => {
-    const newInternship = { title: "Software Engineer Intern", company: "Acme Corp" };
-    addInternship(newInternship);
-  };
-
-  const handleLogout = () => {
-    logout();
-  };
-
-  return (
-    <div>
-      <h2>Internships</h2>
-      <ul>
-        {internships.map((internship, index) => (
-          <li key={index}>{internship.title} at {internship.company}</li>
-        ))}
-      </ul>
-      <button onClick={handleAddInternship}>Add Internship</button>
-
-      {currentUser && (
-        <div>
-          <p>Logged in as: {currentUser.name}</p>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      )}
-    </div>
-  );
-}
-
-export default MyComponent;
-```
-
-This example shows how to use the custom hooks `useInternshipStore` and `useUserStore` to access the state and actions from the stores. Note the use of selectors `(state) => state.internships` to subscribe to only the specific parts of the state that the component needs. This helps optimize performance by preventing unnecessary re-renders.
-
-## 🧑‍💻 Hands-On Practice
-
-**Exercise: Create a Zustand store to manage a simple counter. Implement buttons to increment and decrement the counter, updating the state in the store.**
-
-1.  **Create a new file named `store/counterStore.js` (or `.ts` if using TypeScript).**
-2.  **Import the `create` function from Zustand.**
-3.  **Create a store using the `create` function. The store should have the following:**
-    *   An initial state with a `count` variable set to 0.
-    *   An `increment` action that increments the `count` variable.
-    *   A `decrement` action that decrements the `count` variable.
-4.  **Export a custom hook named `useCounterStore` that uses the created store.**
-5.  **In a React component (e.g., `App.js`), import the `useCounterStore` hook.**
-6.  **Use the hook to access the `count`, `increment`, and `decrement` values from the store.**
-7.  **Display the current `count` value in the component.**
-8.  **Create two buttons: one for incrementing and one for decrementing the counter. Attach the `increment` and `decrement` actions to the buttons' `onClick` handlers.**
-
-**Example `store/counterStore.js`:**
+**Example:**
 
 ```javascript
 import { create } from 'zustand';
 
-export const useCounterStore = create((set) => ({
+const useMyStore = create((set) => ({
   count: 0,
   increment: () => set((state) => ({ count: state.count + 1 })),
   decrement: () => set((state) => ({ count: state.count - 1 })),
 }));
+
+export default useMyStore;
 ```
 
-**Example `App.js`:**
+In this example:
+
+*   `useMyStore` is a custom hook that provides access to the store.
+*   `count` is a state variable.
+*   `increment` and `decrement` are actions that modify the `count` state.
+*   `set` is a function provided by Zustand that allows you to update the state.
+
+## 💻 Code Deep Dive
+
+Let's analyze the provided `userStore.js` and `codeEditorStore.js` files.
+
+**1. `userStore.js`**
 
 ```javascript
-import { useCounterStore } from './store/counterStore';
+// userStore.js
+import { create } from 'zustand';
 
-function App() {
-  const count = useCounterStore((state) => state.count);
-  const increment = useCounterStore((state) => state.increment);
-  const decrement = useCounterStore((state) => state.decrement);
+const useUserStore = create((set) => ({
+  user: null,
+  token: null,
+
+  // Initialize from localStorage
+  initialize: () => {
+    if (typeof window !== 'undefined') {
+      const storedUser = localStorage.getItem('codevibe-user');
+      const storedToken = localStorage.getItem('codevibe-token');
+      set({ 
+        user: storedUser ? JSON.parse(storedUser) : null,
+        token: storedToken || null
+      });
+    }
+  },
+
+  // Set both user and token
+  setAuth: (user, token) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('codevibe-user', JSON.stringify(user));
+      localStorage.setItem('codevibe-token', token);
+    }
+    set({ user, token });
+  },
+
+  // Update just user data
+  setUser: (user) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('codevibe-user', JSON.stringify(user));
+    }
+    set({ user });
+  },
+
+  // Clear auth data
+  logout: () => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('codevibe-user');
+      localStorage.removeItem('codevibe-token');
+    }
+    set({ user: null, token: null });
+  },
+
+  // Add contest to user's contests
+  addContest: (contest) => {
+    set((state) => {
+      if (!state.user) return state;
+      
+      const updatedUser = {
+        ...state.user,
+        contests: [...(state.user.contests || []), contest]
+      };
+
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('codevibe-user', JSON.stringify(updatedUser));
+      }
+
+      return { user: updatedUser };
+    });
+  }
+}));
+
+export default useUserStore;
+```
+
+*   **`create(callback)`:**  This function from Zustand creates the store. The `callback` function receives `set` as an argument.
+*   **`set(updater)`:** This function updates the state.  The `updater` can be either an object representing the new state, or a function that receives the current state as an argument and returns an object representing the new state.
+*   **`user` and `token`:** These are state variables that store user information and authentication token.
+*   **`initialize()`:** This function initializes the store from `localStorage` when the application loads.  It checks if `window` is defined to ensure it runs in a browser environment.
+*   **`setAuth(user, token)`:** This function sets both the `user` and `token` in the store and `localStorage`.
+*   **`setUser(user)`:** This function updates the `user` data in the store and `localStorage`.
+*   **`logout()`:**  This function clears the `user` and `token` from the store and `localStorage`.
+*   **`addContest(contest)`:** This function adds a contest to the user's `contests` array. It also updates the user data in `localStorage`.
+
+**2. `codeEditorStore.js`**
+
+```javascript
+import { create } from 'zustand';
+
+const useCodeEditorStore = create((set) => ({
+  runCount: 0,
+  setRunCount: (count) => set({ runCount: count }),
+  useLanguage: "javascript",
+  setUseLanguage: (language) => set({ useLanguage: language }),
+  userCode: "",
+  setUserCode: (code) => set({ userCode: code }),
+  adminKey: "",
+  setadminKey: (key) => set({ adminKey: key }),
+  adminExplaination: "",
+  setAdminExplaination: (explanation) => set({ adminExplaination: explanation }),
+}));
+
+export default useCodeEditorStore;
+```
+
+*   **`runCount`:** Stores the number of times the code has been run.
+*   **`useLanguage`:** Stores the selected programming language.
+*   **`userCode`:** Stores the user's code.
+*   **`adminKey`:** Stores an admin key (likely for authentication or authorization).
+*   **`adminExplaination`:** Stores an explanation provided by an admin.
+*   The `set[VariableName]` functions update the corresponding state variables. For example, `setRunCount` updates the `runCount` state.
+
+**How to use these stores in a component:**
+
+```javascript
+import useUserStore from './store/userStore';
+import useCodeEditorStore from './store/codeEditorStore';
+
+function MyComponent() {
+  const { user, logout } = useUserStore();
+  const { userCode, setUserCode } = useCodeEditorStore();
 
   return (
     <div>
-      <h1>Counter: {count}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      {user ? (
+        <>
+          <p>Welcome, {user.username}!</p>
+          <button onClick={logout}>Logout</button>
+        </>
+      ) : (
+        <p>Please login.</p>
+      )}
+      <textarea value={userCode} onChange={(e) => setUserCode(e.target.value)} />
     </div>
   );
 }
 
-export default App;
+export default MyComponent;
 ```
 
-**Success Check:** Successfully create and use a Zustand store to manage application state. You should be able to increment and decrement the counter by clicking the buttons, and the displayed count should update accordingly.
+In this example, `MyComponent` uses the `useUserStore` and `useCodeEditorStore` hooks to access the `user`, `logout`, `userCode`, and `setUserCode` from the stores. It displays a welcome message if the user is logged in and allows the user to enter code in a `textarea`.
+
+## 🧑‍💻 Hands-On Practice
+
+**Exercise: Add a new state variable to the `codeEditorStore` and update it from a component.**
+
+**Steps:**
+
+1.  **Modify `codeEditorStore.js`:** Add a new state variable called `fontSize` with a default value of `14`. Also, add a function to update this variable.
+
+2.  **Create the variable and its setter:** Open `store/codeEditorStore.js` and add the following lines inside the `create` function's callback:
+
+    ```javascript
+      fontSize: 14,
+      setFontSize: (size) => set({ fontSize: size }),
+    ```
+
+3.  **Update a component:** In `MyComponent.js` (or any component where you want to use this state), import `useCodeEditorStore` and use the new `fontSize` state and `setFontSize` function. Add a slider to control the font size.
+
+**Clear, actionable tasks:**
+
+1.  **Open `store/codeEditorStore.js` and add the `fontSize` state and `setFontSize` action.**
+2.  **Open `MyComponent.js` (or your chosen component) and import `useCodeEditorStore`.**
+3.  **Destructure `fontSize` and `setFontSize` from the hook.**
+4.  **Add an input range (`<input type="range" ... />`) to control the `fontSize`.**
+5.  **Style the `textarea` (or other code editor component) to use the `fontSize` state.**
+
+**Example `MyComponent.js`:**
+
+```javascript
+import useUserStore from './store/userStore';
+import useCodeEditorStore from './store/codeEditorStore';
+
+function MyComponent() {
+  const { user, logout } = useUserStore();
+  const { userCode, setUserCode, fontSize, setFontSize } = useCodeEditorStore();
+
+  return (
+    <div>
+      {user ? (
+        <>
+          <p>Welcome, {user.username}!</p>
+          <button onClick={logout}>Logout</button>
+        </>
+      ) : (
+        <p>Please login.</p>
+      )}
+      <input
+        type="range"
+        min="10"
+        max="24"
+        value={fontSize}
+        onChange={(e) => setFontSize(parseInt(e.target.value))}
+      />
+      <textarea
+        value={userCode}
+        onChange={(e) => setUserCode(e.target.value)}
+        style={{ fontSize: `${fontSize}px` }}
+      />
+    </div>
+  );
+}
+
+export default MyComponent;
+```
+
+**Success Check:** Successfully add a new state variable (`fontSize`) to the `codeEditorStore` and update it from a component using a slider, changing the font size of the textarea.
 
 ## ✅ Chapter Summary
 
-In this chapter, you learned how to use Zustand for managing application state. You covered the core concepts of Zustand, including stores, state, actions, and hooks. You also analyzed code examples demonstrating how to create and use Zustand stores in a React application, including the use of the `persist` middleware. Finally, you completed a hands-on exercise to solidify your understanding of Zustand by building a simple counter application. You now understand how Zustand provides a simpler and more efficient alternative to more complex state management libraries.
+In this chapter, you learned how to use Zustand for centralized state management. You now understand:
+
+*   The importance of centralized state management for application maintainability.
+*   How Zustand simplifies state management with its lightweight and unopinionated approach.
+*   How to create Zustand stores using the `create` function.
+*   How to define state variables and actions within a Zustand store.
+*   How to access and update state from components using the custom hook returned by `create`.
+*   How to persist state using localStorage.
+
+You can now create and manage global state in your React applications using Zustand, making your code more organized and easier to maintain.
 
 ## 👉 Up Next
 
-In the next chapter, we will explore advanced techniques for using Zustand, including selectors, middleware, and how to handle asynchronous operations. We'll also dive deeper into best practices for structuring your Zustand stores and optimizing performance.
+In the next chapter, we'll explore advanced Zustand techniques, including middleware and selectors, to further optimize your state management strategy.
 
 ---
 
-<a name="chapter-6-dynamic-routes-in-next.js:-accessing-specific-resources"></a>
+<a name="chapter-10-code-editor-component-with-dynamic-id-routing:-creating-dynamic-pages"></a>
 
 ---
 
-# Dynamic Routes in Next.js: Accessing Specific Resources
+# Code Editor Component with Dynamic ID Routing: Creating Dynamic Pages
 
 ## 🎯 Chapter Objective
-After this chapter, you will be able to create and use dynamic route parameters to access specific resources, such as courses or hackathons.
+After this chapter, you will be able to implement a code editor component that is dynamically rendered based on the `id` route parameter.
+
+**Time to Complete:** 60 minutes
+
+## 💡 Why This Matters
+Dynamic routing is crucial for building modern web applications. Imagine building a documentation site where each document has its own unique URL. You wouldn't want to manually create a new page for every document! Dynamic routing allows you to create a single "template" page that renders different content based on the URL parameters, significantly reducing development time and improving maintainability. In this chapter, we'll create a code editor that loads and saves code based on a unique ID in the URL. This mimics scenarios like collaborative coding platforms (think CodePen or JSFiddle) or content management systems where each piece of content has its own unique, dynamically generated page.
+
+## 🎨 Visual Overview
+```mermaid
+flowchart TD
+    A["User navigates to /editor/[id]"] --> B["Next.js router extracts 'id'"]
+    B --> C["Code Editor component receives 'id'"]
+    C --> D["Component fetches/saves code based on 'id'"]
+    D --> E["User sees code editor with content for that 'id'"]
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#ccf,stroke:#333,stroke-width:2px
+    style C fill:#ccf,stroke:#333,stroke-width:2px
+    style D fill:#ccf,stroke:#333,stroke-width:2px
+    style E fill:#f9f,stroke:#333,stroke-width:2px
+```
+
+## 🧠 Core Concepts
+
+*   **Dynamic Routing:** The ability to create routes that include parameters. In Next.js, this is achieved using square brackets in the `pages` directory. For example, `pages/editor/[id].js` creates a route where `id` is a dynamic parameter.
+
+    *   **Example:** Visiting `/editor/123` will render the `pages/editor/[id].js` page, and the `id` parameter will be accessible within the page component.
+
+*   **`useRouter` Hook (Next.js):** This hook provides access to the router object, allowing you to access the current route, query parameters, and other router-related information.
+
+    *   **Example:**
+        ```javascript
+        import { useRouter } from 'next/router';
+
+        function EditorPage() {
+          const router = useRouter();
+          const { id } = router.query; // Access the 'id' parameter
+          // ...
+        }
+        ```
+
+*   **Component State:** Managing the state of the code editor (the code itself) is important for keeping track of changes and rendering the editor correctly.  React's `useState` hook is a common way to manage local component state.
+
+    *   **Example:**
+        ```javascript
+        import { useState } from 'react';
+
+        function CodeEditor() {
+          const [code, setCode] = useState('');
+
+          const handleCodeChange = (newCode) => {
+            setCode(newCode);
+          };
+
+          return (
+            <textarea value={code} onChange={(e) => handleCodeChange(e.target.value)} />
+          );
+        }
+        ```
+
+## 💻 Code Deep Dive
+
+Let's imagine we have a `pages/editor/[id].js` file in our Next.js project. This file will handle the dynamic routing for our code editor.
+
+```javascript
+// pages/editor/[id].js
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+
+function EditorPage() {
+  const router = useRouter();
+  const { id } = router.query;
+  const [code, setCode] = useState('');
+
+  useEffect(() => {
+    // This effect runs when the 'id' changes.
+    if (id) {
+      // Simulate fetching code from a database or local storage
+      const storedCode = localStorage.getItem(`code-${id}`) || '';
+      setCode(storedCode);
+    }
+  }, [id]);
+
+  const handleCodeChange = (event) => {
+    setCode(event.target.value);
+  };
+
+  const handleSave = () => {
+    if (id) {
+      localStorage.setItem(`code-${id}`, code);
+      alert('Code saved!');
+    } else {
+      alert('No ID provided.');
+    }
+  };
+
+  if (!id) {
+    return <p>Loading...</p>; // Or a more informative message
+  }
+
+  return (
+    <div>
+      <h1>Code Editor for ID: {id}</h1>
+      <textarea
+        value={code}
+        onChange={handleCodeChange}
+        style={{ width: '80%', height: '300px' }}
+      />
+      <button onClick={handleSave}>Save</button>
+    </div>
+  );
+}
+
+export default EditorPage;
+```
+
+**Explanation:**
+
+1.  **`import { useRouter } from 'next/router';`**: Imports the `useRouter` hook from Next.js.
+2.  **`const router = useRouter();`**:  Initializes the router object.
+3.  **`const { id } = router.query;`**: Extracts the `id` parameter from the URL.  The `router.query` object contains all the query parameters.
+4.  **`const [code, setCode] = useState('');`**: Initializes the `code` state variable to an empty string. This will hold the code in the editor.
+5.  **`useEffect(() => { ... }, [id]);`**: This `useEffect` hook runs whenever the `id` parameter changes. This is crucial for loading the correct code when the user navigates to a different editor ID.
+    *   Inside the `useEffect`, we simulate fetching the code from local storage using `localStorage.getItem(\`code-${id}\`)`.  If no code is found for that ID, we default to an empty string.
+    *   `setCode(storedCode);` updates the `code` state with the fetched code.
+6.  **`handleCodeChange(event)`**: This function is called whenever the user types in the textarea. It updates the `code` state with the new value.
+7.  **`handleSave()`**:  This function saves the current code to local storage, using the `id` as the key.
+8.  **`if (!id) { return <p>Loading...</p>; }`**: This conditional rendering ensures that the component doesn't try to render before the `id` is available from the router. This prevents potential errors.
+9.  The `return` statement renders the UI: a heading displaying the ID, a textarea for the code editor, and a save button.
+
+## 🧑‍💻 Hands-On Practice
+**Exercise: Implement a save functionality that persists the code editor content based on its ID.**
+
+**Steps:**
+
+1.  **Create the `pages/editor/[id].js` file:** Create a new file in your Next.js project at `pages/editor/[id].js`.
+2.  **Implement the basic component structure:** Start by adding the `EditorPage` component with the `useRouter` hook and a simple "Loading..." message when the `id` is not available.  See the Code Deep Dive section for the initial component structure.
+3.  **Implement the `useEffect` hook:**  Add the `useEffect` hook to load the code from `localStorage` based on the `id` parameter.  Use a key like `code-${id}` to store the code for each ID separately.  Initialize the `code` state with the loaded value. If nothing is stored in local storage, default to an empty string.
+4.  **Implement the `handleCodeChange` function:**  Create a function that updates the `code` state whenever the textarea's value changes.
+5.  **Implement the `handleSave` function:**  Create a function that saves the current `code` to `localStorage` using the `id` as part of the key. Display an alert message "Code saved!" upon successful save.
+6.  **Render the textarea and save button:**  Render the textarea with the `value` bound to the `code` state and the `onChange` event handler set to `handleCodeChange`.  Add a "Save" button with an `onClick` event handler set to `handleSave`. Style the textarea to be reasonably large.
+
+**Success Check:** Successfully create a dynamic route and persist the code editor content based on its ID. You should be able to navigate to different `/editor/[id]` URLs (e.g., `/editor/1`, `/editor/2`), edit the code in each editor, save the code, and then refresh the page to see the saved code persist.
+
+## ✅ Chapter Summary
+In this chapter, you've learned how to:
+
+*   Create dynamic routes in Next.js using the `pages/[param].js` structure.
+*   Use the `useRouter` hook to access route parameters.
+*   Implement a code editor component that dynamically loads and saves content based on the `id` parameter in the URL.
+*   Use `localStorage` to persist data.
+*   Use `useEffect` to perform side effects based on route changes.
+
+You now have a solid foundation for building more complex applications that leverage dynamic routing to create unique and personalized user experiences.
+
+## 👉 Up Next
+In the next chapter, we'll explore how to deploy your Next.js application to a production environment.
+
+---
+
+<a name="chapter-11-environment-variable-configuration-with-`next.config.ts`:-managing-application-settings"></a>
+
+---
+
+# Environment Variable Configuration with `next.config.ts`: Managing Application Settings
+
+## 🎯 Chapter Objective
+After this chapter, you will be able to configure environment variables and other settings for the Next.js application using `next.config.ts`.
 
 **Time to Complete:** 30 minutes
 
-## 🤔 Why This Matters
+## 💡 Why This Matters
 
-Dynamic routes are a cornerstone of modern web applications. Imagine building an e-commerce site; you wouldn't want to create a separate page for *every* product. Instead, you'd use a dynamic route like `/products/[productId]` to display information based on the specific `productId`. This approach significantly reduces code duplication, improves maintainability, and provides a more scalable solution. Understanding dynamic routing allows you to build complex, data-driven applications with Next.js in an efficient and organized manner.  It enables you to create reusable page templates that adapt to different data, making your application more flexible and user-friendly. This is crucial for creating a seamless user experience when navigating through resources like courses, blog posts, or product listings.
+Environment variables are crucial for managing application settings across different environments (development, staging, production).  Using `next.config.ts` allows you to securely store configuration data, such as API keys, database connection strings, and feature flags, outside of your codebase. This prevents sensitive information from being exposed in your repository and allows you to easily adapt your application's behavior based on the environment it's running in.  For example, you might want to use a mock API endpoint during development and a live API endpoint in production.  By configuring environment variables in `next.config.ts`, you can achieve this without modifying your code.
 
 ## 🎨 Visual Overview
-
-[Imagine a diagram here.  It would ideally illustrate the following:]
-
-A user clicks on a course card on the `/courses` page. The link points to `/courses/[courseId]`. Next.js recognizes the `[courseId]` as a dynamic segment. The `courseId` (e.g., "123") is extracted from the URL. This ID is then used to fetch the specific course data from a database or API. The fetched data is rendered on the `/courses/[courseId]` page, showing the details of the selected course. The same process would apply to Hackathons, Internships or any other resource you would like to display.
+```mermaid
+flowchart LR
+    subgraph Next_js_Application
+        NC["next.config.ts"]
+        Env["Environment Variables"]
+        Components["React Components"]
+    end
+    NodeJS["Node.js Environment"] --> Env
+    Env --> NC
+    NC --> Components
+    style NodeJS fill:#f9f,stroke:#333,stroke-width:2px
+    style Env fill:#ccf,stroke:#333,stroke-width:2px
+    style NC fill:#ccf,stroke:#333,stroke-width:2px
+    style Components fill:#ccf,stroke:#333,stroke-width:2px
+```
 
 ## 🧠 Core Concepts
 
-*   **Dynamic Route Segments:** In Next.js, you create dynamic routes using square brackets `[]` in your file system-based router. For example, a file named `[id].js` (or `[id]/page.tsx` in the `app` directory) within the `pages/courses` directory will create a route like `/courses/:id`, where `:id` is a dynamic parameter.
-*   **`useParams()` Hook:** The `useParams()` hook (from `next/navigation` in the `app` directory) allows you to access the values of dynamic route parameters within your components.  It returns an object containing the parameter names and their corresponding values from the URL.
-*   **Fetching Data Based on Route Parameters:** The typical workflow involves using the `useParams()` hook to get the dynamic parameter, then using that parameter to fetch data from an API or database. This data is then used to render the page content.
-*   **Route Grouping:**  In the `app` directory, parentheses `()` can be used to create route groups for organization without affecting the URL structure.  For example, `app/(root)/courses/[id]/page.tsx` means the route is still `/courses/[id]` but the file is organized within the `(root)` route group.
-*   **Error Handling:** It's important to handle cases where the data for a specific ID is not found or if there are errors during the data fetching process. Displaying informative error messages or redirecting the user to a relevant page is crucial for a good user experience.
+*   **Environment Variables:** Key-value pairs that store configuration settings outside your application code. These variables are accessible to your application at runtime.
+
+*   **`next.config.ts`:** A Next.js configuration file that allows you to customize the build process, routing, and other aspects of your application. It's the primary place to define environment variables for use in your Next.js application.
+
+*   **`process.env`:** A global object in Node.js that provides access to environment variables. Next.js automatically makes environment variables defined in `.env` files and `next.config.js` accessible through `process.env`.
+
+*   **Public vs. Private Environment Variables:**
+    *   **Public:** Accessible in the browser. These should only be used for non-sensitive data. To expose a variable to the browser, prefix it with `NEXT_PUBLIC_`.
+    *   **Private:** Only accessible on the server-side. These are used for sensitive data, such as API keys or database credentials.
 
 ## 💻 Code Deep Dive
 
-Let's analyze the provided code for `app/(root)/courses/[id]/page.tsx`:
+Let's examine how to configure environment variables using `next.config.ts`.
+
+First, modify your `next.config.ts` file to include the `env` property:
 
 ```typescript
-"use client";
+// next.config.ts
+import type { NextConfig } from "next";
 
-import { Button } from "@/components/ui/button";
-import {
-  ChevronLeft,
-  Clock,
-  User,
-  BookOpen,
-  CalendarDays,
-  Mail,
-  Phone,
-} from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useUserStore } from "@/store/signUpStore";
-import { toast } from "sonner";
-import { BASE_URL } from "@/utils/constants";
+const nextConfig: NextConfig = {
+  env: {
+    API_URL: process.env.API_URL || "http://localhost:3000/api", // Default API URL
+    NEXT_PUBLIC_APP_NAME: "My Awesome App", // Public variable
+  },
+};
 
-export default function CourseDetails() {
-  const { id } = useParams(); // Access the dynamic route parameter 'id'
-  const [course, setCourse] = useState(null); // State to store course data
-
-  useEffect(() => {
-    const fetchCourse = async () => {
-      try {
-        const res = await fetch(`${BASE_URL}/api/v1/courses/${id}`); // Fetch course data using the 'id'
-        if (!res.ok) throw new Error("Course not found");
-        const data = await res.json();
-        setCourse({
-          title: data.courseTitle,
-          coverPhoto: data.coverPhotoUrl,
-          courseLink: data.courseLink,
-          tutors: data.tutorNames,
-          postedDate: data.createdAt,
-          specialization: data.specialization,
-          duration: data.duration,
-          level: "Beginner", // Static or dynamic if needed
-          startDate: data.createdAt, // Or separate field if available
-          beneficialFor:
-            typeof data.beneficialFor === "string"
-              ? data.beneficialFor.split(",")
-              : data.beneficialFor,
-          description: data.courseDetails,
-          learningOutcomes: [], // If not available in schema
-          prerequisites: [], // If not available in schema
-          contact: {
-            email: data.email,
-            phone: data.mobile,
-          },
-        });
-      } catch (err) {
-        console.error(err);
-        toast.error("Failed to load course details.");
-      }
-    };
-    if (id) fetchCourse();
-  }, [id]);
-
-  // ... rest of the component
-}
+export default nextConfig;
 ```
 
 **Explanation:**
 
-1.  **`"use client";`**: This directive indicates that this is a Client Component, allowing the use of React hooks.
-2.  **`useParams()`**:  The `useParams()` hook is used to access the `id` parameter from the URL. This `id` will correspond to the filename `[id]` in the `app/(root)/courses/[id]/page.tsx` route.
-3.  **`useEffect()`**:  The `useEffect()` hook is used to fetch the course data when the component mounts or when the `id` parameter changes. The dependency array `[id]` ensures that the effect runs only when the `id` changes, preventing unnecessary API calls.
-4.  **Data Fetching**: Inside the `useEffect` hook, the `fetchCourse` function makes an API call to retrieve the course data using the `id` parameter.  The `BASE_URL` constant is used to construct the API endpoint. Error handling is included in the `try...catch` block, displaying a toast notification if the course is not found or if there is an error during the fetching process.
-5.  **State Management**: The `useState` hook is used to store the fetched course data.  The component initially sets `course` to `null`, and then updates it with the fetched data.
-6.  **Rendering**:  The component renders the course details using the data stored in the `course` state.  It displays information such as the course title, cover photo, tutors, specialization, duration, description, and contact information. The component also includes logic for formatting dates and handling enrollment.
-7.  **Loading State:** Before the data is fetched, a loading message is displayed.
-8.  **Enrollment:** There is logic to handle course enrollment, which requires the user to be logged in and sends a PATCH request to the backend to register the user for the course.
+1.  **`env` Property:** This object within `nextConfig` defines the environment variables that will be available to your Next.js application.
 
-The code for `app/(root)/hackathon/[id]/page.tsx` and `app/(root)/internship/[id]/page.tsx` follows a similar pattern:
+2.  **`API_URL`:** This is a private environment variable.  We're using `process.env.API_URL || "http://localhost:3000/api"` to provide a default value if the `API_URL` environment variable is not explicitly set in the environment (e.g., in a `.env` file or through system environment variables).
 
-*   Using `useParams()` to extract the `id`
-*   Using `useEffect()` to fetch data based on the `id`
-*   Using `useState()` to manage the fetched data
-*   Rendering the data dynamically
+3.  **`NEXT_PUBLIC_APP_NAME`:** This is a public environment variable because it's prefixed with `NEXT_PUBLIC_`. This variable will be accessible in the browser.
+
+**Accessing Environment Variables:**
+
+*   **Server-Side:** You can access environment variables on the server-side (e.g., in API routes, `getServerSideProps`, or `getStaticProps`) using `process.env`.
+
+    ```typescript
+    // pages/api/hello.ts
+    import type { NextApiRequest, NextApiResponse } from 'next'
+
+    export default function handler(
+      req: NextApiRequest,
+      res: NextApiResponse
+    ) {
+      const apiUrl = process.env.API_URL;
+      res.status(200).json({ message: `Hello from the API! API URL: ${apiUrl}` })
+    }
+    ```
+
+*   **Client-Side (Public Variables Only):**  You can access public environment variables in your React components using `process.env`.
+
+    ```typescript
+    // components/MyComponent.tsx
+    const MyComponent = () => {
+      const appName = process.env.NEXT_PUBLIC_APP_NAME;
+      return <div>App Name: {appName}</div>;
+    };
+
+    export default MyComponent;
+    ```
+
+**Important Considerations:**
+
+*   **`.env` Files:** For local development, you can store environment variables in `.env.local` files.  Next.js automatically loads these variables into `process.env`. Remember to add `.env.local` to your `.gitignore` file to prevent committing sensitive information to your repository.
+
+*   **Deployment Environments:** In production environments (e.g., Vercel, Netlify, AWS), you should configure environment variables through the platform's settings, not by committing `.env` files.
 
 ## 🧑‍💻 Hands-On Practice
 
-**Exercise: Create a dynamic route for displaying course details (e.g., `/courses/[id]`). Fetch dummy course data based on the `id` parameter and display it on the page.**
-
-**Instructions:**
-
-1.  **Create the Dynamic Route:**  If you don't already have it, create a file named `[id]/page.tsx` inside the `app/(root)/courses/` directory.  (If you're starting from scratch, you might also want to create a `courses` directory and a page to list all courses which links to these detail pages.)
-2.  **Implement `useParams()`:** In your `[id]/page.tsx` file, import the `useParams` hook from `next/navigation` and use it to extract the `id` parameter.
-3.  **Create a Data Fetching Function:**  Create an asynchronous function (using `async` and `await`) to fetch dummy course data based on the `id` parameter. For simplicity, you can use a hardcoded JavaScript object or array of objects as your "data source."  For example:
-
-    ```javascript
-    const dummyCourses = [
-      { id: "1", title: "Introduction to React", description: "A beginner-friendly course on React." },
-      { id: "2", title: "Advanced Next.js", description: "Learn advanced Next.js features." },
-    ];
-
-    const fetchCourse = async (id) => {
-      return dummyCourses.find((course) => course.id === id);
-    };
-    ```
-
-4.  **Use `useEffect()` to Fetch Data:**  Use the `useEffect` hook to call your data fetching function when the component mounts or when the `id` parameter changes. Store the fetched data in a state variable using `useState()`.
-5.  **Display the Data:**  Render the course details on the page using the data stored in the state variable.  Handle the case where the data is still loading (e.g., display a "Loading..." message) and the case where the course is not found (e.g., display a "Course not found" message).
-6.  **Test Your Route:**  Navigate to `/courses/1` and `/courses/2` in your browser. You should see the details for the corresponding courses. Try navigating to `/courses/3`. You should see your "Course not found" message or handle the error gracefully.
-
-**Success Check:** Successfully create and use a dynamic route parameter to fetch and display data.
-
-## ✅ Chapter Summary
-
-In this chapter, you learned how to:
-
-*   Create dynamic routes in Next.js using the `[]` syntax.
-*   Access dynamic route parameters using the `useParams()` hook.
-*   Fetch data based on dynamic route parameters.
-*   Display data dynamically on the page.
-*   Handle loading and error states.
-
-## 👉 Up Next
-
-In the next chapter, we will delve into client-side data fetching techniques to optimize performance and enhance the user experience. We will explore different strategies for fetching data in client components and discuss their trade-offs.
-
----
-
-<a name="chapter-7-displaying-data-with-reusable-cards:-creating-engaging-user-interfaces"></a>
-
----
-
-# Displaying Data with Reusable Cards: Creating Engaging User Interfaces
-
-## 🎯 Chapter Objective
-After this chapter, you will be able to create and customize reusable card components to display data related to courses, hackathons, and internships.
-
-**Time to Complete:** 45 minutes
-
-## 🤔 Why This Matters
-
-As developers, we frequently need to present information in a clear, concise, and visually appealing manner. Reusable card components are a fundamental building block for creating user interfaces. They allow us to display data in a structured way, making it easy for users to digest and interact with. Mastering card components enhances code maintainability, reduces redundancy, and improves the overall user experience. By creating reusable cards, you avoid writing the same code repeatedly, making your codebase cleaner and easier to update. This is essential for large projects and collaborative development. Furthermore, well-designed cards contribute significantly to a positive user experience, guiding the user through the information effectively.
-
-## 🎨 Visual Overview
-
-Imagine a website displaying a list of courses. Each course is presented within a card, containing the course title, a brief description, instructor name, and a visually prominent "Enroll Now" button. Similarly, hackathons can be showcased in cards with details like dates, location, prizes, and registration links.  Internship cards might feature company logos, job titles, descriptions, and application deadlines. The key is a consistent visual structure across these cards, achieved through reusable components.
-
-## 🧠 Core Concepts
-
-*   **Component Reusability:** The principle of writing code once and using it multiple times. Card components are a prime example.  Instead of writing the HTML and CSS for each individual course, hackathon, or internship display, we create a single, configurable card component.
-*   **Props (Properties):**  Props are inputs that we pass to a component, allowing us to customize its content and appearance. For example, a `CourseCard` component might accept props like `courseTitle`, `description`, `instructor`, and `imageUrl`.
-*   **Data Mapping:**  Iterating over a dataset (e.g., an array of course objects) and rendering a card component for each item in the dataset.  This is often achieved using the `map()` method in JavaScript.
-*   **Tailwind CSS:** A utility-first CSS framework that provides a set of pre-defined classes for styling HTML elements. It enables rapid UI development and consistent styling across the application.
-*   **Component Composition:** Building complex UIs by combining smaller, reusable components. For example, a page displaying courses might consist of a layout component, a header component, and multiple `CourseCard` components.
-
-## 💻 Code Deep Dive
-
-Let's examine the provided code snippets to understand how these concepts are implemented.
-
-**1. `app/(root)/courses/page.tsx`:**
-
-This file represents the Courses page.
-
-*   **Data Fetching:**  The `useEffect` hook fetches course data from an API endpoint (`${BASE_URL}/api/v1/courses`). The `useState` hook is used to manage the `courses` data and the `loading` state.
-*   **Category Grouping:** The code filters the courses array into different categories (Technology, Business, Arts & Design, Science, Health) based on the `specialization` property.
-*   **Rendering:**  The `map()` method (implicitly used by `<CarouselSliderCourse courses={techCourses} />` and others) iterates over each category's courses and renders a `CourseCard` for each course.
-*   **Category Navigation:**  The `scrollToCategory` function handles scrolling to specific category sections when the category cards are clicked.
-
-**2. `components/shared/cards/coursecard.tsx`:**
-
-This file defines the `CourseCard` component.
-
-*   **Props:**  The component accepts a `course` prop, which is an object containing the course data.
-*   **Data Destructuring:** The `course` object's properties (e.g., `courseTitle`, `description`, `instructor`, `imageUrl`) are accessed and used to populate the card's content.
-*   **Conditional Rendering:**  The code handles cases where the `coverPhotoUrl` is missing or invalid by providing a default image URL. It also handles cases where tutor names are in array format.
-*   **Tailwind CSS:**  Tailwind CSS classes are used extensively to style the card's appearance, including its layout, typography, colors, and shadows.
-*   **Navigation:**  The `useRouter` hook from `next/navigation` is used to navigate to the course details page when the "Enroll Now" button is clicked.
-
-**Key Tailwind CSS Classes in `CourseCard`:**
-
-*   `border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 h-full flex flex-col`:  Defines the card's border, rounded corners, shadow, hover effect, height, and flex layout.
-*   `p-4 flex-grow`:  Adds padding and allows the content area to grow vertically.
-*   `text-lg font-bold text-gray-900 line-clamp-1`:  Styles the course title with a large font size, bold weight, and limits it to one line.
-*   `bg-green-600 hover:bg-green-700`: Styles the button with green background color and hover effect.
-
-**3. `components/shared/cards/hackathoncard.tsx`:**
-
-This file defines the `HackathonCard` component.
-
-*   **Props:** The component takes a `hackathon` prop, which is an object containing hackathon data.
-*   **Conditional Rendering:**  Handles cases where the `logo` is missing by displaying a "No Logo" message.
-*   **Date Formatting:** The `formatDate` function formats the date strings into a user-friendly format.
-*   **Dynamic Type Display:** Uses a mapping to display the correct hackathon type based on the `hackathonType` property.
-*   **Tailwind CSS:** Similar to `CourseCard`, Tailwind CSS is used extensively for styling.
-
-**Key Tailwind CSS Classes in `HackathonCard`:**
-
-*   `bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300`:  Defines the card's background, rounded corners, shadow, hover effect, and overflow behavior.
-*   `h-40 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center`: Styles the header area with a gradient background and centers the content.
-*   `text-xl font-bold text-gray-900 mb-2 line-clamp-2`:  Styles the hackathon title with a large font size, bold weight, and limits it to two lines.
-
-## 🙌 Hands-On Practice
-
-**Exercise: Create a new type of card component to display mentor information. Customize the card's styling and layout using Tailwind CSS. Integrate it into the application.**
+**Exercise: Add a new environment variable and access it in a component.**
 
 **Steps:**
 
-1.  **Create a new file:** Create a new file named `components/shared/cards/mentorcard.tsx`.
-2.  **Define the component:**  Create a functional component named `MentorCard`.  It should accept a `mentor` prop, which is an object containing mentor data (e.g., `name`, `title`, `description`, `imageUrl`, `linkedinUrl`).
-3.  **Structure the card:**  Use HTML elements to structure the card, including an image, name, title, description, and a "Connect on LinkedIn" button.
-4.  **Apply Tailwind CSS:** Use Tailwind CSS classes to style the card's appearance. Consider the following:
-    *   Use a background color and rounded corners.
-    *   Add a shadow effect.
-    *   Style the image, name, title, and description with appropriate font sizes, colors, and weights.
-    *   Style the "Connect on LinkedIn" button.
-    *   Use flexbox or grid to arrange the elements within the card.
-5.  **Add a Link:** Use next/link to wrap the "Connect on LinkedIn" button, linking to the mentor's LinkedIn profile.
-6.  **Integrate the component:** Import the `MentorCard` component into a page in your application (e.g., a "Mentors" page) and render it with sample mentor data.  You can create a mock array of mentor objects for testing purposes.
-7.  **Customize:** Experiment with different Tailwind CSS classes to customize the card's styling and layout.
+1.  **Modify `next.config.ts`:** Add a new public environment variable called `NEXT_PUBLIC_FEATURE_FLAG` to your `next.config.ts` file. Set its value to `"enabled"`.
 
-**Example `MentorCard` component code:**
+    ```typescript
+    // next.config.ts
+    import type { NextConfig } from "next";
 
-```tsx
-import Link from 'next/link';
-import Image from 'next/image';
+    const nextConfig: NextConfig = {
+      env: {
+        API_URL: process.env.API_URL || "http://localhost:3000/api",
+        NEXT_PUBLIC_APP_NAME: "My Awesome App",
+        NEXT_PUBLIC_FEATURE_FLAG: "enabled", // New feature flag
+      },
+    };
 
-const MentorCard = ({ mentor }) => {
-  return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <div className="relative h-48 w-full">
-        <Image
-          src={mentor.imageUrl || "/default-profile.png"} // Replace with a default image
-          alt={mentor.name}
-          fill
-          style={{ objectFit: 'cover' }}
-          className="rounded-t-lg"
-        />
-      </div>
-      <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-900 mb-1">{mentor.name}</h3>
-        <p className="text-sm text-gray-500 mb-2">{mentor.title}</p>
-        <p className="text-gray-600 text-sm mb-3 line-clamp-3">{mentor.description}</p>
-        <Link href={mentor.linkedinUrl} target="_blank" rel="noopener noreferrer">
-          <div className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-center">
-            Connect on LinkedIn
-          </div>
-        </Link>
-      </div>
-    </div>
-  );
-};
+    export default nextConfig;
+    ```
 
-export default MentorCard;
-```
+2.  **Create a Component:** Create a new React component (e.g., `components/FeatureComponent.tsx`) that displays a message based on the value of `NEXT_PUBLIC_FEATURE_FLAG`.
 
-**Example Usage (in a page):**
+    ```typescript
+    // components/FeatureComponent.tsx
+    const FeatureComponent = () => {
+      const featureFlag = process.env.NEXT_PUBLIC_FEATURE_FLAG;
 
-```tsx
-import MentorCard from '@/components/shared/cards/mentorcard';
+      return (
+        <div>
+          {featureFlag === "enabled" ? (
+            <p>Feature is enabled!</p>
+          ) : (
+            <p>Feature is disabled.</p>
+          )}
+        </div>
+      );
+    };
 
-const mentors = [
-  {
-    name: 'Alice Johnson',
-    title: 'Senior Software Engineer',
-    description: 'Experienced software engineer specializing in React and Node.js.',
-    imageUrl: '/alice.jpg', // Replace with an actual image URL
-    linkedinUrl: 'https://www.linkedin.com/in/alicejohnson',
-  },
-  {
-    name: 'Bob Williams',
-    title: 'Data Scientist',
-    description: 'Passionate data scientist with expertise in machine learning and data visualization.',
-    imageUrl: '/bob.jpg', // Replace with an actual image URL
-    linkedinUrl: 'https://www.linkedin.com/in/bobwilliams',
-  },
-];
+    export default FeatureComponent;
+    ```
 
-const MentorsPage = () => {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {mentors.map((mentor) => (
-        <MentorCard key={mentor.name} mentor={mentor} />
-      ))}
-    </div>
-  );
-};
+3.  **Import and Use the Component:** Import and use the `FeatureComponent` in one of your pages (e.g., `pages/index.tsx`).
 
-export default MentorsPage;
-```
+    ```typescript
+    // pages/index.tsx
+    import FeatureComponent from '../components/FeatureComponent';
 
-**Success Check:** Successfully create and integrate a new type of card component into the application. You should see the mentor cards displayed with the specified styling and functionality.
+    const Home = () => {
+      return (
+        <div>
+          <h1>Welcome to my app!</h1>
+          <FeatureComponent />
+        </div>
+      );
+    };
+
+    export default Home;
+    ```
+
+4.  **Restart the Development Server:**  Stop and restart your Next.js development server (`npm run dev` or `yarn dev`) for the changes to take effect.
+
+**Success Check:** Successfully add and access a new environment variable in a component. You should see "Feature is enabled!" displayed on your page.
 
 ## ✅ Chapter Summary
 
-In this chapter, we explored the importance of reusable card components for building engaging user interfaces. We learned how to create and customize card components using props and Tailwind CSS. We examined existing `CourseCard` and `HackathonCard` components to understand best practices. Finally, we practiced creating a new `MentorCard` component and integrating it into the application.  The key takeaways are:
-
-*   **Reusability:** Write components once and use them multiple times.
-*   **Props:** Use props to customize the content and appearance of components.
-*   **Tailwind CSS:** Leverage Tailwind CSS for rapid and consistent styling.
-*   **Data Mapping:**  Use `map()` to render multiple components from a dataset.
+In this chapter, you learned how to configure environment variables in your Next.js application using `next.config.ts`. You now understand the difference between public and private environment variables and how to access them on both the server-side and client-side. You also gained practical experience adding and using environment variables in a React component.
 
 ## 👉 Up Next
 
-In the next chapter, we will delve into form creation and data handling, exploring how to build interactive forms and process user input.
+Next, we'll explore how to configure custom server routes using the `pages/api` directory.
 
 ---
 
-<a name="chapter-8-form-handling-with-react-hook-form-and-zod:-validating-user-input"></a>
+<a name="chapter-12-url-manipulation:-working-with-urls"></a>
 
 ---
 
-```markdown
-# Form Handling with React Hook Form and Zod: Validating User Input
+# URL Manipulation: Working with URLs
 
 ## 🎯 Chapter Objective
-After this chapter, you will be able to implement form handling and validation using React Hook Form and Zod for managing form state and defining data schemas.
+After this chapter, you will be able to manipulate and construct URLs.
 
-**Time to Complete:** 45 minutes
+**Time to Complete:** 30 minutes
 
 ## 💡 Why This Matters
-
-Form handling and validation are crucial aspects of any web application that interacts with user input.  Without proper validation, you risk accepting malformed data, which can lead to errors, security vulnerabilities (like injection attacks), and a poor user experience.  React Hook Form simplifies form management and reduces boilerplate code. Integrating it with Zod, a powerful schema declaration and validation library, allows you to define clear data structures and ensure the data you receive conforms to your expectations.  This combination results in cleaner, more robust, and easier-to-maintain forms. It also improves user experience by providing immediate and relevant feedback on input errors.
+Understanding how to manipulate URLs is crucial for web developers. It allows you to dynamically construct API endpoints, handle user navigation, and manage application state. For example, you might need to add query parameters to a URL to filter data from an API, or change the URL based on a user's selection in a form. Without this knowledge, you'll struggle to build dynamic and interactive web applications. Mastering URL manipulation allows you to build robust, flexible applications that respond intelligently to user input and server-side data. It is also important for security, ensuring you properly encode and decode URL components to prevent vulnerabilities.
 
 ## 🎨 Visual Overview
-
-Imagine a registration form with fields like name, email, and password.
-
-*   **Without Validation:**  The user can enter anything, even invalid data, and the form might submit without any feedback. This leads to errors on the backend or a corrupted database.
-*   **With React Hook Form and Zod:**
-    1.  The user enters data into the form fields.
-    2.  As the user types or when the form attempts to submit, React Hook Form triggers validation based on the Zod schema.
-    3.  If the data is invalid (e.g., an invalid email format or a password that's too short), Zod returns validation errors.
-    4.  React Hook Form displays these errors next to the corresponding form fields, providing immediate feedback to the user.
-    5.  The form only submits if all fields pass validation.
+```mermaid
+flowchart TD
+    A["Base URL"] --> B["Add Path"]
+    B --> C["Add Query Parameters"]
+    C --> D["Constructed URL"]
+```
 
 ## 🧠 Core Concepts
 
-*   **React Hook Form:** A library for simplifying form management in React. It uses uncontrolled components and refs to improve performance and reduce re-renders.  It provides hooks for managing form state, handling submission, and validating input.
+*   **URL (Uniform Resource Locator):** A reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it. A URL has several parts:
+    *   **Protocol:** `https://` (or `http://`) - The communication protocol used.
+    *   **Hostname:** `codevibe-backend.onrender.com` - The domain name of the server.
+    *   **Path:** `/api/users` - The specific resource being requested.
+    *   **Query Parameters:** `?name=john&age=30` - Additional information sent to the server.
 
-*   **Zod:** A TypeScript-first schema declaration and validation library.  You define a schema that describes the expected structure and types of your data. Zod can then be used to validate data against this schema, providing detailed error messages if the data doesn't conform.
+*   **URL Manipulation:** The process of modifying parts of a URL to achieve a desired outcome, such as accessing different resources or passing data to the server.
 
-*   **Schema:** A formal description of the structure and type of data. In the context of Zod, a schema defines what properties are expected, their types (e.g., string, number, boolean), and any validation rules (e.g., minimum length, email format).
-
-*   **Validation:** The process of checking whether data conforms to a predefined schema or set of rules.  Zod performs validation and returns errors if the data is invalid.
-
-*   **Uncontrolled Components:** React components where the form data is handled by the DOM itself, rather than being controlled by React's state.  React Hook Form leverages uncontrolled components for performance benefits.
-
-*   **Controller:**  A component provided by React Hook Form that bridges the gap between uncontrolled components and the `useForm` hook. It allows you to connect your input fields to the form state and validation logic.
-
-*   **FormProvider:**  A component provided by React Hook Form that makes the `useForm` methods available to all the form's children.
+*   **URL Construction:** Building a complete URL from its individual components.
 
 ## 💻 Code Deep Dive
 
-Let's examine how to integrate React Hook Form and Zod. We will use the code provided, and create a small example that uses the provided components.
+Let's look at the provided `lib/url.js` file.
 
-First, let's define a Zod schema for a simple registration form:
-
-```typescript
-import { z } from "zod";
-
-const registrationSchema = z.object({
-  username: z.string().min(3, { message: "Username must be at least 3 characters." }),
-  email: z.string().email({ message: "Invalid email address." }),
-  password: z.string().min(8, { message: "Password must be at least 8 characters." }),
-});
-
-type RegistrationSchemaType = z.infer<typeof registrationSchema>;
-```
-
-**Explanation:**
-
-1.  **`import { z } from "zod";`**: Imports the Zod library.
-2.  **`registrationSchema = z.object({...})`**: Creates a Zod object schema.
-3.  **`username: z.string().min(3, ...)`**: Defines the `username` field as a string with a minimum length of 3 characters. The `message` option provides a custom error message.
-4.  **`email: z.string().email(...)`**: Defines the `email` field as a string and uses the `email()` method to validate that it's a valid email address.
-5.  **`password: z.string().min(8, ...)`**: Defines the `password` field as a string with a minimum length of 8 characters.
-6.  **`type RegistrationSchemaType = z.infer<typeof registrationSchema>;`**: Creates a Typescript type based on the Zod schema. This is useful for type safety when working with the form data.
-
-Now, let's create a React component that uses React Hook Form and the Zod schema:
-
-```tsx
-"use client"
-
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-
-const registrationSchema = z.object({
-  username: z.string().min(3, { message: "Username must be at least 3 characters." }),
-  email: z.string().email({ message: "Invalid email address." }),
-  password: z.string().min(8, { message: "Password must be at least 8 characters." }),
-});
-
-type RegistrationSchemaType = z.infer<typeof registrationSchema>;
-
-export function RegistrationForm() {
-  const form = useForm<RegistrationSchemaType>({
-    resolver: zodResolver(registrationSchema),
-    defaultValues: {
-      username: "",
-      email: "",
-      password: "",
-    },
-  });
-
-  function onSubmit(values: RegistrationSchemaType) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
-
-  return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="Username" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input placeholder="Email" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input placeholder="Password" type="password" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
-  );
+```javascript
+const BaseURL = 'https://codevibe-backend.onrender.com'
+const LocalURL = 'http://localhost:5001'
+module.exports = {
+  BASE_URL: BaseURL,
 }
-
 ```
 
-**Explanation:**
+This file defines a base URL for the application's backend. Now, let's imagine how we can use this to construct more complex URLs.
 
-1.  **`import { useForm } from "react-hook-form";`**: Imports the `useForm` hook from React Hook Form.
-2.  **`import { zodResolver } from "@hookform/resolvers/zod";`**: Imports the `zodResolver` from `@hookform/resolvers/zod`.  This is a connector that allows React Hook Form to use Zod for validation.
-3.  **`const form = useForm<RegistrationSchemaType>({...})`**: Initializes the `useForm` hook.
-    *   **`resolver: zodResolver(registrationSchema)`**:  Configures React Hook Form to use Zod for validation. It passes the `registrationSchema` to the `zodResolver`.
-    *   **`defaultValues`**: Sets the initial values for the form fields.
-4.  **`onSubmit(values: RegistrationSchemaType)`**:  A function that will be called when the form is submitted and the validation passes.  The `values` argument will be an object containing the validated form data, typed according to the `RegistrationSchemaType`.
-5.  **`<Form {...form}>`**:  Wraps the form with the `Form` component to provide the form context.
-6.  **`<form onSubmit={form.handleSubmit(onSubmit)}>`**:  The HTML form element.  The `onSubmit` prop is set to `form.handleSubmit(onSubmit)`, which handles the form submission and calls the `onSubmit` function if the validation is successful.
-7.  **`<FormField ...>`**:  Uses the `FormField` component to connect each input field to the form.
-    *   **`control={form.control}`**:  Passes the `control` object from `useForm` to the `FormField`.
-    *   **`name="username"`**:  Specifies the name of the form field, which corresponds to a key in the `registrationSchema`.
-    *   **`render={({ field }) => ...}`**:  A render prop that receives the `field` object from React Hook Form.  The `field` object contains the necessary props to connect the input field to the form state (e.g., `onChange`, `onBlur`, `value`, `name`).
-8.  **`<FormItem>`, `<FormLabel>`, `<FormControl>`, `<FormMessage>`**: These are components from the provided `components/ui/form.tsx` file that are used to structure the form and display error messages.  `<FormMessage>` automatically displays the validation error message for the corresponding field.
-9.  **`<Input placeholder="Username" {...field} />`**:  An input component, likely from a UI library, that receives the `field` props from React Hook Form.  The spread operator (`{...field}`) applies the necessary props to the input field.
+**Example 1: Appending a Path**
+
+Suppose we want to fetch a specific user from the backend, and the endpoint is `/api/users/:id`. We can construct the URL like this:
+
+```javascript
+const { BASE_URL } = require('./lib/url'); // Assuming the file is in the same directory or adjust the path
+
+const userId = '123';
+const userEndpoint = `${BASE_URL}/api/users/${userId}`;
+
+console.log(userEndpoint); // Output: https://codevibe-backend.onrender.com/api/users/123
+```
+
+In this example, we've taken the `BASE_URL` and appended a specific path `/api/users/` along with a user ID. This creates a complete URL for fetching a specific user.
+
+**Example 2: Adding Query Parameters**
+
+Now let's say we want to fetch users based on certain criteria using query parameters, such as `name` and `age`.
+
+```javascript
+const { BASE_URL } = require('./lib/url');
+
+const name = 'john';
+const age = 30;
+
+const searchEndpoint = `${BASE_URL}/api/users?name=${name}&age=${age}`;
+
+console.log(searchEndpoint); // Output: https://codevibe-backend.onrender.com/api/users?name=john&age=30
+```
+
+Here, we've added query parameters `name` and `age` to the base URL. This allows us to filter the users based on these criteria.
+
+**Important Note:** When constructing URLs with user-provided data, it's crucial to properly encode the data to prevent security vulnerabilities.  Use `encodeURIComponent()` to encode potentially unsafe characters in the query parameters.
+
+```javascript
+const { BASE_URL } = require('./lib/url');
+
+const name = 'john doe'; // Contains a space
+const age = 30;
+
+const encodedName = encodeURIComponent(name);
+const searchEndpoint = `${BASE_URL}/api/users?name=${encodedName}&age=${age}`;
+
+console.log(searchEndpoint); // Output: https://codevibe-backend.onrender.com/api/users?name=john%20doe&age=30
+```
 
 ## 🧑‍💻 Hands-On Practice
+**Exercise: Create a new URL using the url.js file.**
 
-**Exercise: Implement form validation for a registration form using Zod. Define schemas for each form field and display error messages to the user.**
+**Steps:**
 
-Using the provided code components, extend the example to include:
+1.  **Create a new file called `exercise.js`.** This is where you'll write your code.
+2.  **Import the `BASE_URL` from `lib/url.js`.** Use `require('./lib/url')` to import the module.
+3.  **Define a path for fetching posts: `/api/posts`.**
+4.  **Define query parameters: `category=technology` and `sort=recent`.**
+5.  **Construct the complete URL** by combining the `BASE_URL`, the path, and the query parameters. Remember to encode the query parameters.
+6.  **Print the constructed URL to the console.**
 
-1.  **Confirm Password Field:** Add a "Confirm Password" field to the registration form.
-2.  **Zod Validation:** Update the Zod schema to include the "Confirm Password" field and validate that it matches the "Password" field. Implement this using Zod's `refine` function.
-3.  **Error Display:** Ensure that the error message for the "Confirm Password" field is displayed correctly if the passwords don't match.
-
-**Hints:**
-
-*   Use the `z.string()` type for the "Confirm Password" field in the Zod schema.
-*   Use the `refine` method on the Zod schema to compare the "Password" and "Confirm Password" fields.  The `refine` method takes a validation function and an error message.
-*   Add a new `<FormField>` component for the "Confirm Password" field in the React component.
+**Success Check:** Successfully create a new URL and print it to the console. The URL should look like this: `https://codevibe-backend.onrender.com/api/posts?category=technology&sort=recent`
 
 **Solution:**
 
-```tsx
-"use client"
+```javascript
+const { BASE_URL } = require('./lib/url');
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+const path = '/api/posts';
+const category = 'technology';
+const sort = 'recent';
 
-const registrationSchema = z.object({
-  username: z.string().min(3, { message: "Username must be at least 3 characters." }),
-  email: z.string().email({ message: "Invalid email address." }),
-  password: z.string().min(8, { message: "Password must be at least 8 characters." }),
-  confirmPassword: z.string().min(8, { message: "Confirm Password must be at least 8 characters." }),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords do not match",
-  path: ["confirmPassword"], // path of error
-});
+const constructedURL = `${BASE_URL}${path}?category=${encodeURIComponent(category)}&sort=${encodeURIComponent(sort)}`;
 
-type RegistrationSchemaType = z.infer<typeof registrationSchema>;
+console.log(constructedURL);
+```
 
-export function RegistrationForm() {
-  const form = useForm<RegistrationSchemaType>({
-    resolver: zodResolver(registrationSchema),
-    defaultValues: {
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: ""
-    },
-  });
+## ✅ Chapter Summary
+In this chapter, you learned how to manipulate and construct URLs. You now understand the different parts of a URL and how to combine them to create dynamic endpoints. You also practiced adding paths and query parameters to a base URL, and learned the importance of encoding URL components to prevent security issues. You can now build URLs for different API endpoints and dynamically modify them based on application needs.
 
-  function onSubmit(values: RegistrationSchemaType) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+## 👉 Up Next
+In the next chapter, we'll explore how to make API calls using these constructed URLs.
+
+---
+
+<a name="chapter-13-utility-functions:-creating-reusable-code"></a>
+
+---
+
+# Utility Functions: Creating Reusable Code
+
+## 🎯 Chapter Objective
+After this chapter, you will be able to create utility functions.
+
+**Time to Complete:** 30 minutes
+
+## 💡 Why This Matters
+
+Utility functions are like the building blocks of your code. Instead of repeating the same logic over and over, you can encapsulate it into a reusable function. This makes your code cleaner, easier to understand, and much easier to maintain. Imagine you need to format a date in multiple places in your application. Without a utility function, you'd have to write the formatting logic everywhere you need it. With a utility function, you write it once, test it thoroughly, and then reuse it throughout your application. This significantly reduces the risk of errors and makes updates much simpler. For example, the `cn` function in `lib/utils.ts` combines class names, handling conditional logic and Tailwind CSS merging. This avoids repetitive and error-prone string manipulation directly in your components.
+
+## 🎨 Visual Overview
+```mermaid
+flowchart TD
+    A["Problem: Repetitive Code"] --> B["Solution: Utility Functions"];
+    B --> C["Benefits: Readability"];
+    B --> D["Benefits: Maintainability"];
+    B --> E["Benefits: Reusability"];
+```
+
+## 🧠 Core Concepts
+
+*   **Utility Function:** A small, reusable function that performs a specific task. It's designed to be used in multiple places within your application, promoting code reuse and reducing redundancy.
+*   **DRY Principle (Don't Repeat Yourself):** The core principle behind using utility functions. It advocates for avoiding duplication of code by extracting common logic into reusable components or functions.
+*   **Modularity:** Utility functions promote modularity by breaking down complex tasks into smaller, manageable units. This makes your code easier to understand, test, and maintain.
+*   **Abstraction:** Utility functions abstract away complex implementation details, allowing you to focus on the higher-level logic of your application.
+
+**Example:**
+
+Consider a function that formats a number as currency:
+
+```typescript
+function formatCurrency(amount: number, currency: string = "USD"): string {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: currency,
+  }).format(amount);
+}
+
+// Usage:
+const price = 1234.56;
+const formattedPrice = formatCurrency(price); // Output: $1,234.56
+const formattedEuroPrice = formatCurrency(price, "EUR"); // Output: €1,234.56
+```
+
+This function encapsulates the currency formatting logic, allowing you to reuse it throughout your application without repeating the formatting code.
+
+## 💻 Code Deep Dive
+
+Let's analyze the `cn` function in `lib/utils.ts`:
+
+```typescript
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
+
+*   **`import { clsx, type ClassValue } from "clsx"`:** This line imports the `clsx` function and `ClassValue` type from the `clsx` library. `clsx` is a utility that conditionally joins class names together.  The `ClassValue` type defines the possible types that can be passed as arguments to `clsx`.
+*   **`import { twMerge } from "tailwind-merge"`:** This line imports the `twMerge` function from the `tailwind-merge` library. `twMerge` is used to resolve conflicting Tailwind CSS class names, ensuring that the correct styles are applied.
+*   **`export function cn(...inputs: ClassValue[]) { ... }`:** This defines a function named `cn` which accepts a variable number of arguments (`...inputs`) of type `ClassValue[]`. This means you can pass multiple class names, or even arrays of class names, to the function.
+*   **`return twMerge(clsx(inputs))`:** This line is the core of the function. First, `clsx(inputs)` is called to join the input class names together, handling any conditional logic. Then, `twMerge` is used to merge the resulting class names, resolving any conflicts between Tailwind CSS classes. The final merged string of class names is then returned.
+
+**Example Usage:**
+
+```typescript
+import { cn } from "@/lib/utils"
+
+// In a React component:
+function MyComponent() {
+  return (
+    <div className={cn("p-4", "bg-gray-100", { "text-red-500": true })}>
+      Hello, world!
+    </div>
+  )
+}
+```
+
+In this example, the `cn` function combines the class names "p-4", "bg-gray-100", and "text-red-500" (because the conditional object evaluates to true). The `twMerge` function ensures that if any of these class names conflict, the correct styles are applied according to Tailwind CSS's precedence rules.
+
+## 🧑‍💻 Hands-On Practice
+
+**Exercise: Add a new utility function to the `utils.ts` file.**
+
+**Steps:**
+
+1.  **Open `lib/utils.ts`:** Locate the `utils.ts` file in your project's `lib` directory and open it in your code editor.
+2.  **Create a new function:** Add the following function to the file:
+
+```typescript
+export function truncate(str: string, maxLength: number): string {
+  if (str.length <= maxLength) {
+    return str;
   }
+  return str.substring(0, maxLength) + "...";
+}
+```
+
+3.  **Explanation:** This `truncate` function takes a string `str` and a maximum length `maxLength` as input. If the string's length is less than or equal to `maxLength`, it returns the original string. Otherwise, it truncates the string to `maxLength` characters and adds "..." to the end.
+4.  **Use the function:** In a React component (or any other part of your application), import and use the `truncate` function:
+
+```typescript
+import { truncate } from "@/lib/utils";
+
+function MyComponent() {
+  const longText = "This is a very long string that needs to be truncated.";
+  const truncatedText = truncate(longText, 20);
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="Username" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input placeholder="Email" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input placeholder="Password" type="password" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="confirmPassword"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Confirm Password</FormLabel>
-              <FormControl>
-                <Input placeholder="Confirm Password" type="password" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+    <div>
+      <p>{truncatedText}</p>
+    </div>
   );
 }
 ```
 
-**Success Check:** Successfully implement form validation using React Hook Form and Zod.
+5.  **Test the function:** Verify that the `truncate` function correctly truncates the string and adds "..." when the string exceeds the maximum length. Also, check that it returns the original string when it's shorter than the maximum length.
+
+**Success Check:** Successfully add a new utility function `truncate` to `utils.ts` and use it to truncate a string in your application.
 
 ## ✅ Chapter Summary
 
-In this chapter, you learned how to integrate React Hook Form and Zod to handle form validation effectively. You explored the core concepts of React Hook Form, Zod schemas, and the validation process. You also learned how to define Zod schemas, connect them to React Hook Form using `zodResolver`, and display error messages to the user using the provided `ui/form` components.
+In this chapter, you learned about utility functions, their importance in promoting code reuse and maintainability, and how to create them. You analyzed the `cn` function in `lib/utils.ts` and added a new `truncate` utility function. You now understand how to encapsulate common logic into reusable functions, making your code cleaner, more efficient, and easier to maintain.
 
 ## 👉 Up Next
 
-In the next chapter, we will explore how to handle more complex form scenarios, such as dynamic forms with nested fields and conditional validation.
-```
+In the next chapter, we'll explore custom hooks and how they can be used to encapsulate stateful logic and side effects, further improving the reusability and maintainability of your React components.
 
 ---
 
-<a name="chapter-9-authentication-flows:-securing-your-application"></a>
+<a name="chapter-14-discussion-card:-displaying-discussions"></a>
 
 ---
 
-```markdown
-# Authentication Flows: Securing Your Application
+# Discussion Card: Displaying Discussions
 
 ## 🎯 Chapter Objective
-After this chapter, you will be able to implement user registration, login, and password reset functionality in your Next.js application.
+After this chapter, you will be able to display discussions from the user or bot using discussion cards.
 
-**Time to Complete:** 60 minutes
+**Time to Complete:** 30 minutes
 
-## 📌 Why This Matters
-
-Authentication is the cornerstone of most web applications.  It's how you verify a user's identity and ensure they have the appropriate permissions to access resources. Without proper authentication, your application is vulnerable to security breaches, data leaks, and unauthorized access.  Understanding authentication flows is crucial for building secure and reliable applications.  This chapter will guide you through implementing essential authentication features like registration, login, and password resets, giving you a solid foundation for securing your Next.js projects.  A well-implemented authentication system builds user trust and protects sensitive data, which is paramount for any successful application.
+## 💡 Why This Matters
+Discussion cards are a cornerstone of interactive applications. They provide a structured and engaging way to present user-generated content, bot responses, or any form of conversational exchange. Mastering the creation and display of discussion cards allows you to build features like comment sections, forum threads, and chatbot interfaces. Without the ability to display discussions effectively, your application will lack the essential means of user interaction and information sharing. For example, consider a social media platform where users post and comment. Each post and comment is essentially a discussion card. Or think of a customer service chatbot where each message from the bot or user is displayed in a card format. This chapter will equip you with the skills to bring these dynamic interactions to life in your own projects.
 
 ## 🎨 Visual Overview
-
-(Imagine a diagram here depicting the following authentication flows)
-
-*   **Registration:** User fills out a form -> Form data sent to server -> Server validates data -> User is created in the database -> User is logged in (optional)
-*   **Login:** User enters credentials -> Credentials sent to server -> Server authenticates user -> Server returns authentication token -> Token stored in client (e.g., localStorage)
-*   **Forgot Password:** User requests password reset -> Server generates reset token and sends email -> User clicks link in email -> User enters new password -> Server validates token and updates password.
-*   **Reset Password:** User enters new password and confirms it -> New password sent to server along with token -> Server validates token and updates password in database.
+```mermaid
+classDiagram
+    class DiscussionCard {
+        -_id: string
+        -name: string
+        -title: string
+        -desc: string
+        -date: string
+        -comments: Comment[]
+        +fetchComments()
+        +handleAddComment()
+        +toggleComments()
+        +render()
+    }
+    class Comment {
+        -_id: string
+        -name: string
+        -text: string
+        -createdAt: string
+    }
+    DiscussionCard "1" -- "*" Comment : Contains
+```
 
 ## 🧠 Core Concepts
 
-Let's break down the key concepts involved in building authentication flows:
+*   **Discussion Card:** A UI component that encapsulates a discussion topic, including its title, description, author, and associated comments. It serves as a container for all related information, promoting organization and readability.
+    *   **Example:** The `DiscussionCard` component in the provided code displays a discussion's title, description, author, and a button to toggle the display of comments.
 
-*   **Registration/Signup:** The process of creating a new user account. This usually involves collecting user information like username, email, and password.  Crucially, the password should *never* be stored in plain text. It should be hashed using a secure algorithm like bcrypt.
-*   **Login/Signin:** The process of verifying a user's identity using their credentials (usually username/email and password). The provided password is hashed and compared to the stored hash in the database. If they match, the user is authenticated.
-*   **Authentication Token:** A secure string that represents an authenticated user.  Commonly used tokens are JSON Web Tokens (JWTs).  These tokens contain information about the user and are used to authorize access to protected resources. They are typically stored on the client-side (e.g., in localStorage or cookies) and sent with each request to the server.
-*   **Hashing:** A one-way function that transforms a password into a seemingly random string of characters. It's impossible (or computationally very difficult) to reverse the hashing process and recover the original password.  Salting adds a unique random value to each password before hashing, further increasing security.
-*   **Password Reset:** A process that allows users to regain access to their accounts if they forget their passwords. This usually involves generating a unique, time-sensitive token, sending it to the user's email address, and allowing the user to set a new password via a dedicated reset password page.
-*   **Zod Validation:**  A TypeScript-first schema declaration and validation library.  It's used here to define the expected structure and types of the data received from the client, ensuring data integrity and preventing unexpected errors.
-*   **React Hook Form:** A library that simplifies form management in React applications. It provides hooks for handling form state, validation, and submission.
+*   **Props:** Data passed into a component to customize its behavior and appearance. Props are essential for making components reusable and dynamic.
+    *   **Example:** The `DiscussionCard` component receives props like `_id`, `name`, `title`, `desc`, and `date`, which determine the content displayed within the card.
+
+*   **State:** Internal data managed by a component that can change over time, triggering re-renders and updating the UI. State allows components to be interactive and responsive to user actions.
+    *   **Example:** The `DiscussionCard` component uses state variables like `comments`, `newComment`, `showComments`, `isLoading`, and `error` to manage the display of comments, the input field for new comments, the visibility of the comments section, loading states, and error messages.
+
+*   **Event Handling:** The process of responding to user interactions, such as button clicks or form submissions. Event handlers are functions that execute when a specific event occurs.
+    *   **Example:** The `DiscussionCard` component uses the `toggleComments` function to handle clicks on the "View Comments" button and the `handleAddComment` function to handle the submission of new comments.
+
+*   **API Interaction:** Communicating with a backend server to fetch or update data. API interactions are crucial for retrieving and persisting data in a dynamic application.
+    *   **Example:** The `DiscussionCard` component uses the `fetchComments` function to retrieve comments from the server and the `handleAddComment` function to send new comments to the server.
 
 ## 💻 Code Deep Dive
 
-Let's examine the provided code snippets and understand how they implement these concepts:
+Let's break down the `DiscussionCard` component:
 
-**1. Signup (app/(auth)/signup/page.tsx):**
-
-*   **Form Handling:**  The `useForm` hook from `react-hook-form` is used to manage the signup form. The `zodResolver` integrates Zod for schema validation.
-*   **Schema Definition:** The `formSchema` defines the structure and validation rules for the signup form data using Zod.  It includes validation for username length, email format, mobile number, password strength, and password confirmation.
-*   **API Call:** The `onSubmit` function handles form submission. It sends a POST request to the `/api/v1/auth/signup` endpoint with the form data.
-*   **Error Handling:** The `try...catch` block handles potential errors during the API call and displays error messages using `sonner` toasts.
-*   **User Store Update:** On successful signup, the `addUser` and `setCurrentUser` methods from the `useUserStore` are used to update the application's state with the new user data.  The authentication token and user ID are also stored in `localStorage`.
-*   **UI:** The component renders a form with fields for user type, username, email, mobile, gender, password, and confirm password.  It uses `shadcn-ui` components for styling and accessibility.
-
-**2. Signin (app/(auth)/signin/page.tsx):**
-
-*   **Form Handling:** Similar to signup, `useForm` and `zodResolver` are used for form management and validation.
-*   **Schema Definition:** The `formSchema` defines the schema for the login form, requiring a username/email and password.
-*   **API Call:** The `onSubmit` function sends a POST request to the `/api/v1/auth/login` endpoint with the login credentials.
-*   **Authentication:** The server-side logic (not shown in the provided code) would authenticate the user by comparing the provided password (after hashing) with the stored password hash.
-*   **Token Storage:** If authentication is successful, the server returns an authentication token, which is then stored in `localStorage`.
-*   **User Store Update:** The `setCurrentUser` method is used to update the application's state with the logged-in user's data.
-*   **UI:** The component renders a form with fields for username/email and password, along with a link to the "forgot password" page.
-
-**3. Forgot Password (app/(auth)/forgot-password/page.tsx):**
-
-*   **Form Handling:** Uses `useForm` and `zodResolver` for form management and email validation.
-*   **Schema Definition:** The `formSchema` requires a valid email address.
-*   **API Call:** The `onSubmit` function sends a POST request to the `/api/v1/forgot-password` endpoint with the user's email address.
-*   **Password Reset Token Generation (Server-Side - Not Shown):** On the server, a unique, time-sensitive token would be generated and associated with the user's account. This token is typically stored in the database.
-*   **Email Sending (Server-Side - Not Shown):** An email is sent to the user's email address containing a link to the reset password page, including the generated token as a parameter in the URL.
-*   **UI:**  The component renders a form with an email field.
-
-**4. Reset Password (app/(auth)/reset-password/[id]/page.tsx):**
-
-*   **Route Parameter:** The `useParams` hook from `next/navigation` is used to extract the reset token from the URL (`[id]` represents the dynamic route parameter).
-*   **Form Handling:**  Uses `useForm` and `zodResolver` for form management and validation of the new password and confirmation.
-*   **Schema Definition:** The `formSchema` requires a password and confirmPassword field, both with a minimum length of 8 characters, and ensures that the two fields match.
-*   **API Call:** The `onSubmit` function sends a POST request to the `/api/v1/reset-password/${token}` endpoint with the new password.
-*   **Token Validation (Server-Side - Not Shown):** The server-side logic would validate the reset token to ensure it's valid and hasn't expired.
-*   **Password Update (Server-Side - Not Shown):** If the token is valid, the server updates the user's password in the database (after hashing it, of course!).
-*   **UI:** The component renders a form with fields for the new password and confirmation.
-
-## 🧑‍💻 Hands-On Practice
-
-**Exercise: Implement the password reset functionality, including generating a reset token, sending an email, and updating the password in the database (using a mock database for simplicity).**
-
-**Since we are working on the frontend, we will focus on the logic of generating a token, and simulating sending an email and updating the password in the database. We will mock these functionalities.**
-
-**Steps:**
-
-1.  **Create a mock database object:**
+1.  **Import Statements:**
 
     ```javascript
-    // utils/mock-db.ts
-    const mockDatabase = {
-        users: [
-            {
-                id: "1",
-                email: "test@example.com",
-                username: "testuser",
-                passwordHash: "hashed_password", // In real app, use bcrypt here
-                resetToken: null,
-                resetTokenExpiry: null,
+    import React, { useEffect, useState } from 'react';
+    import { Button } from "@/components/ui/button";
+    import { Textarea } from '@/components/ui/textarea';
+    import { BASE_URL } from '@/lib/url';
+    import useUserStore from '@/store/userStore';
+    ```
+
+    *   These lines import necessary modules from React and other custom components. `useState` is a React hook for managing state.
+    *   `Button` and `Textarea` are UI components, likely from a library like Radix UI or Shadcn UI, providing pre-styled interactive elements.
+    *   `BASE_URL` is a constant defining the base URL for API requests.
+    *   `useUserStore` is a custom hook using Zustand or similar state management library to get the current logged-in user information.
+
+2.  **Component Definition:**
+
+    ```javascript
+    const DiscussionCard = ({ _id, name, title, desc, date }: {
+      _id: string;
+      name: string;
+      title: string;
+      desc: string;
+      date: string;
+    }) => { ... }
+    ```
+
+    *   Defines a functional React component named `DiscussionCard`.
+    *   It receives several props: `_id`, `name`, `title`, `desc`, and `date`.
+
+3.  **State Management:**
+
+    ```javascript
+    const [comments, setComments] = useState<Comment[]>([]);
+    const [newComment, setNewComment] = useState('');
+    const [showComments, setShowComments] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const { user } = useUserStore();
+    ```
+
+    *   `comments`: Stores an array of comments associated with the discussion.
+    *   `newComment`: Stores the text content of the new comment input field.
+    *   `showComments`: A boolean flag indicating whether the comments section is visible.
+    *   `isLoading`: A boolean flag indicating whether data is being fetched or submitted.
+    *   `error`: Stores any error messages that occur during API requests.
+    *   `user`: Gets the current user information from the user store.
+
+4.  **Fetching Comments (`fetchComments`):**
+
+    ```javascript
+    const fetchComments = async () => {
+        setIsLoading(true);
+        setError(null);
+        try {
+          console.log(`Fetching comments for post ${_id}`);
+          const response = await fetch(`${BASE_URL}/api/v1/discussion/${_id}/comments`, {
+            headers: {
+              'ngrok-skip-browser-warning': 'true'
+            }
+          });
+          
+          if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.message || 'Failed to fetch comments');
+          }
+      
+          const data = await response.json();
+          console.log('Received comments:', data);
+          setComments(Array.isArray(data) ? data : []);
+        } catch (error) {
+          console.error('Error fetching comments:', error);
+          setError(error instanceof Error ? error.message : 'Failed to fetch comments');
+          setComments([]);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+    ```
+
+    *   Fetches comments from the API endpoint associated with the discussion's `_id`.
+    *   Handles potential errors and updates the `comments` state.
+    *   Sets `isLoading` to `true` during the fetch and `false` when it's complete.
+
+5.  **Adding a Comment (`handleAddComment`):**
+
+    ```javascript
+    const handleAddComment = async (e: React.FormEvent) => {
+        e.preventDefault();
+        
+        if (!user) {
+          setError('You must be logged in to comment');
+          return;
+        }
+
+        if (!newComment.trim()) {
+          setError('Comment cannot be empty');
+          return;
+        }
+
+        setIsLoading(true);
+        setError(null);
+        try {
+          const response = await fetch(`${BASE_URL}/api/v1/discussion/${_id}/comments`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${localStorage.getItem('token')}`,
+              'ngrok-skip-browser-warning': 'true'
             },
-        ],
-    };
+            body: JSON.stringify({ 
+              name: user.name,
+              text: newComment,
+              postTitle : title,
+              userId: user._id // Include user ID
+            }),
+          });
 
-    export default mockDatabase;
-    ```
+          if (!response.ok) {
+            throw new Error('Failed to add comment');
+          }
 
-2.  **Create API endpoint `/api/v1/forgot-password`:**
-
-    ```javascript
-    // app/api/v1/forgot-password/route.ts
-    import { NextResponse } from 'next/server';
-    import mockDatabase from '@/utils/mock-db';
-    import { v4 as uuidv4 } from 'uuid';
-
-    export async function POST(request: Request) {
-        try {
-            const { email } = await request.json();
-
-            const user = mockDatabase.users.find((u) => u.email === email);
-
-            if (!user) {
-                return NextResponse.json({ message: "User not found" }, { status: 404 });
-            }
-
-            // Generate reset token
-            const resetToken = uuidv4();
-            const resetTokenExpiry = new Date(Date.now() + 3600000); // Token expires in 1 hour
-
-            // Store reset token and expiry in mock database
-            user.resetToken = resetToken;
-            user.resetTokenExpiry = resetTokenExpiry;
-
-            // Simulate sending email (in real app, use a service like SendGrid)
-            console.log(`Simulating sending email to ${email} with reset link: /reset-password/${resetToken}`);
-
-            return NextResponse.json({ message: "Reset link sent successfully" }, { status: 200 });
-
-        } catch (error: any) {
-            console.error("Forgot password error:", error);
-            return NextResponse.json({ message: error.message || "Failed to process request" }, { status: 500 });
+          const addedComment = await response.json();
+          setComments(prev => [addedComment, ...prev]);
+          setNewComment('');
+        } catch (error) {
+          console.error('Error adding comment:', error);
+          setError(error instanceof Error ? error.message : 'Failed to add comment');
+        } finally {
+          setIsLoading(false);
         }
-    }
+      };
     ```
 
-3.  **Create API endpoint `/api/v1/reset-password/[token]`:**
+    *   Handles the submission of a new comment.
+    *   Sends a POST request to the API to add the comment to the discussion.
+    *   Updates the `comments` state with the newly added comment.
+    *   Includes user authentication using a token stored in `localStorage`.
+
+6.  **Toggling Comments (`toggleComments`):**
 
     ```javascript
-    // app/api/v1/reset-password/[token]/route.ts
-    import { NextResponse } from 'next/server';
-    import mockDatabase from '@/utils/mock-db';
-    import bcrypt from 'bcryptjs';
-
-    export async function POST(
-        request: Request,
-        { params }: { params: { token: string } }
-    ) {
-        try {
-            const { token } = params;
-            const { password } = await request.json();
-
-            const user = mockDatabase.users.find((u) => u.resetToken === token && u.resetTokenExpiry > new Date());
-
-            if (!user) {
-                return NextResponse.json({ message: "Invalid or expired token" }, { status: 400 });
-            }
-
-            // Hash the new password
-            const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash(password, salt);
-
-            // Update password in mock database
-            user.passwordHash = hashedPassword;
-            user.resetToken = null;
-            user.resetTokenExpiry = null;
-
-            console.log(`Password reset successfully for user: ${user.email}`);
-
-            return NextResponse.json({ message: "Password reset successfully" }, { status: 200 });
-
-        } catch (error: any) {
-            console.error("Reset password error:", error);
-            return NextResponse.json({ message: error.message || "Failed to reset password" }, { status: 500 });
+    const toggleComments = () => {
+        if (!showComments) {
+          fetchComments();
         }
-    }
+        setShowComments(!showComments);
+      };
     ```
 
-4.  **Install necessary packages:**
+    *   Toggles the visibility of the comments section.
+    *   Calls `fetchComments` only when the comments section is being opened for the first time.
 
-    ```bash
-    npm install uuid bcryptjs
-    ```
-
-5.  **Update `BASE_URL` in `utils/constants.ts` to `http://localhost:3000`:**
+7.  **JSX Structure (Rendering):**
 
     ```javascript
-    export const BASE_URL = "http://localhost:3000";
-    ```
-
-**Success Check:** Successfully implement the complete password reset flow. You should be able to enter your email on the forgot password page, see a simulated email link in the console, click the link (manually navigate to `/reset-password/{token}` with the token from the console), and reset your password.  You'll see confirmation messages in the console from the API routes.
-
-## ✅ Chapter Summary
-
-In this chapter, we covered the fundamental concepts of authentication flows, including:
-
-*   User registration and login
-*   Authentication tokens and their importance
-*   Password hashing for security
-*   The password reset process
-*   Using Zod for data validation and React Hook Form for form management.
-
-You've gained hands-on experience implementing these flows in a Next.js application. While the exercise used a mock database, the principles and code structure are directly applicable to real-world scenarios with a database integration.
-
-## 👉 Up Next
-
-In the next chapter, we'll explore authorization, which builds upon authentication to control what resources users can access based on their roles and permissions. We will delve into role-based access control (RBAC) and learn how to implement it in our application.
-```
-
----
-
-<a name="chapter-10-creating-dynamic-carousels:-showcasing-your-content"></a>
-
----
-
-# Creating Dynamic Carousels: Showcasing Your Content
-
-## 🎯 Chapter Objective
-After this chapter, you will be able to implement a carousel slider to showcase courses, hackathons, internships, and mentors.
-
-**Time to Complete:** 45 minutes
-
-## 🤔 Why This Matters
-
-Carousels, also known as sliders, are an incredibly valuable tool for web developers because they allow you to present a lot of information in a compact and engaging way. They are especially useful for:
-
-*   **Highlighting Key Content:** Carousels draw the user's eye to important content like featured courses, upcoming events, or testimonials.
-*   **Improving User Experience:** By organizing related content into a slideshow, you can prevent overwhelming the user with too much information at once. This makes it easier for them to browse and find what they're looking for.
-*   **Optimizing Space:** Carousels are great for mobile devices where screen real estate is limited.
-*   **Increasing Engagement:** Interactive elements like carousels can keep users engaged and encourage them to explore your website further.
-
-In the context of a learning platform, carousels can be used to showcase the best courses, promote upcoming hackathons, advertise internship opportunities, and feature mentors. Mastering carousels is a key skill for any front-end developer looking to create visually appealing and user-friendly web applications.
-
-## 🎨 Visual Overview
-
-Imagine a section on your homepage featuring a rotating display of course cards.  Each card slides into view, displaying course information like title, description, and instructor.  Navigation arrows on either side allow users to manually browse the courses.  This is the essence of what we'll be building.  Similar carousels can be used for hackathons, internships, and mentor profiles.
-
-## 🧠 Core Concepts
-
-Before diving into the code, let's clarify some core concepts:
-
-*   **Carousel Structure:** A carousel typically consists of a container (`Carousel` component) holding the slides (`CarouselItem` components).
-*   **Carousel Content:** The `CarouselContent` component is what handles the actual sliding of the items.
-*   **Carousel Items:** Each `CarouselItem` contains the content you want to display in the slider (e.g., a `CourseCard`, `HackathonCard`).  The `basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4` classes control how many items are visible at different screen sizes.  `basis-full` means one item fills the width on extra small screens.  `sm:basis-1/2` means two items will be visible on small screens and so on.
-*   **Navigation:**  `CarouselPrevious` and `CarouselNext` components provide navigation buttons to move between slides.
-*   **Styling:** CSS classes are used to style the carousel and its elements, controlling appearance, spacing, and responsiveness.
-*   **Component Reusability:**  We create separate carousel components (`CarouselSliderCourse`, `CarouselSliderHackathon`) to promote reusability and maintainability.  Each component is responsible for displaying a specific type of content.
-*   **Data Mapping:** The `map()` function is used to iterate over an array of data (e.g., `courses`, `hackathons`) and render a `CarouselItem` for each item in the array.
-*   **UI Library Components:** The provided code uses components from a UI library (likely Radix UI or Shadcn UI). These components provide pre-built, accessible UI elements that simplify development.
-
-## 💻 Code Deep Dive
-
-Let's examine the provided code snippets to understand how the carousel is implemented.
-
-**`components/shared/cards/sliders/carouselslider-course.tsx`**
-
-```typescript
-// components/shared/cards/sliders/carouselslider-course.tsx
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import CourseCard from '@/components/shared/cards/coursecard';
-
-
-export function CarouselSliderCourse({ courses }) {
-  return (
-    <Carousel
-      opts={{
-        align: "start",
-      }}
-      className="w-full p-4 rounded-lg"
-    >
-      <CarouselContent>
-        {courses.map((course) => (
-          <CarouselItem key={course._id} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-            <div className="p-1 h-full">
-              <CourseCard course={course} />
+    return (
+        <div className='bg-slate-800 p-4 rounded-lg shadow-md flex space-x-4 mb-4'>
+          <div>
+            <p className='bg-purple-500 p-4 rounded-full'>
+              {name[0].toUpperCase() + (name[1] ? name[1].toUpperCase() : '')}
+            </p>
+          </div>
+          <div className="flex-1">
+            <div className='space-y-2'>
+              <p className='font-bold'>{name}</p>
+              <p className='text-xl font-bold'>{title}</p>
+              <p className=''>{desc}</p>
+              <p className='text-sm text-gray-400'>
+                {new Date(date).toLocaleString()}
+              </p>
+              
+              <Button 
+                onClick={toggleComments}
+                variant="outline"
+                className="mt-2 text-sm bg-gray-700 hover:bg-gray-600"
+                disabled={isLoading}
+              >
+                {isLoading ? 'Loading...' : `${showComments ? 'Hide' : 'View'} Comments`}
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-6 w-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                </svg> 
+              </Button>
+    
+              {error && (
+                <div className="text-red-500 mt-2 text-sm">{error}</div>
+              )}
+    
+              {showComments && (
+                <div className="mt-4 border-t border-gray-700 pt-4">
+                  <div className="space-y-3 mb-4">
+                    {isLoading && comments.length === 0 ? (
+                      <div>Loading comments...</div>
+                    ) : comments.length === 0 ? (
+                      <div className="text-gray-400">No comments yet</div>
+                    ) : (
+                      comments.map((comment) => (
+                        <div key={comment._id} className="bg-gray-700 p-3 rounded-lg">
+                          <div className="font-semibold">{comment.name}</div>
+                          <p className="text-gray-300">{comment.text}</p>
+                          <div className="text-xs text-gray-400 mt-1">
+                            {new Date(comment.createdAt).toLocaleString()}
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+    
+                  {user ? (
+                    <form onSubmit={handleAddComment} className="space-y-2">
+                      <div className="text-sm text-gray-300">
+                        Commenting as: <span className="font-semibold">{user.name}</span>
+                      </div>
+                      <Textarea
+                        placeholder="Write a comment..."
+                        value={newComment}
+                        onChange={(e) => setNewComment(e.target.value)}
+                        required
+                        disabled={isLoading}
+                        className="bg-gray-700 border-gray-600"
+                      />
+                      <Button
+                        type="submit"
+                        disabled={isLoading || !newComment.trim()}
+                        className="bg-purple-600 hover:bg-purple-500"
+                      >
+                        {isLoading ? 'Posting...' : 'Add Comment'}
+                      </Button>
+                    </form>
+                  ) : (
+                    <div className="text-gray-400 text-sm">
+                      Please log in to leave a comment
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious className="-left-4" />
-      <CarouselNext className="-right-4" />
-    </Carousel>
-  );
-}
-```
-
-*   **Imports:** Imports necessary components from the UI library (`Carousel`, `CarouselContent`, `CarouselItem`, `CarouselNext`, `CarouselPrevious`) and the `CourseCard` component.  The `@` symbol usually refers to the `src` directory of your project.
-*   **`CarouselSliderCourse` Component:** This functional component accepts a `courses` prop, which is expected to be an array of course objects.
-*   **`Carousel` Component:** The main carousel container.
-    *   `opts={{ align: "start" }}`:  This option likely controls the alignment of the items within the carousel. `align: "start"` means the items will align to the left.
-    *   `className="w-full p-4 rounded-lg"`:  Applies CSS classes to style the carousel. `w-full` makes it take up the full width of its parent, `p-4` adds padding, and `rounded-lg` adds rounded corners.
-*   **`CarouselContent` Component:**  Wraps the carousel items and handles the sliding behavior.
-*   **`courses.map()`:** Iterates over the `courses` array. For each `course`:
-    *   **`CarouselItem` Component:**  Represents a single slide in the carousel.
-        *   `key={course._id}`:  A unique key is required for each item in a list when rendering in React.  Using the course's `_id` is a good practice.
-        *   `className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"`: Sets the width of each slide based on screen size.
-        *   `<CourseCard course={course} />`: Renders the `CourseCard` component, passing the current `course` object as a prop.
-*   **`CarouselPrevious` and `CarouselNext` Components:**  Render the navigation buttons. The `className="-left-4"` and `className="-right-4"` classes likely adjust the position of the buttons slightly.
-
-**`components/shared/cards/sliders/carouselslider-hackathon.tsx`**
-
-```typescript
-// components/shared/cards/sliders/carouselslider-hackathon.tsx
-"use client";
-
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import HackathonCard from "../hackathoncard";
-
-export function CarouselSliderHackathon({ hackathons }) {
-  return (
-    <Carousel
-      opts={{
-        align: "start",
-      }}
-      className="w-full p-4 rounded-lg"
-    >
-      <CarouselContent>
-        {hackathons.map((hackathon) => (
-          <CarouselItem key={hackathon._id} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-            <div className="p-1">
-              <HackathonCard hackathon={hackathon} />
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious className="-left-4"/>
-      <CarouselNext className="-right-4"/>
-    </Carousel>
-  );
-}
-```
-
-This component is very similar to `CarouselSliderCourse`. The key differences are:
-
-*   It imports the `HackathonCard` component instead of `CourseCard`.
-*   It accepts a `hackathons` prop instead of `courses`.
-*   It passes the `hackathon` object to the `HackathonCard` component.
-*   `"use client";` directive indicates this is a client-side component (required in Next.js when using interactive elements).
-
-## 🧑‍💻 Hands-On Practice
-
-**Exercise: Customize the carousel slider's styling and add navigation arrows. Integrate the carousel slider into the homepage to display featured courses.**
-
-**Steps:**
-
-1.  **Styling Customization:**
-    *   **Change Colors:** Modify the `className` prop of the `Carousel`, `CarouselPrevious`, and `CarouselNext` components in `carouselslider-course.tsx` to change the background color, text color, and button colors to match your application's theme.  Use Tailwind CSS classes for easy styling. For example, add `bg-blue-500 text-white` to the Carousel's `className` to make it blue with white text.
-    *   **Adjust Spacing:** Modify the padding (`p-4`) in the `Carousel`'s `className` to adjust the spacing around the carousel content.
-    *   **Customize Arrows:** Look at the documentation for the UI library you are using for the `CarouselPrevious` and `CarouselNext` components. There may be props you can pass to customize the appearance of the arrows (e.g., size, color, shape).  If not, you can try overriding the default styles with your own CSS.
-
-2.  **Arrow Customization (Advanced):**
-    *   **Replace with Icons:** Instead of the default arrows, replace them with custom SVG icons.  You'll need to import the icons and render them within the `CarouselPrevious` and `CarouselNext` components. You might need to adjust the styling to position the icons correctly.
-
-3.  **Homepage Integration:**
-    *   **Import the Component:** In your homepage component (e.g., `pages/index.tsx` or `app/page.tsx` in Next.js), import the `CarouselSliderCourse` component.
-    *   **Fetch Course Data:**  You'll need to fetch the course data to display in the carousel. This could involve fetching data from an API, a database, or a static data file.  For simplicity, you can start with a hardcoded array of course objects.
-    *   **Render the Carousel:** Render the `CarouselSliderCourse` component in your homepage, passing the fetched course data as the `courses` prop.
-
-    ```typescript
-    // Example in your homepage component
-    import { CarouselSliderCourse } from '@/components/shared/cards/sliders/carouselslider-course';
-
-    const featuredCourses = [
-      { _id: '1', title: 'Intro to React', description: 'Learn the basics of React', instructor: 'John Doe' },
-      { _id: '2', title: 'Advanced JavaScript', description: 'Master advanced JS concepts', instructor: 'Jane Smith' },
-      { _id: '3', title: 'Node.js Fundamentals', description: 'Build server-side applications with Node', instructor: 'Peter Jones' },
-      { _id: '4', title: 'Full-Stack Development', description: 'Become a full-stack developer', instructor: 'Alice Brown'}
-    ];
-
-    export default function Home() {
-      return (
-        <div>
-          <h1>Welcome to our Learning Platform</h1>
-          <h2>Featured Courses</h2>
-          <CarouselSliderCourse courses={featuredCourses} />
-          {/* ... other content ... */}
+          </div>
         </div>
       );
-    }
     ```
 
-**Success Check:** Successfully customize and integrate a carousel slider into the application. You should see the carousel on your homepage, displaying the featured courses with your customized styling. The navigation arrows should allow you to browse through the courses.
-
-## ✅ Chapter Summary
-
-In this chapter, you learned how to create dynamic carousels to showcase content in your web application. You explored the core concepts of carousel structure, styling, and data mapping. You also gained hands-on experience customizing the carousel's appearance and integrating it into your homepage. Key takeaways include:
-
-*   Carousels are a powerful tool for presenting information in a compact and engaging way.
-*   UI libraries provide pre-built carousel components that simplify development.
-*   CSS classes can be used to customize the appearance of the carousel.
-*   Data mapping allows you to dynamically render carousel items from an array of data.
-
-## 👉 Up Next
-
-In the next chapter, we will delve into form handling and user input validation, enabling you to create interactive forms for user registration, login, and more.
-
----
-
-<a name="chapter-11-admin-dashboard-with-protected-routes:-controlling-access"></a>
-
----
-
-# Admin Dashboard with Protected Routes: Controlling Access
-
-## 🎯 Chapter Objective
-After this chapter, you will be able to create an admin dashboard with protected routes to restrict access to authorized users.
-
-**Time to Complete:** 60 minutes
-
-## 🤔 Why This Matters
-
-Protecting sensitive areas of your application, like an admin dashboard, is crucial for security.  Without proper access control, unauthorized users could potentially modify data, access private information, or disrupt the application's functionality.  This chapter teaches you how to implement protected routes, ensuring only authorized users (admins, in this case) can access the admin dashboard and perform privileged actions. This is a fundamental aspect of building secure and robust web applications.
-
-## 🎨 Visual Overview
-
-Imagine a website with two sections: a public storefront accessible to everyone and an admin dashboard for managing products and users.  This chapter focuses on building a gatekeeper for the admin dashboard.  A regular user visiting `/admin` would be redirected to their profile page, while an admin would be granted access to the dashboard.  The visual representation is a locked door (admin dashboard) with a key (admin user role) needed to unlock it.
-
-## 🧠 Core Concepts
-
-*   **Protected Routes:** These are routes within your application that require authentication and authorization before access is granted. This means a user must be logged in (authenticated) and have the correct permissions (authorized) to view the content.
-
-*   **Authentication:** Verifying the identity of a user. This usually involves checking if they have an account and providing valid credentials (username/password, token, etc.).
-
-*   **Authorization:** Determining what an authenticated user is allowed to do. This is based on their role (e.g., admin, editor, viewer) or specific permissions.
-
-*   **Client-Side Routing:**  Using JavaScript (in this case, within a Next.js application) to handle navigation and route changes within the browser. This allows for a more responsive user experience, as pages don't need to be fully reloaded from the server for every navigation.
-
-*   **Role-Based Access Control (RBAC):** A common authorization method where access rights are assigned based on a user's role. For example, only users with the "admin" role can access the admin dashboard.
-
-## 💻 Code Deep Dive
-
-Let's break down the provided code and understand how it creates an admin dashboard with protected routes.  We'll focus on the `app/(root)/admin/layout.tsx` file, as that is where the protected route logic lives.
-
-```typescript
-'use client';
-import { useUserStore } from "@/store/signUpStore";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const router = useRouter();
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-    const {currentUser} = useUserStore();
-  useEffect(() => {
-    if (currentUser.userType === "admin") {
-      setIsAuthenticated(true);
-    } else {
-      setIsAuthenticated(false);
-      router.push("/profile"); // replace with your login route
-    }
-  }, []);
-
-  if (isAuthenticated === null) {
-    // still checking
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        Loading...
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
-    // redirected already
-    return null;
-  }
-  return <>{children}</>;
-}
-```
-
-**Explanation:**
-
-1.  **`'use client';`**: This directive tells Next.js that this is a client-side component, meaning it will be rendered in the browser. This is necessary because we're using `useEffect` and `useRouter`, which are client-side hooks.
-
-2.  **Import Statements:**
-    *   `useUserStore`:  This imports a custom hook from a store (`@/store/signUpStore`).  We assume this store manages user authentication state, including the currently logged-in user's information and user type.
-    *   `useRouter`: This is a hook from `next/navigation` that allows us to programmatically navigate between routes.
-    *   `useEffect` and `useState`: Standard React hooks for managing side effects and component state.
-
-3.  **`RootLayout` Component:** This component wraps all pages within the `app/(root)/admin` directory. It acts as the gatekeeper for the admin dashboard.
-
-4.  **`useState(null)`**: Initializes a state variable `isAuthenticated` to `null`. This is a crucial first step.  It represents that the authentication check hasn't completed yet.
-
-5.  **`useUserStore` Hook**: The `const {currentUser} = useUserStore();` line retrieves the current user's data from the `useUserStore`.
-
-6.  **`useEffect` Hook:** This hook runs once when the component mounts.  It's responsible for checking the user's authentication status and redirecting them if necessary.
-    *   **Authentication Check:** `if (currentUser.userType === "admin") { setIsAuthenticated(true); } else { ... }` This checks if the `currentUser` object exists and if their `userType` property is equal to `"admin"`.  If so, it sets `isAuthenticated` to `true`.
-    *   **Redirection:** `router.push("/profile");` If the user is *not* an admin, they are redirected to the `/profile` route.  This assumes you have a profile page for regular users.
-    *   **Setting `isAuthenticated` to `false`:**  Critically, the `setIsAuthenticated(false)` line tells the component the user is not authorized *before* the redirect happens.
-
-7.  **Conditional Rendering:**
-    *   **Loading State:** `if (isAuthenticated === null) { ... }`  While the authentication check is in progress (`isAuthenticated` is `null`), a "Loading..." message is displayed.
-    *   **Unauthorized State:** `if (!isAuthenticated) { return null; }` If the user is *not* authenticated (i.e., `isAuthenticated` is `false`), the component returns `null`. This effectively prevents the admin dashboard content from rendering.  Since the redirect already happened in the `useEffect`, this line primarily prevents a brief flash of the admin dashboard *before* the redirect.
-    *   **Authorized State:** `return <>{children}</>;` If the user *is* authenticated (i.e., `isAuthenticated` is `true`), the component renders its `children`.  The `children` prop represents the content of the admin dashboard pages (e.g., `admin-courses/page.tsx`, `course-upload/page.tsx`).
-
-**How it Works:**
-
-When a user tries to access a route within the `app/(root)/admin` directory, the `RootLayout` component is rendered first. The `useEffect` hook checks if the user is an admin. If they are, `isAuthenticated` is set to `true`, and the admin dashboard content is rendered. If they are not, `isAuthenticated` is set to `false`, and the user is redirected to their profile page.  The conditional rendering ensures that the admin dashboard content is only displayed to authorized users.
+    *   This JSX code defines the structure and appearance of the `DiscussionCard` component.
+    *   It displays the discussion title, description, author, date, and a button to toggle comments.
+    *   It also includes a form for adding new comments and displays existing comments.
 
 ## 🧑‍💻 Hands-On Practice
 
-**Exercise: Implement a new feature in the admin dashboard, such as the ability to edit course details. Implement role-based access control to restrict access to the editing feature to administrators only.**
+**Exercise: Add a new discussion card to the page.**
+
+For this exercise, assume you have a parent component that renders a list of `DiscussionCard` components. Your task is to add a new hardcoded `DiscussionCard` to this list.
 
 **Steps:**
 
-1.  **Create an Edit Course Page:** Create a new page, for example, `app/(root)/admin/edit-course/[courseId]/page.tsx`. This page should include a form to edit course details, pre-populated with the existing course data fetched using the `courseId` parameter.  You can reuse elements from the `course-upload/page.tsx` component to get you started.
+1.  **Locate the Parent Component:** Find the component where `DiscussionCard` components are currently being rendered. This component likely fetches or defines an array of discussion data. Let's assume this parent component is called `DiscussionList`.
 
-2.  **Add Edit Button:** Add an "Edit" button to the `CourseCard` component in `app/(root)/admin/admin-courses/page.tsx`.  This button should link to the new edit course page, passing the `course._id` as the `courseId` parameter.
+2.  **Create Sample Data:** Create a new JavaScript object representing the data for your new discussion card.
 
-3.  **Implement Role-Based Access Control on Edit Page:**
-    *   In `app/(root)/admin/edit-course/[courseId]/page.tsx`, use the `useUserStore` hook to get the current user's role.
-    *   Wrap the entire edit form in a conditional statement:
-
-    ```typescript
-    'use client';
-
-    import { useUserStore } from "@/store/signUpStore";
-    import { useRouter } from "next/navigation";
-    import { useEffect } from "react";
-
-    export default function EditCoursePage({ params }: { params: { courseId: string } }) {
-        const { currentUser } = useUserStore();
-        const router = useRouter();
-
-        useEffect(() => {
-            if (!currentUser || currentUser.userType !== "admin") {
-                router.push("/profile"); // Redirect non-admins
-            }
-        }, [currentUser, router]);
-
-
-        if (!currentUser || currentUser.userType !== "admin") {
-            return null; // Or display a "Not Authorized" message
-        }
-
-        // Otherwise, render the form:
-        return (
-          <div>
-            <h1>Edit Course</h1>
-            {/* Your edit course form goes here, pre-populated with course data */}
-            <p>Editing course with ID: {params.courseId}</p>
-          </div>
-        );
-    }
-
+    ```javascript
+    const newDiscussion = {
+      _id: "new-discussion-123",
+      name: "Test User",
+      title: "A New Discussion",
+      desc: "This is a test discussion card added for practice.",
+      date: new Date().toISOString()
+    };
     ```
 
-    *   This code first checks if `currentUser` exists and if their `userType` is "admin". If not, it redirects them to the `/profile` page.  It also returns `null` to prevent the edit form from rendering if the user is not authorized.
+3.  **Update the Discussion Data:** Modify the `DiscussionList` component to include this new discussion data.  If the data is fetched from an API, you would ideally POST to the API and refetch.  For this exercise, we will assume the data is a simple array initialized as follows:
 
-4.  **Update API Endpoint (Optional):** If you implemented a course editing API, ensure that the API endpoint also verifies the user's role on the server-side before allowing updates to the course data.  This is important for security, as client-side checks can be bypassed.
+    ```javascript
+    const DiscussionList = () => {
+      const [discussions, setDiscussions] = useState([
+        {
+          _id: "existing-discussion-1",
+          name: "Existing User",
+          title: "Existing Discussion",
+          desc: "This is an existing discussion card.",
+          date: new Date().toISOString()
+        }
+      ]);
 
-**Success Check:** Successfully implement a new feature in the admin dashboard and restrict access based on user roles.  Non-admin users should be redirected when attempting to access the edit course page. Admin users should be able to view and edit the course details.
+      const newDiscussion = {
+        _id: "new-discussion-123",
+        name: "Test User",
+        title: "A New Discussion",
+        desc: "This is a test discussion card added for practice.",
+        date: new Date().toISOString()
+      };
+
+      useEffect(() => {
+        setDiscussions(prev => [...prev, newDiscussion]);
+      }, []);
+
+
+      return (
+        <div>
+          {discussions.map(discussion => (
+            <DiscussionCard key={discussion._id} {...discussion} />
+          ))}
+        </div>
+      );
+    };
+    ```
+
+    Here, we use `useState` to manage the array of discussions. We create our `newDiscussion` object, and then use the `useEffect` hook to append this new discussion to the existing `discussions` array when the component mounts.  This ensures it only runs once, preventing infinite re-renders.
+
+4.  **Verify the Display:** Run your application and check that the new discussion card is rendered along with the existing ones.
+
+**Success Check:** Successfully add a new discussion card to the page. You should see the new discussion card displayed with the title "A New Discussion" and the description "This is a test discussion card added for practice."
 
 ## ✅ Chapter Summary
 
-In this chapter, you learned how to implement protected routes in a Next.js application to secure an admin dashboard. You explored the core concepts of authentication and authorization, and how to use Role-Based Access Control (RBAC) to restrict access to specific features based on user roles. You also gained practical experience in protecting routes using client-side logic and explored the importance of server-side validation for API endpoints.
+In this chapter, you learned how to display discussions using discussion cards in React. You gained an understanding of the core concepts behind discussion cards, including props, state, event handling, and API interaction. You also analyzed the code for a `DiscussionCard` component and practiced adding a new discussion card to a page. Now you know how to create and display engaging discussions in your applications.
 
 ## 👉 Up Next
 
-In the next chapter, we'll delve into more advanced authentication techniques, such as integrating with third-party authentication providers (like Google or Facebook) and implementing more robust session management.
+Next, we will explore how to style and customize discussion cards to match your application's design.
